@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="import" href="/pages/common/title.html?__inline" >
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <!-- Bootstrap 3.3.6 -->
+        <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="//cdn.bootcss.com/ionicons/2.0.1/css/ionicons.min.css">
+        <!-- daterange picker -->
+        <link rel="stylesheet" href="../../plugins/datetimepicker/bootstrap-datetimepicker.min.css">
+        <!-- DataTables -->
+        <link rel="stylesheet" href="../../plugins/datatables/dataTables.bootstrap.css">
+        <!-- Theme style -->
+        <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
+        <!-- AdminLTE Skins. Choose a skin from the css/skins
+             folder instead of downloading all of them to reduce the load. -->
+        <link rel="stylesheet" href="../../dist/css/skins/_all-skins.min.css">
+        <!-- iCheck for checkboxes and radio inputs -->
+        <link rel="stylesheet" href="../../plugins/iCheck/all.css">
+        <!-- bootstrap wysihtml5 - text editor -->
+        <link rel="stylesheet" href="../../plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+        <link rel="stylesheet" href="../../plugins/imgviewer/viewer.min.css">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body class="hold-transition skin-blue sidebar-mini">
+        <div class="wrapper">
+
+            <link rel="import" href="../common/header.html?__inline" >
+            <!-- Left side column. contains the logo and sidebar -->
+            <link rel="import" href="../common/left.html?__inline" >
+
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <h1>
+                        编辑
+                        <small>borrow edit</small>
+                    </h1>
+                    <ol class="breadcrumb">
+                        <li><a href="/index.html"><i class="fa fa-dashboard"></i> 首页</a></li>
+                        <li><a href="/pages/borrow/borrow_lists.html">管理</a></li>
+                        <li class="active">编辑</li>
+                    </ol>
+                </section>
+
+                <!-- Main content -->
+                <section class="content">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="box">
+                                <div class="box-header with-border">
+                                    <h3 class="box-title">信息</h3>
+                                    <div class="box-tools pull-right fade">
+                                        <!--<button name="borrow-delete" type="button" class="btn btn-block btn-danger">删除</button>-->
+                                    </div>
+                                </div>
+                                <!-- /.box-header -->
+                                <div class="box-body">
+                                    <form role="form">
+                                        <!-- text input -->
+                                        <div class="form-group">
+                                            <label>名称</label>
+                                            <input type="text" name="borrow[title]" class="form-control" placeholder="名称">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>基本信息</label>
+                                            <div class="row">
+                                                <div class="col-lg-3">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            金额
+                                                        </span>
+                                                        <input type="text" name="borrow[money_total]" class="form-control" placeholder="需为100的倍数">
+                                                        <span class="input-group-addon">
+                                                            元
+                                                        </span>
+                                                    </div>
+                                                    <!-- /input-group -->
+                                                </div>
+                                                <div class="col-lg-3">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            天数
+                                                        </span>
+                                                        <select name="borrow[days]" class="form-control">
+                                                            <option value="30" data-rate="12.00" data-rate-s="14.4">30</option>
+                                                            <option value="15" data-rate="10.8" data-rate-s="10.8">15</option>
+                                                            <option value="90" data-rate="13.20" data-rate-s="13.2">90</option>
+                                                        </select>
+                                                    </div>
+                                                    <!-- /input-group -->
+                                                </div>
+                                                <div class="col-lg-3">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            利率
+                                                        </span>
+                                                        <input type="text" name="borrow[rate]" class="form-control" placeholder="最多2位小数">
+                                                        <span class="input-group-addon">
+                                                            %
+                                                        </span>
+                                                    </div>
+                                                    <!-- /input-group -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>额外信息</label>
+                                            <div class="row">
+                                                <div class="col-lg-3">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            有效期
+                                                        </span>
+                                                        <input type="text" name="borrow[expire]" class="form-control" placeholder="有效期" value="5">
+                                                        <span class="input-group-addon">
+                                                            天
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-3">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            类别
+                                                        </span>
+                                                        <select name="borrow[category]" class="form-control">
+                                                            <option value="7">新车汇</option>
+                                                            <option value="6">聚车贷</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-3">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            还款方式
+                                                        </span>
+                                                        <select name="borrow[repay_way]" class="form-control">
+                                                            <option value="2">到期还本还息</option>
+                                                            <option value="3">按月还息到期还本</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>机构信息</label>
+                                            <div class="row">
+                                                <div class="col-lg-3">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            担保机构
+                                                        </span>
+                                                        <select name="borrow[assessment]" class="form-control" disabled="">
+                                                            <option value="1">杭标集团</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-3">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            评估机构
+                                                        </span>
+                                                        <select name="borrow[guarantee]" class="form-control" disabled="">
+                                                            <option value="1">杭标集团</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>限制设置（0表示不设限）</label>
+                                            <div class="row margin-bottom">
+                                                <div class="col-lg-3">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            开放时间
+                                                        </span>
+                                                        <input type="text" name="borrow[limit_on_time]" class="form-control" placeholder="标的在此时间前不可用">
+                                                    </div>
+                                                    <!-- /input-group -->
+                                                </div>
+                                                <div class="col-lg-3">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            单人满标
+                                                        </span>
+                                                        <select name="borrow[is_for_single]" class="form-control">
+                                                            <option value="2">否</option>
+                                                            <option value="1">是</option>
+                                                        </select>
+                                                    </div>
+                                                    <!-- /input-group -->
+                                                </div>
+                                                <div class="col-lg-3">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            新手专享
+                                                        </span>
+                                                        <select name="borrow[is_for_new_comer]" class="form-control">
+                                                            <option value="2">否</option>
+                                                            <option value="1">是</option>
+                                                        </select>
+                                                    </div>
+                                                    <!-- /input-group -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>用户证件</label>
+                                            <div class="row">
+                                                <div class="col-lg-1">
+                                                    <label style="font-weight:normal;"><input type="checkbox" name="cards[]" value="0" class="flat-red"> 身份证</label>
+                                                </div>
+                                                <div class="col-lg-1">
+                                                    <label style="font-weight:normal;"><input type="checkbox" name="cards[]" value="1" class="flat-red"> 户口本</label>
+                                                </div>
+                                                <div class="col-lg-1">
+                                                    <label style="font-weight:normal;"><input type="checkbox" name="cards[]" value="2" class="flat-red"> 行驶证</label>
+                                                </div>
+                                                <div class="col-lg-1">
+                                                    <label style="font-weight:normal;"><input type="checkbox" name="cards[]" value="3" class="flat-red"> 驾驶证</label>
+                                                </div>
+                                                <div class="col-lg-1">
+                                                    <label style="font-weight:normal;"><input type="checkbox" name="cards[]" value="4" class="flat-red"> 购车发票</label>
+                                                </div>
+                                                <div class="col-lg-1">
+                                                    <label style="font-weight:normal;"><input type="checkbox" name="cards[]" value="5" class="flat-red"> 抵押手续</label>
+                                                </div>
+                                                <div class="col-lg-1">
+                                                    <label style="font-weight:normal;"><input type="checkbox" name="cards[]" value="6" class="flat-red"> 结婚证</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>项目描述</label>
+                                            <textarea class="textarea" name="desc[desc]" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>用户基本信息</label>
+                                            <textarea class="textarea" name="desc[user_desc]" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>还款来源</label>
+                                            <textarea class="textarea" name="desc[pay_from]" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>项目图片</label>
+                                            <ul id="pic" class="mailbox-attachments clearfix">
+                                                <li>
+                                                    <a href="javascript:;" id="promptzone_btn"><span class="mailbox-attachment-icon"><i class="fa fa-cloud-upload"></i></span></a>
+
+                                                    <div class="mailbox-attachment-info">
+                                                        <a href="javascript:;" id="promptzone_txt" class="mailbox-attachment-name">上传图片</a>
+                                                        <span class="mailbox-attachment-size">
+                                                            只支持jpg/png格式
+                                                        </span>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                            <ul id="pic_hide" class="hide"></ul>
+                                        </div>
+                                    </form>
+                                </div>
+                                <!-- /.box-body -->
+                                <div class="box-footer">
+                                    <button type="submit" class="btn btn-primary">保存</button>
+                                    <a class="btn btn-default" href="/pages/borrow/borrow_lists.html">取消</a>
+                                </div>
+                            </div>
+                            <!-- /.box -->
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+                </section>
+                <!-- /.content -->
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                            </div>
+                            <div class="modal-body">
+                                ...
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <a href="/pages/borrow/borrow_lists.html" class="btn btn-default">返回列表</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                            </div>
+                            <div class="modal-body">
+                                是否删除这个？
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success" name="borrow-delete-confirm">确认</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.content-wrapper -->
+            <link rel="import" href="../common/footer.html?__inline" >
+
+            <!-- Control Sidebar -->
+            <link rel="import" href="../common/control_sidebar.html?__inline" >
+            <!-- /.control-sidebar -->
+        </div>
+        <!-- ./wrapper -->
+
+        <!-- jQuery 2.2.3 -->
+        <script src="../../plugins/jQuery/jquery-2.2.3.min.js"></script>
+        <!-- Bootstrap 3.3.6 -->
+        <script src="../../bootstrap/js/bootstrap.min.js"></script>
+        <!-- DataTables -->
+        <script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
+        <script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>
+        <!-- SlimScroll -->
+        <script src="../../plugins/slimScroll/jquery.slimscroll.min.js"></script>
+        <!-- FastClick -->
+        <script src="../../plugins/fastclick/fastclick.js"></script>
+        <!-- AdminLTE App -->
+        <script src="../../dist/js/app.min.js"></script>
+        <!-- AdminLTE for demo purposes -->
+        <script src="../../dist/js/demo.js"></script>
+        <!-- iCheck 1.0.1 -->
+        <script src="../../plugins/iCheck/icheck.min.js"></script>
+        <script src="/plugins/moment/moment.min.js"></script>
+        <script src="../../plugins/datetimepicker/bootstrap-datetimepicker.min.js"></script>
+        <!-- Bootstrap WYSIHTML5 -->
+        <script src="../../plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+        <!-- page script -->
+        <script src="../../plugins/ajaxupload/jquery.ajaxupload.js"></script>
+        <script src="../../plugins/imgviewer/viewer.min.js"></script>
+        <script>
+            $(function () {
+                //Flat red color scheme for iCheck
+                $('input[type="checkbox"].flat-red').iCheck({
+                    checkboxClass: 'icheckbox_flat-green',
+                    radioClass: 'iradio_flat-green'
+                });
+                $('input[name="borrow[limit_on_time]"],input[name="borrow[limit_off_time]"],input[name="borrow[start_time]"],input[name="borrow[end_time]"]').datetimepicker({
+                    autoclose: true
+                });
+                var default_text = {
+                    'desc': '本项目资金主要用于购车人在申请分期购车后、银行审批放款前，为其垫付汽车按揭尾款，以实现购车客户提前提车和汽车经销商资金快速回笼的需求。银行审批放款后，将回款资金以受托返还的方式至聚车金融。还款来源得到保证，风险极低，第三方合作机构本息保障。',
+                    'user_desc': '姓 名：陈**　　　|　　出生：1991年　　|      机动车汽车品牌为——',
+                    'pay_from': '客户工作稳定，收入还贷比高。银行已受理客户贷款资料，还款保障为银行发放（批贷率99.99%），且有项目管理公司回购债权。汽车金融公司提供本息全额担保。风险系数低。'
+                };
+                var token = USER.get_token();
+                var borrow = {};
+                var borrow_id = 0;
+                var set_value = function (borrow) {
+                    //未上标状态可以修改所有内容
+                    //上标后、满标前、满标后可以修改用户证件、项目描述、用户基本信息、还款来源、项目图片
+                    if (borrow.status.id == 6) {//未上标
+                        $('input[name="borrow[title]"]').prop('disabled',false);
+                        $('input[name="borrow[rate]"]').prop('disabled',false);
+                        $('input[name="borrow[expire]"]').prop('disabled',false);
+                        $('input[name="borrow[money_total]"]').prop('disabled',false);
+                        $('select[name="borrow[category]"]').prop('disabled',false);
+                        $('select[name="borrow[is_for_new_comer]"]').prop('disabled',false);
+                        $('select[name="borrow[is_for_single]"]').prop('disabled',false);
+                        $('select[name="borrow[days]"]').prop('disabled',false);
+                        $('input[name="borrow[limit_on_time]"]').prop('disabled',false);
+                    } else {//已上标或满标
+                        $('input[name="borrow[title]"]').prop('disabled',true);
+                        $('input[name="borrow[rate]"]').prop('disabled',true);
+                        $('input[name="borrow[expire]"]').prop('disabled',true);
+                        $('input[name="borrow[money_total]"]').prop('disabled',true);
+                        $('select[name="borrow[category]"]').prop('disabled',true);
+                        $('select[name="borrow[is_for_new_comer]"]').prop('disabled',true);
+                        $('select[name="borrow[is_for_single]"]').prop('disabled',true);
+                        $('select[name="borrow[days]"]').prop('disabled',true);
+                        $('input[name="borrow[limit_on_time]"]').prop('disabled',true);
+                    }
+                    $('input[name="borrow[title]"]').val(borrow.title);
+                    $('input[name="borrow[rate]"]').val((borrow.rate / 1).toFixed(2));
+                    $('input[name="borrow[expire]"]').val(Math.floor(parseInt(borrow.expire) / 3600 / 24));
+                    $('input[name="borrow[money_total]"]').val(borrow.money_total);
+                    $('select[name="borrow[category]"]').val(borrow.category.id);
+                    $('select[name="borrow[is_for_new_comer]"]').val(borrow.is_for_new_comer);
+                    $('select[name="borrow[is_for_single]"]').val(borrow.is_for_single);
+                    $('select[name="borrow[days]"]').val(borrow.days);
+                    //console.log(borrow.desc.pay_from,$('textarea[name="desc[desc]"]'))
+                    $('textarea[name="desc[desc]"]').val(borrow.desc.desc);
+                    $('textarea[name="desc[user_desc]"]').val(borrow.desc.user_desc);
+                    $('textarea[name="desc[pay_from]"]').val(borrow.desc.pay_from);
+                    $(".textarea").wysihtml5();
+                    if (parseInt(borrow.limit_on_time) > 0) {
+                        $('input[name="borrow[limit_on_time]"]').val(time_to_str(borrow.limit_on_time));
+                    }
+                    $('input[name="borrow[status]"]').each(function () {
+                        if ($(this).attr('value') == borrow.status.id) {
+                            $(this).prop('checked', true);
+                        }
+                    });
+                    $('input[name="cards[]"]').each(function () {
+                        for (var i in borrow.cards) {
+                            if ($(this).val() == borrow.cards[i]) {
+                                $(this).iCheck('check');
+                            }
+                        }
+                    });
+                    for (var i in borrow.pic) {
+                        add_image(borrow.pic[i]);
+                    }
+                }
+                var add_image = function (src) {
+                    var name = src.substr(src.lastIndexOf('/') + 1);
+                    var li = '<li>';
+                    li += '<span class="mailbox-attachment-icon has-img"><img onclick="view(this)" src="' + INIT.SOURCE_HOST + src + '" alt="Attachment"></span>';
+                    li += '<div class="mailbox-attachment-info">';
+                    li += '<a href="javascript:;" class="mailbox-attachment-name"><i class="fa fa-camera"></i> ' + name.substr(0, 5) + '***' + name.substr(name.length - 8) + '</a>';
+                    li += '<span class="mailbox-attachment-size">';
+                    li += '**';
+                    li += '<a href="javascript:;" onclick="$(this).parents(\'li:eq(0)\').remove();" class="btn btn-default btn-xs pull-right"><i class="fa fa-remove"></i></a>';
+                    li += '</span>';
+                    li += '</div>';
+                    li += '</li>';
+                    $(li).insertBefore($('#pic li:last'));
+                }
+                if (getUrlParam('borrow_id')) {//编辑模式
+                    var borrow_id = getUrlParam('borrow_id');
+                    BORROW.get({'borrow_id': borrow_id, token: token, callback: function (r) {
+                            if (r.error_no != '200') {
+                                var modal = $('#myModal');
+                                modal.find('.modal-body').text(r.error_msg);
+                                modal.modal('show');
+                                return;
+                            }
+                            borrow = r.result;
+                            set_value(borrow);
+                            $('.box-tools').removeClass('fade');
+                        }});
+                } else {
+                    $('input[name="borrow[rate]"]').val(($('select[name="borrow[days]"] option:selected').attr('data-rate') / 1).toFixed(2));
+                    $('textarea[name="desc[desc]"]').val(default_text.desc);
+                    $('textarea[name="desc[user_desc]"]').val(default_text.user_desc);
+                    $('textarea[name="desc[pay_from]"]').val(default_text.pay_from);
+                }
+                $('select[name="borrow[days]"]').change(function () {
+                    if ($('select[name="borrow[is_for_single]"]').val() == 1) {
+                        $('input[name="borrow[rate]"]').val(($('select[name="borrow[days]"] option:selected').attr('data-rate-s') / 1).toFixed(2));
+                    } else {
+                        $('input[name="borrow[rate]"]').val(($('select[name="borrow[days]"] option:selected').attr('data-rate') / 1).toFixed(2));
+                    }
+                });
+                $('select[name="borrow[is_for_single]"]').change(function () {
+                    if ($('select[name="borrow[is_for_single]"]').val() == 1) {
+                        $('input[name="borrow[rate]"]').val(($('select[name="borrow[days]"] option:selected').attr('data-rate-s') / 1).toFixed(2));
+                    } else {
+                        $('input[name="borrow[rate]"]').val(($('select[name="borrow[days]"] option:selected').attr('data-rate') / 1).toFixed(2));
+                    }
+                });
+                $('button[type="submit"]').click(function () {
+                    var rate_should = $('select[name="borrow[is_for_single]"]').val() == 1 ? ($('select[name="borrow[days]"] option:selected').attr('data-rate-s') / 1).toFixed(2) : ($('select[name="borrow[days]"] option:selected').attr('data-rate') / 1).toFixed(2);
+                    if ($('input[name="borrow[rate]"]').val() != rate_should) {
+                        if (!confirm('推荐利率为' + rate_should + '%，当前为' + $('input[name="borrow[rate]"]').val() + '%，是否继续提交？')) {
+                            return false;
+                        }
+                    }
+                    var borrow = {
+                        'title': $('input[name="borrow[title]"]').val(),
+                        'money_total': $('input[name="borrow[money_total]"]').val(),
+                        'rate': $('input[name="borrow[rate]"]').val(),
+                        'expire': parseInt($('input[name="borrow[expire]"]').val()) * 3600 * 24,
+                        'days': $('select[name="borrow[days]"]').val(),
+                        'category': $('select[name="borrow[category]"]').val(),
+                        'repay_way': $('select[name="borrow[repay_way]"]').val(),
+                        'limit_on_time': (new Date($('input[name="borrow[limit_on_time]"]').val()).getTime() || 0) / 1000,
+                        'guarantee': $('select[name="borrow[guarantee]"]').val(),
+                        'assessment': $('select[name="borrow[assessment]"]').val(),
+                        'is_for_new_comer': $('select[name="borrow[is_for_new_comer]"]').val(),
+                        'is_for_single': $('select[name="borrow[is_for_single]"]').val(),
+                        'desc': $('textarea[name="desc[desc]"]').val(),
+                        'user_desc': $('textarea[name="desc[user_desc]"]').val(),
+                        'pay_from': $('textarea[name="desc[pay_from]"]').val(),
+                        'cards': '',
+                        'pic': '',
+                    }
+                    var cards = [];
+                    $('input[name="cards[]"]').each(function () {
+                        if ($(this).prop('checked') == true) {
+                            cards.push($(this).val());
+                        }
+                    });
+                    borrow.cards = cards.join(',');
+                    var pic = [];
+                    $('#pic').find('img').each(function (index, obj) {
+                        pic.push($(this).attr('src'));
+                    });
+                    borrow.pic = pic.join(',');
+                    if (!borrow_id) {
+                        BORROW.add({'borrow': borrow, token: token, callback: function (r) {
+                                var modal = $('#myModal');
+                                if (r.error_no == '200') {
+                                    modal.find('.modal-body').text('操作成功！');
+                                    borrow_id = r.result.borrow_id;//保存后不再add 而是调用update
+                                } else {
+                                    modal.find('.modal-body').text(r.error_msg);
+                                }
+                                modal.modal('show');
+                            }});
+                    } else {
+                        BORROW.update({'borrow': borrow, token: token, 'borrow_id': borrow_id, callback: function (r) {
+                                var modal = $('#myModal');
+                                if (r.error_no == '200') {
+                                    modal.find('.modal-body').text('操作成功！');
+                                } else {
+                                    modal.find('.modal-body').text(r.error_msg);
+                                }
+                                modal.modal('show');
+                            }});
+                    }
+                });
+                $('button[name="borrow-delete"]').click(function () {
+                    var modal2 = $('#myModal2').modal('show');
+
+                });
+                $('button[name="borrow-delete-confirm"]').click(function () {
+                    $('#myModal2').on('hidden.bs.modal', function (e) {
+                        BORROW.delete({
+                            'borrow_id': borrow_id,
+                            'token': token,
+                            'callback': function (r) {
+                                if (r.error_no == '200') {
+
+                                } else {
+                                }
+                                var modal = $('#myModal');
+                                modal.find('.modal-body').text(r.error_msg);
+                                modal.modal('show');
+                            }
+                        });
+                    })
+                    $('#myModal2').modal('hide');
+                });
+                //上传
+                // Set fieldname
+                $.ajaxUploadSettings.name = 'file';
+                // Set promptzone
+                $('#promptzone_btn,#promptzone_txt').ajaxUploadPrompt({
+                    url: INIT.API_HOST + '/file/upload/form',
+                    data: {
+                        'token': token,
+                        'type': 'image',
+                        'sync_to_upyun': 1
+                    },
+                    dataType: 'json',
+                    error: function () {
+                    },
+                    success: function (r) {
+                        if (r.error_no == '200') {
+                            var size = '';
+                            if (r.result.size < 1000) {
+                                size = r.result.size + 'B';
+                            } else if (r.result.size < 1000 * 1000) {
+                                size = (r.result.size / 1000).toFixed(2) + 'KB';
+                            } else {
+                                size = (r.result.size / 1000 / 1000).toFixed(2) + 'MB';
+                            }
+                            var li = '<li>';
+                            li += '<span class="mailbox-attachment-icon has-img"><img onclick="view(this)" src="' + r.result.url + '" alt="Attachment"></span>';
+                            li += '<div class="mailbox-attachment-info">';
+                            li += '<a href="javascript:;" class="mailbox-attachment-name"><i class="fa fa-camera"></i> ' + r.result.fid.substr(0, 5) + '***' + r.result.fid.substr(r.result.fid.length - 5) + '.' + r.result.suffix + '</a>';
+                            li += '<span class="mailbox-attachment-size">';
+                            li += size;
+                            li += '<a href="javascript:;" onclick="$(this).parents(\'li:eq(0)\').remove();" class="btn btn-default btn-xs pull-right"><i class="fa fa-remove"></i></a>';
+                            li += '</span>';
+                            li += '</div>';
+                            li += '</li>';
+                            $(li).insertBefore($('#pic li:last'));
+                        } else {
+                            var modal = $('#myModal');
+                            modal.find('.modal-body').text(r.error_msg);
+                            modal.modal('show');
+                        }
+                    }
+                });
+            });
+            function view(obj) {
+                var v = new Viewer(obj,{
+                    navbar:false,
+                    title:false,
+                    toolbar:false
+                });
+                v.show();
+            }
+            function check_rules(borrow) {
+                if (borrow.rate == '14.40' && borrow.is_for_single != '1') {
+                    //利率14.40 需要设置单人满标
+                } else if (borrow.rate != '14.40' && borrow.is_for_single == '1'){
+                    
+                } else if (1) {
+                    
+                }
+            }
+        </script>
+    </body>
+</html>

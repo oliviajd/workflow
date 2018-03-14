@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="import" href="/pages/common/title.html?__inline" >
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <!-- Bootstrap 3.3.6 -->
+        <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="//cdn.bootcss.com/ionicons/2.0.1/css/ionicons.min.css">
+        <!-- daterange picker -->
+        <link rel="stylesheet" href="../../plugins/daterangepicker/daterangepicker.css">
+        <!-- bootstrap datepicker -->
+        <link rel="stylesheet" href="../../plugins/datepicker/datepicker3.css">
+        <!-- DataTables -->
+        <link rel="stylesheet" href="../../plugins/datatables/dataTables.bootstrap.css">
+        <!-- Theme style -->
+        <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
+        <!-- AdminLTE Skins. Choose a skin from the css/skins
+             folder instead of downloading all of them to reduce the load. -->
+        <link rel="stylesheet" href="../../dist/css/skins/_all-skins.min.css">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body class="hold-transition skin-blue sidebar-mini">
+        <div class="wrapper">
+
+            <link rel="import" href="../common/header.html?__inline" >
+            <!-- Left side column. contains the logo and sidebar -->
+            <link rel="import" href="../common/left.html?__inline" >
+
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <h1>
+                        订单详情
+                        <small>order information</small>
+                    </h1>
+                    <ol class="breadcrumb">
+                        <li><a href="/index.html"><i class="fa fa-dashboard"></i> 首页</a></li>
+                        <li><a href="/pages/order/order_lists.html">订单管理</a></li>
+                        <li class="active">订单编辑</li>
+                    </ol>
+                </section>
+
+                <!-- Main content -->
+                <section class="content">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="box">
+                                <div class="box-header with-border">
+                                    <h3 class="box-title">订单信息</h3>
+                                    <div class="box-tools pull-right fade">
+                                        <a name="order-close" class="btn btn-default hide"><i class="fa fa-close"></i><span> 关闭订单</span></a>
+                                        <!--<a name="order-pay" class="btn btn-warning"><i class="fa fa-credit-card"></i><span> 人工支付</span></a>-->
+                                        <a name="order-finish" class="btn btn-success hide"><i class="fa fa-check"></i><span> 完成订单</span></a>
+                                    </div>
+                                </div>
+                                <!-- /.box-header -->
+                                <div class="box-body">
+                                    <form role="form">
+                                        <div class="form-group form-group-inline">
+                                            <label>订单号：<span id="order_sn"></span></label>
+                                            <p class="margin">订单状态：<span id="status" class="text-light-blue"></span></p>
+                                            <p class="margin">下单时间：<span id="create_time"></span></p>
+                                            <p class="margin">消耗积分：<span id="price" class="text-danger"></span></p>
+                                        </div>
+                                        <div class="form-group form-group-inline">
+                                            <label>收货信息</label>
+                                            <div id="shipping_info_on" class="hide">
+                                                <p class="margin">联系人：<span id="name" class="text-light-blue"></span></p>
+                                                <p class="margin">收货地址：<span id="area" class="text-light-blue"></span></p>
+                                                <p class="margin">联系号码：<span id="mobile" class="text-light-blue"></span></p>
+                                            </div>
+                                            <div id="shipping_info_off" class="hide">
+                                                <p class="margin"><span class="text-warning">该商品由系统自动发货</span></p>
+                                                <p class="margin"><span class="text-danger" id="shipping_status"></span><span id="shipping_time"></span></p>
+                                            </div>
+                                            <div id="shipping_info" class="row hide">
+                                                <div class="col-lg-4">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            物流公司
+                                                        </span>
+                                                        <select name="shipping[company]" class="form-control">
+                                                            <option value="">未选择</option>
+                                                            <option value="1">顺丰快递</option>
+                                                            <option value="2">申通快递</option>
+                                                            <option value="3">圆通快递</option>
+                                                            <option value="4">韵达快递</option>
+                                                            <option value="5">京东快递</option>
+                                                            <option value="6">苏宁快递</option>
+                                                            <option value="7">菜鸟联盟</option>
+                                                            <option value="8">中通快递</option>
+                                                            <option value="9">邮政EMS</option>
+                                                            <option value="10">天天快递</option>
+                                                            <option value="11">国美快递</option>
+                                                        </select>
+                                                    </div>
+                                                    <!-- /input-group -->
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            物流单号
+                                                        </span>
+                                                        <input type="text" name="shipping[sn]" class="form-control" placeholder="物流单号">
+                                                    </div>
+                                                    <!-- /input-group -->
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <a name="order-shipping" class="btn btn-info"><i class="fa  fa-plane"></i><span> 发货</span></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group form-group-inline">
+                                            <label>支付信息</label>
+                                            <p class="margin"><span id="pay_status" class=""></span><span id="pay_time"></span></p>
+                                        </div>
+                                        <div class="form-group form-group-inline">
+                                            <label>订单商品</label>
+                                            <table id="example1" class="table table-bordered table-hover">
+                                                <thead>
+                                                    <tr>
+                                                        <th>商品ID</th>
+                                                        <th>商品图片</th>
+                                                        <th>商品名称</th>
+                                                        <th>类别</th>
+                                                        <th>价格</th>
+                                                        <th>数量</th>
+                                                    </tr>
+                                                </thead>
+                                            </table>
+                                        </div>
+
+                                    </form>
+                                </div>
+                                <!-- /.box-body -->
+                                <div class="box-footer">
+                                    <a name="order-finish" class="btn btn-success hide"><i class="fa fa-check"></i><span> 完成订单</span></a>
+                                    <a class="btn btn-default" href="/pages/order/order_lists.html">返回</a>
+                                </div>
+                            </div>
+                            <!-- /.box -->
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+                </section>
+                <!-- /.content -->
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                            </div>
+                            <div class="modal-body">
+                                ...
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <a href="/pages/order/order_lists.html" class="btn btn-default">返回列表</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                            </div>
+                            <div class="modal-body">
+                                是否删除这个订单？
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success" name="order-close-confirm">确认</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.content-wrapper -->
+            <link rel="import" href="../common/footer.html?__inline" >
+
+            <!-- Control Sidebar -->
+            <link rel="import" href="../common/control_sidebar.html?__inline" >
+            <!-- /.control-sidebar -->
+        </div>
+        <!-- ./wrapper -->
+
+        <!-- jQuery 2.2.3 -->
+        <script src="../../plugins/jQuery/jquery-2.2.3.min.js"></script>
+        <!-- Bootstrap 3.3.6 -->
+        <script src="../../bootstrap/js/bootstrap.min.js"></script>
+        <!-- DataTables -->
+        <script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
+        <script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>
+        <!-- SlimScroll -->
+        <script src="../../plugins/slimScroll/jquery.slimscroll.min.js"></script>
+        <!-- FastClick -->
+        <script src="../../plugins/fastclick/fastclick.js"></script>
+        <!-- AdminLTE App -->
+        <script src="../../dist/js/app.min.js"></script>
+        <!-- AdminLTE for demo purposes -->
+        <script src="../../dist/js/demo.js"></script>
+        <script src="/plugins/moment/moment.min.js"></script>
+        <script>
+            $(function () {
+                var token = USER.get_token();
+                var order = {};
+                var oid = 0;
+                var load = function (oid) {
+                    ORDER.get({'oid': oid, token: token, callback: function (r) {
+                            if (r.error_no != '200') {
+                                var modal = $('#myModal');
+                                modal.find('.modal-body').text(r.error_msg);
+                                modal.modal('show');
+                                return;
+                            }
+                            order = r.result;
+                            set_value(order);
+                            $('.box-tools').removeClass('fade');
+                        }});
+                }
+                var set_value = function (order) {
+                    this.table;
+                    //初始化
+                    $('a[name="order-close"]').addClass('hide');
+                    $('a[name="order-finish"]').addClass('hide');
+                    $('a[name="order-shipping"]').addClass('hide');
+                    $('#shipping_info_on').addClass('hide');
+                    $('#shipping_info').addClass('hide');
+                    $('#shipping_info_off').addClass('hide');
+                    $('#pay_time').text('');
+                    //赋值
+                    $('#order_sn').text(order.order_sn);
+                    $('#status').text(order.status.text);
+                    $('#create_time').text(time_to_str(parseInt(order.create_time)));
+                    $('#name').text(order.address.name);
+                    order.address && $('#area').text((order.address.province.text || '') + ' ' + (order.address.city.text || '') + ' ' + (order.address.country.text || '') + ' ' + (order.address.area || ''));
+                    $('#mobile').text(order.address.mobile);
+                    $('#price').text(order.price);
+                    $('#pay_status').text(order.pay_status.text);
+                    if (order.pay_status.id == '1') {
+                        $('#pay_time').text('（于' + time_to_str(parseInt(order.pay_time)) + '完成付款）');
+                        $('#pay_status').addClass('text-success');
+                    } else {
+                        $('#pay_status').addClass('text-danger');
+                        $('a[name="order-close"]').removeClass('hide');
+                    }
+                    var goods_need_shipping = false;
+                    for (var i in order.order_goods) {
+                        if (order.order_goods[i].category.id == '1') {
+                            goods_need_shipping = true;
+                        }
+                    }
+                    if (goods_need_shipping) {
+                        $('#shipping_info_on').removeClass('hide');
+                        if (order.pay_status.id == '1') {
+                            $('#shipping_info').removeClass('hide');
+                            if (order.shipping_status.id == '1') {
+                                $('select[name="shipping[company]"]').val(order.shipping.company).prop('disabled', 'disabled');
+                                $('input[name="shipping[sn]"]').val(order.shipping.sn).prop('disabled', 'disabled');
+                                $('a[name="order-shipping"]').hide();
+                            } else {
+                                $('a[name="order-shipping"]').removeClass('hide');
+                            }
+                        }
+                    } else {
+                        $('#shipping_info_off').removeClass('hide');
+
+                        if (order.shipping_status.id == '1') {
+                            $('#shipping_status').text(order.shipping_status.text);
+                            $('#shipping_time').text('（于' + time_to_str(parseInt(order.shipping.time)) + '完成发货）');
+                            $('#shipping_status').removeClass('text-danger');
+                            $('#shipping_status').addClass('text-success');
+                        } else {
+                            $('#shipping_status').text(order.shipping_status.text);
+                            $('#shipping_time').text('');
+                            $('#shipping_status').removeClass('text-success')
+                            $('#shipping_status').addClass('text-danger');
+                        }
+                    }
+                    if (order.status.id != 'FINISH' && order.status.id != 'CLOSE' && order.pay_status.id == '1' && order.shipping_status.id == '1') {
+                        //已完成支付和发货
+                        $('a[name="order-finish"]').removeClass('hide');
+                    }
+                    if (!this.table) {
+                        this.table = $("#example1").DataTable({
+                            data: order.order_goods,
+                            paging: false,
+                            searching: false,
+                            ordering: false,
+                            "columns": [
+                                {
+                                    "orderable": false,
+                                    "data": function (row) {
+                                        return row.iid;
+                                    }
+                                },
+                                {
+                                    "orderable": false,
+                                    "data": function (row) {
+                                        return '<a href="' + row.iid + '"><img src="' + INIT.SOURCE_HOST + row.pic + '" style="max-width:80px;max-height:80px;" /></a>';
+                                    }
+                                },
+                                {
+                                    "orderable": false,
+                                    "data": function (row) {
+                                        return row.title;
+                                    }
+                                },
+                                {
+                                    "orderable": false,
+                                    "data": function (row) {
+                                        return row.category.text;
+                                    },
+                                },
+                                {
+                                    "orderable": false,
+                                    "data": function (row) {
+                                        return row.price;
+                                    },
+                                },
+                                {
+                                    "orderable": false,
+                                    "data": function (row) {
+                                        return row.num;
+                                    }
+                                }
+                            ]
+                        });
+                    } else {
+                        //不刷新商品列表
+                    }
+                }
+                if (getUrlParam('oid')) {//查看模式
+                    var oid = getUrlParam('oid');
+                    load(oid);
+                }
+                $('a[name="order-close"]').click(function () {
+                    var modal2 = $('#myModal2').modal('show');
+
+                });
+                $('a[name="order-shipping"]').click(function () {
+                    ORDER.shipping({
+                        'oid': oid,
+                        'shipping_company': $('select[name="shipping[company]"]').val(),
+                        'shipping_sn': $('input[name="shipping[sn]"]').val(),
+                        'token': token,
+                        'callback': function (r) {
+                            if (r.error_no == '200') {
+                                load(oid);
+                            } else {
+                            }
+                            var modal = $('#myModal');
+                            modal.find('.modal-body').text(r.error_msg);
+                            modal.modal('show');
+                        }
+                    });
+
+                });
+                $('a[name="order-finish"]').click(function () {
+                    ORDER.finish({
+                        'oid': oid,
+                        'token': token,
+                        'callback': function (r) {
+                            if (r.error_no == '200') {
+                                load(oid);
+                            } else {
+
+                            }
+                            var modal = $('#myModal');
+                            modal.find('.modal-body').text(r.error_msg);
+                            modal.modal('show');
+                        }
+                    });
+
+                });
+                $('button[name="order-close-confirm"]').click(function () {
+                    $('#myModal2').on('hidden.bs.modal', function (e) {
+                        ORDER.close({
+                            'oid': oid,
+                            'token': token,
+                            'callback': function (r) {
+                                if (r.error_no == '200') {
+
+                                } else {
+                                }
+                                var modal = $('#myModal');
+                                modal.find('.modal-body').text(r.error_msg);
+                                modal.modal('show');
+                            }
+                        });
+                    })
+                    $('#myModal2').modal('hide');
+                });
+            });
+        </script>
+    </body>
+</html>

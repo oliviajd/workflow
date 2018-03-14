@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="import" href="/pages/common/title.html?__inline" >
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <!-- Bootstrap 3.3.6 -->
+        <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="//cdn.bootcss.com/ionicons/2.0.1/css/ionicons.min.css">
+        <!-- daterange picker -->
+        <link rel="stylesheet" href="../../plugins/datetimepicker/bootstrap-datetimepicker.min.css">
+        <!-- DataTables -->
+        <link rel="stylesheet" href="../../plugins/datatables/dataTables.bootstrap.css">
+        <!-- Theme style -->
+        <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
+        <!-- AdminLTE Skins. Choose a skin from the css/skins
+             folder instead of downloading all of them to reduce the load. -->
+        <link rel="stylesheet" href="../../dist/css/skins/_all-skins.min.css">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body class="hold-transition skin-blue sidebar-mini">
+        <div class="wrapper">
+
+            <link rel="import" href="../common/header.html?__inline" >
+            <!-- Left side column. contains the logo and sidebar -->
+            <link rel="import" href="../common/left.html?__inline" >
+
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <h1>
+                        编辑
+                        <small>message edit</small>
+                    </h1>
+                    <ol class="breadcrumb">
+                        <li><a href="/index.html"><i class="fa fa-dashboard"></i> 首页</a></li>
+                        <li><a href="/pages/message/message_lists.html">站内信列表</a></li>
+                        <li class="active">编辑</li>
+                    </ol>
+                </section>
+
+                <!-- Main content -->
+                <section class="content">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="box">
+                                <div class="box-header with-border">
+                                    <h3 class="box-title">信息</h3>
+                                    <div class="box-tools pull-right">
+                                        <button name="message-delete" type="button" class="btn btn-block btn-danger">删除</button>
+                                    </div>
+                                </div>
+                                <!-- /.box-header -->
+                                <div class="box-body">
+                                    <form role="form">
+                                        <!-- text input -->
+                                        <div class="form-group">
+                                            <label>标题</label>
+                                            <input type="text" name="message[title]" class="form-control" placeholder="名称">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>正文</label>
+                                            <textarea id="editor1" name="message[text]" rows="10" cols="80"></textarea>
+                                        </div>
+                                    </form>
+                                </div>
+                                <!-- /.box-body -->
+                                <div class="box-footer">
+                                    <button type="submit" class="btn btn-primary">保存</button>
+                                    <a class="btn btn-default" href="/pages/message/message_lists.html">取消</a>
+                                </div>
+                            </div>
+                            <!-- /.box -->
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+                </section>
+                <!-- /.content -->
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                            </div>
+                            <div class="modal-body">
+                                ...
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <a href="/pages/message/message_lists.html" class="btn btn-default">返回列表</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                            </div>
+                            <div class="modal-body">
+                                是否删除这个？
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success" name="message-delete-confirm">确认</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.content-wrapper -->
+            <link rel="import" href="../common/footer.html?__inline" >
+
+            <!-- Control Sidebar -->
+            <link rel="import" href="../common/control_sidebar.html?__inline" >
+            <!-- /.control-sidebar -->
+        </div>
+        <!-- ./wrapper -->
+
+        <!-- jQuery 2.2.3 -->
+        <script src="../../plugins/jQuery/jquery-2.2.3.min.js"></script>
+        <!-- Bootstrap 3.3.6 -->
+        <script src="../../bootstrap/js/bootstrap.min.js"></script>
+        <!-- DataTables -->
+        <script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
+        <script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>
+        <!-- SlimScroll -->
+        <script src="../../plugins/slimScroll/jquery.slimscroll.min.js"></script>
+        <!-- FastClick -->
+        <script src="../../plugins/fastclick/fastclick.js"></script>
+        <!-- AdminLTE App -->
+        <script src="../../dist/js/app.min.js"></script>
+        <script src="https://cdn.bootcss.com/ckeditor/4.7.0/ckeditor.js"></script>
+        <!-- AdminLTE for demo purposes -->
+        <script src="../../dist/js/demo.js"></script>
+        <script src="/plugins/moment/moment.min.js"></script>
+        <script src="../../plugins/datetimepicker/bootstrap-datetimepicker.min.js"></script>
+        <!-- page script -->
+        <script>
+            $(function () {
+                $('input[name="message[limit_on_time]"],input[name="message[limit_off_time]"],input[name="message[start_time]"],input[name="message[end_time]"]').datetimepicker({
+                    autoclose: true
+                });
+                var editor1 = CKEDITOR.replace('editor1');
+                var token = USER.get_token();
+                var message = {};
+                var id = 0;
+                var set_value = function (message) {
+                    $('input[name="message[title]"]').val(message.title);
+                    editor1.setData(message.text);
+                }
+                if (getUrlParam('id')) {//编辑模式
+                    var id = getUrlParam('id');
+                    MESSAGE.get({'id': id, token: token, callback: function (r) {
+                            if (r.error_no != '200') {
+                                var modal = $('#myModal');
+                                modal.find('.modal-body').text(r.error_msg);
+                                modal.modal('show');
+                                return;
+                            }
+                            message = r.result;
+                            set_value(message);
+                        }});
+                } 
+                $('button[type="submit"]').click(function () {
+                    var message = {
+                        'title': $('input[name="message[title]"]').val(),
+                        'text': editor1.getData(),
+                        'receiver_id': 0,
+                    }
+                    if (!id) {
+                        MESSAGE.add({'message': message, token: token, callback: function (r) {
+                                var modal = $('#myModal');
+                                if (r.error_no == '200') {
+                                    modal.find('.modal-body').text('操作成功！');
+                                } else {
+                                    modal.find('.modal-body').text(r.error_msg);
+                                }
+                                modal.modal('show');
+                            }});
+                    } else {
+                        MESSAGE.update({'message': message, token: token, 'id': id, callback: function (r) {
+                                var modal = $('#myModal');
+                                if (r.error_no == '200') {
+                                    modal.find('.modal-body').text('操作成功！');
+                                } else {
+                                    modal.find('.modal-body').text(r.error_msg);
+                                }
+                                modal.modal('show');
+                            }});
+                    }
+                });
+                $('button[name="message-delete"]').click(function () {
+                    var modal2 = $('#myModal2').modal('show');
+
+                });
+                $('button[name="message-delete-confirm"]').click(function () {
+                    $('#myModal2').on('hidden.bs.modal', function (e) {
+                        MESSAGE.delete({
+                            'id': id,
+                            'token': token,
+                            'callback': function (r) {
+                                if (r.error_no == '200') {
+
+                                } else {
+                                }
+                                var modal = $('#myModal');
+                                modal.find('.modal-body').text(r.error_msg);
+                                modal.modal('show');
+                            }
+                        });
+                    })
+                    $('#myModal2').modal('hide');
+                });
+            });
+        </script>
+    </body>
+</html>

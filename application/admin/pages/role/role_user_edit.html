@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="import" href="/pages/common/title.html?__inline" >
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <!-- Bootstrap 3.3.6 -->
+        <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="//cdn.bootcss.com/ionicons/2.0.1/css/ionicons.min.css">
+        <!-- daterange picker -->
+        <link rel="stylesheet" href="../../plugins/datetimepicker/bootstrap-datetimepicker.min.css">
+        <!-- DataTables -->
+        <link rel="stylesheet" href="../../plugins/datatables/dataTables.bootstrap.css">
+        <!-- Theme style -->
+        <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
+        <!-- AdminLTE Skins. Choose a skin from the css/skins
+             folder instead of downloading all of them to reduce the load. -->
+        <link rel="stylesheet" href="../../dist/css/skins/_all-skins.min.css">
+        <!-- iCheck for checkboxes and radio inputs -->
+        <link rel="stylesheet" href="../../plugins/iCheck/all.css">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body class="hold-transition skin-blue sidebar-mini">
+        <div class="wrapper">
+
+            <link rel="import" href="../common/header.html?__inline" >
+            <!-- Left side column. contains the logo and sidebar -->
+            <link rel="import" href="../common/left.html?__inline" >
+
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <h1>
+                        用户角色设置
+                        <small>user role edit</small>
+                    </h1>
+                    <ol class="breadcrumb">
+                        <li><a href="/index.html"><i class="fa fa-dashboard"></i> 首页</a></li>
+                        <li><a href="/pages/role/role_user_lists.html">用户角色管理</a></li>
+                        <li class="active">用户角色设置</li>
+                    </ol>
+                </section>
+
+                <!-- Main content -->
+                <section class="content">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="box">
+                                <div class="box-header with-border">
+                                    <h3 class="box-title">用户角色</h3>
+                                </div>
+                                <!-- /.box-header -->
+                                <div class="box-body">
+                                    <form role="form">
+                                        <!-- text input -->
+                                        <div class="form-group">
+                                            <label>用户名</label>
+                                            <input type="text" name="role_user[loginname]" class="form-control" placeholder="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>可设置角色</label>
+                                            <div class="row margin" id="roles">
+
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <!-- /.box-body -->
+                                <div class="box-footer">
+                                    <button type="submit" class="btn btn-primary">保存</button>
+                                    <a class="btn btn-default" href="/pages/role/role_user_lists.html">取消</a>
+                                </div>
+                            </div>
+                            <!-- /.box -->
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+                </section>
+                <!-- /.content -->
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                            </div>
+                            <div class="modal-body">
+                                ...
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <a href="/pages/role/role_user_lists.html" class="btn btn-default">返回列表</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                            </div>
+                            <div class="modal-body">
+                                是否删除这个角色？
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success" name="role-delete-confirm">确认</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.content-wrapper -->
+            <link rel="import" href="../common/footer.html?__inline" >
+
+            <!-- Control Sidebar -->
+            <link rel="import" href="../common/control_sidebar.html?__inline" >
+            <!-- /.control-sidebar -->
+        </div>
+        <!-- ./wrapper -->
+
+        <!-- jQuery 2.2.3 -->
+        <script src="../../plugins/jQuery/jquery-2.2.3.min.js"></script>
+        <!-- Bootstrap 3.3.6 -->
+        <script src="../../bootstrap/js/bootstrap.min.js"></script>
+        <!-- DataTables -->
+        <script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
+        <script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>
+        <!-- SlimScroll -->
+        <script src="../../plugins/slimScroll/jquery.slimscroll.min.js"></script>
+        <!-- FastClick -->
+        <script src="../../plugins/fastclick/fastclick.js"></script>
+        <!-- AdminLTE App -->
+        <script src="../../dist/js/app.min.js"></script>
+        <!-- AdminLTE for demo purposes -->
+        <script src="../../dist/js/demo.js"></script>
+        <script src="../../plugins/moment/moment.min.js"></script>
+        <script src="https://cdn.ckeditor.com/4.5.7/standard/ckeditor.js"></script>
+        <script src="../../plugins/ajaxupload/jquery.ajaxupload.js"></script>
+        <script src="../../plugins/datetimepicker/bootstrap-datetimepicker.min.js"></script>
+        <!-- iCheck 1.0.1 -->
+        <script src="../../plugins/iCheck/icheck.min.js"></script>
+        <!-- page script -->
+        <script>
+            $(function () {
+                var token = USER.get_token();
+                var role_ids = [];
+                var obj_role_ids = {};
+                var user_id = 0;
+                var set_value = function (role_user) {
+                    if (!!role_user.user) {
+                        $('input[name="role_user[loginname]"]').val(role_user.user.loginname);
+                        $('input[name="role_user[loginname]"]').prop('disabled', true);
+                        $('input[name="role_ids[]"]').each(function () {
+                            var rid = parseInt($(this).val());
+                            if (!!obj_role_ids[rid]) {
+                                $(this).prop('checked', true)
+                            }
+                        });
+                    }
+                    //Flat red color scheme for iCheck
+                    $('input[type="checkbox"].flat-red').iCheck({
+                        checkboxClass: 'icheckbox_flat-green',
+                        radioClass: 'iradio_flat-green'
+                    });
+                }
+                if (getUrlParam('user_id')) {//编辑模式
+                    user_id = getUrlParam('user_id');
+                    ROLE.lists_user({'user_id': user_id, token: token, callback: function (r) {
+                            if (r.error_no != '200') {
+                                var modal = $('#myModal');
+                                modal.find('.modal-body').text(r.error_msg);
+                                modal.modal('show');
+                                return;
+                            }
+                            var role_user = {role_ids: [], user: {}};
+                            for (var i in r.result.rows) {
+                                role_ids.push(r.result.rows[i]['role']['role_id']);
+                                obj_role_ids[parseInt(r.result.rows[i]['role']['role_id'])] = true;
+                            }
+                            role_user.role_ids = role_ids;
+                            role_user.user = r.result.rows[i]['user'];
+                            ROLE.lists({token: USER.get_token(), callback: function (r) {
+                                    if (r.error_no == '200') {
+                                        $('#roles').empty();
+                                        for (var i in r.result.rows) {
+                                            var row = r.result.rows[i];
+                                            $('#roles').append('<div class="col-lg-1"><label style="font-weight:normal;"><input type="checkbox" name="role_ids[]" value="' + row.role_id + '" class="flat-red"> ' + row.title + '</label></div>');
+                                        }
+                                        set_value(role_user);
+                                    }
+                                }});
+                        }});
+                } else {
+                    ROLE.lists({token: USER.get_token(), callback: function (r) {
+                            if (r.error_no == '200') {
+                                $('#roles').empty();
+                                for (var i in r.result.rows) {
+                                    var row = r.result.rows[i];
+                                    $('#roles').append('<div class="col-lg-2"><label style="font-weight:normal;"><input type="checkbox" name="role_ids[]" value="' + row.role_id + '" class="flat-red"> ' + row.title + '</label></div>');
+                                }
+                                set_value({});
+                            }
+                        }});
+                }
+                $('button[type="submit"]').click(function () {
+                    var commit = function (user_id) {
+                        var radds = [];
+                        var rdels = [];
+                        $('input[name="role_ids[]"]').each(function () {
+                            var rid = parseInt($(this).val());
+                            if ($(this).prop('checked') == true) {
+                                if (!!obj_role_ids[rid]) {
+
+                                } else {
+                                    radds.push(rid);
+                                }
+                            } else {
+                                if (!!obj_role_ids[rid]) {
+                                    rdels.push(rid);
+                                } else {
+
+                                }
+                            }
+                        });
+                        for (var i in rdels) {
+                            ROLE.delete_user({token: token, 'user_id': user_id, 'role_id': rdels[i], callback: function (r, option) {
+                                    var modal = $('#myModal');
+                                    if (r.error_no == '200') {
+                                        delete obj_role_ids[option.role_id];
+                                        modal.find('.modal-body').text('操作成功！');
+                                    } else {
+                                        modal.find('.modal-body').text(r.error_msg);
+                                    }
+                                    modal.modal('show');
+                                }});
+                        }
+                        for (var i in radds) {
+                            ROLE.add_user({token: token, 'user_id': user_id, 'role_id': radds[i], callback: function (r, option) {
+                                    var modal = $('#myModal');
+                                    if (r.error_no == '200') {
+                                        obj_role_ids[option.role_id] = true;
+                                        modal.find('.modal-body').text('操作成功！');
+                                    } else {
+                                        modal.find('.modal-body').text(r.error_msg);
+                                    }
+                                    modal.modal('show');
+                                }});
+                        }
+                    }
+                    if (!user_id) {
+                        USER.find({loginnames: JSON.stringify([$('input[name="role_user[loginname]"]').val()]), token: token, callback: function (r) {
+                                if (r.error_no != '200' || r.result.rows.length == 0) {
+                                    var modal = $('#myModal');
+                                    modal.find('.modal-body').text('未找到该用户！');
+                                    modal.modal('show');
+                                } else {
+                                    user_id = r.result.rows[0]['user_id'];
+                                    commit(user_id);
+                                }
+                            }});
+                    } else {
+                        commit(user_id);
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>

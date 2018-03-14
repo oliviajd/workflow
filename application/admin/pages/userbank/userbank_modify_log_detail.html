@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="import" href="/pages/common/title.html?__inline" >
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <!-- Bootstrap 3.3.6 -->
+        <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="//cdn.bootcss.com/ionicons/2.0.1/css/ionicons.min.css">
+        <!-- daterange picker -->
+        <link rel="stylesheet" href="../../plugins/daterangepicker/daterangepicker.css">
+        <!-- bootstrap datepicker -->
+        <link rel="stylesheet" href="../../plugins/datepicker/datepicker3.css">
+        <!-- DataTables -->
+        <link rel="stylesheet" href="../../plugins/datatables/dataTables.bootstrap.css">
+        <!-- Theme style -->
+        <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
+        <!-- AdminLTE Skins. Choose a skin from the css/skins
+             folder instead of downloading all of them to reduce the load. -->
+        <link rel="stylesheet" href="../../dist/css/skins/_all-skins.min.css">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body class="hold-transition skin-blue sidebar-mini">
+        <div class="wrapper">
+
+            <link rel="import" href="../common/header.html?__inline" >
+            <!-- Left side column. contains the logo and sidebar -->
+            <link rel="import" href="../common/left.html?__inline" >
+
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <h1>
+                        修改银行卡详情
+                        <small>userbank information</small>
+                    </h1>
+                    <ol class="breadcrumb">
+                        <li><a href="/index.html"><i class="fa fa-dashboard"></i> 首页</a></li>
+                        <li><a href="/pages/userbank/userbank_modify_log_lists.html">用户银行卡</a></li>
+                        <li class="active">修改银行卡详情</li>
+                    </ol>
+                </section>
+
+                <!-- Main content -->
+                <section class="content">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="box">
+                                <div class="box-header with-border">
+                                    <h3 class="box-title">修改银行卡信息</h3>
+                                </div>
+                                <!-- /.box-header -->
+                                <div class="box-body">
+                                    <form role="form">
+                                        <div class="form-group form-group-inline">
+                                            <label>ID：</label><span id="id" class=""></span>
+                                            <label>手机号：</label>
+                                            <span id="mobile" class=""></span>
+                                            <label>姓名：</label>
+                                            <span id="realname" class=""></span>
+                                            <label>用户ID：</label>
+                                            <span id="user_id" class=""></span>
+                                            <label>新银行卡：</label>
+                                            <span id="account" class=""></span>
+                                            <label>银行：</label>
+                                            <span id="bank" class=""></span>
+                                            <label>省：</label>
+                                            <span id="province" class=""></span>
+                                            <label>市：</label>
+                                            <span id="city" class=""></span>
+                                            <label>地区：</label>
+                                            <span id="area" class=""></span>
+                                        </div>
+                                        <div class="form-group form-group-inline">
+                                            <label>修改原因：</label>
+                                            <span id="reason" class=""></span>
+                                        </div>
+                                        <div class="form-group form-group-inline">
+                                            <label>原银行卡：</label>
+                                            <span id="old_account" class=""></span>
+                                            <label>原银行：</label>
+                                            <span id="old_bank" class=""></span>
+                                            <label>原省：</label>
+                                            <span id="old_province" class=""></span>
+                                            <label>原市：</label>
+                                            <span id="old_city" class=""></span>
+                                            <label>原地区：</label>
+                                            <span id="old_area" class=""></span>
+                                            <label>状态：</label>
+                                            <span id="status" class=""></span>
+                                        </div>
+                                        <div class="form-group form-group-inline">
+                                            <label>图片：</label>
+                                            <p class="margin"><label>身份证正面：</label><span id="front_pic" class=""></span>
+                                            <label>身份证反面：</label><span id="behind_pic" class=""></span>
+                                            <label>手持身份证：</label><span id="hand_pic" class=""></span>
+                                            <label>新银行卡：</label><span id="newbank_pic" class=""></span></p>
+                                        </div>
+                                        <div class="form-group form-group-inline">
+                                            <label>创建时间：</label>
+                                            <span id="create_time"></span>
+                                            <label>修改时间：</label>
+                                            <span id="modify_time"></span>
+                                        </div>
+                                        <div class="form-group form-group-inline">
+                                            <label>失败原因：</label>
+                                            <p class="margin"><span id="fail_reason"></span></p>
+                                        </div>
+                                        <div class="form-group form-group-inline">
+                                            <label>建议：</label>
+                                            <p class="margin"><span id="advice"></span></p>
+                                        </div>
+
+                                    </form>
+                                    <div class="pull-right">
+                                        <a class="btn btn-success check-success" href="javascript:;">允许</a>
+                                        <a class="btn btn-danger check-fail" href="javascript:;">拒绝</a>
+                                        <a class="btn btn-default" href="/pages/userbank/userbank_modify_log_lists.html">返回</a>
+                                    </div>
+                                </div>
+                                <!-- /.box-body -->
+                                
+                            </div>
+                            <!-- /.box -->
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+                </section>
+                <!-- /.content -->
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                            </div>
+                            <div class="modal-body">
+                                ...
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <a href="/pages/userbank/userbank_modify_log_lists.html" class="btn btn-default">返回列表</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="modal fade" id="checkModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">确认审核</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <input type="hidden" name="id">
+                                </div>
+                                <div class="form-group">
+                                    <input type="hidden" name="status">
+                                </div>
+                                <div class="form-group" name="fail_div">
+                                    <div class="form-group">
+                                        <label>失败原因：</label>
+                                        <textarea name="fail_reason" class="form-control" rows="3" placeholder="失败原因 ..."></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>建议：</label>
+                                        <textarea name="advice" class="form-control" rows="3" placeholder="建议 ..."></textarea>
+                                    </div> 
+                                </div>
+                                <div class="form-group" name="success_div">
+                                    <div class="text-center" style="font-size: 16px;">确认审核通过？</div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button id="checksubmit" type="button" class="btn btn-primary">确定</button>
+                                <button id="checkcancel" type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.content-wrapper -->
+            <link rel="import" href="../common/footer.html?__inline" >
+
+            <!-- Control Sidebar -->
+            <link rel="import" href="../common/control_sidebar.html?__inline" >
+            <!-- /.control-sidebar -->
+        </div>
+        <!-- ./wrapper -->
+
+        <!-- jQuery 2.2.3 -->
+        <script src="../../plugins/jQuery/jquery-2.2.3.min.js"></script>
+        <!-- Bootstrap 3.3.6 -->
+        <script src="../../bootstrap/js/bootstrap.min.js"></script>
+        <!-- DataTables -->
+        <script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
+        <script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>
+        <!-- SlimScroll -->
+        <script src="../../plugins/slimScroll/jquery.slimscroll.min.js"></script>
+        <!-- FastClick -->
+        <script src="../../plugins/fastclick/fastclick.js"></script>
+        <!-- AdminLTE App -->
+        <script src="../../dist/js/app.min.js"></script>
+        <!-- AdminLTE for demo purposes -->
+        <script src="../../dist/js/demo.js"></script>
+        <script src="/plugins/moment/moment.min.js"></script>
+        <script>
+            $(function () {
+                var userbank = {};
+                var id = 0;
+                var load = function (id) {
+                    USERBANK.get({'id': id,'token': USER.get_token(), callback: function (r) {
+                            if (r.error_no != '200') {
+                                var modal = $('#myModal');
+                                modal.find('.modal-body').text(r.error_msg);
+                                modal.modal('show');
+                                return;
+                            }
+                            userbank = r.result;
+                            set_value(userbank);
+                        }});
+                }
+                var set_value = function (userbank) {
+                    //赋值
+                    $('#id').text(userbank.id);
+                    $('#mobile').text(userbank.mobile);
+                    $('#realname').text(userbank.realname);
+                    $('#user_id').text(userbank.user_id);
+                    $('#account').text(userbank.account);
+                    $('#bank').text(userbank.bank.text);
+                    $('#province').text(userbank.province.text);
+                    $('#city').text(userbank.city.text);
+                    $('#area').text(userbank.area.text);
+                    $('#reason').text(userbank.reason);
+                    $('#old_account').text(userbank.old_account);
+                    $('#old_bank').text(userbank.old_bank.text);
+                    $('#old_province').text(userbank.old_province.text);
+                    $('#old_city').text(userbank.old_city.text);
+                    $('#old_area').text(userbank.old_area.text);
+                    $('#create_time').text(time_to_str(parseInt(userbank.create_time)));
+                    $('#modify_time').text(time_to_str(parseInt(userbank.modify_time)));
+                    $('#fail_reason').text(userbank.fail_reason);
+                    $('#advice').text(userbank.advice);
+                    
+                    var img = '<img src="'+userbank.front_pic+'" style="max-height:600px; margin-left:10px;margin-bottom:10px;">';
+                    $('#front_pic').append(img);
+                    var img = '<img src="'+userbank.behind_pic+'" style="max-height:600px; margin-left:10px;margin-bottom:10px;">';
+                    $('#behind_pic').append(img);
+                    var img = '<img src="'+userbank.hand_pic+'" style="max-height:600px; margin-left:10px;margin-bottom:10px;">';
+                    $('#hand_pic').append(img);
+                    var img = '<img src="'+userbank.newbank_pic+'" style="max-height:600px; margin-left:10px;margin-bottom:10px;">';
+                    $('#newbank_pic').append(img);
+                    /*var pics_array = userbank.pics.split(",");
+                    $.each(pics_array, function(i,val){
+                        var img = '<img src="'+val+'" style="max-height:600px; margin-left:10px;margin-bottom:10px;">';
+                        $('#pics').append(img);
+                    });*/
+                }
+                if (getUrlParam('id')) {//查看模式
+                    var id = getUrlParam('id');
+                    load(id);
+                }
+                
+                $('.check-success').click(function () {
+                    var id = getUrlParam('id');
+                    check_success(id);
+                })
+                
+                $('.check-fail').click(function () {
+                    var id = getUrlParam('id');
+                    check_fail(id);
+                })
+                
+                $('#checksubmit').click(function () {
+                    
+                    var id = $('#checkModal input[name="id"]').val();
+                    var status = $('#checkModal input[name="status"]').val();
+                    
+                    if(status == 1){    //审核成功
+                        var fail_reason = '';
+                        var advice = '';
+                        checkSubmit(id,status,fail_reason,advice)
+                    }
+                    else if(status == 2){
+                        var fail_reason = $('#checkModal textarea[name="fail_reason"]').val();
+                        var advice = $('#checkModal textarea[name="advice"]').val();
+                        checkSubmit(id,status,fail_reason,advice)
+                    }
+                })
+            });
+            
+            function check_success(id) {
+                var checkmodal = $('#checkModal');
+                checkmodal.find('#myModalLabel').text('审核成功');
+                checkmodal.find('[name="fail_reason"]').val();
+                checkmodal.find('[name="advice"]').val();
+                checkmodal.find('[name="fail_div"]').hide();
+                checkmodal.find('[name="success_div"]').show();
+                checkmodal.find('[name="id"]').val(id);
+                checkmodal.find('[name="status"]').val(1);
+                checkmodal.modal('show');
+            }
+            
+            function check_fail(id) {
+                var checkmodal = $('#checkModal');
+                checkmodal.find('#myModalLabel').text('审核失败');
+                checkmodal.find('[name="fail_reason"]').val();
+                checkmodal.find('[name="advice"]').val();
+                checkmodal.find('[name="success_div"]').hide();
+                checkmodal.find('[name="fail_div"]').show();
+                checkmodal.find('[name="id"]').val(id);
+                checkmodal.find('[name="status"]').val(2);
+                checkmodal.modal('show');
+            }
+            
+            function checkSubmit(id,status,fail_reason,advice) {
+                USERBANK.check({token: USER.get_token(), userbank:{id: id,status: status,fail_reason: fail_reason,advice: advice}, callback: function (r) {
+                    if (r.error_no != '200') {
+                        $('.modal').modal('hide');
+                        $('#checkModal').on('hidden.bs.modal', function () {
+                            var modal = $('#myModal');
+                            modal.find('.modal-body').text(r.error_msg);
+                            modal.modal('show');
+                        })
+                    } else {
+                        $('.modal').modal('hide');
+                        $('#checkModal').on('hidden.bs.modal', function () {
+                            var modal = $('#myModal');
+                            modal.find('.modal-body').text(r.error_msg);
+                            modal.modal('show');
+                        })
+                        
+                        //发送成功，修改状态
+                    }
+                    //table.ajax.reload();
+                }});
+            }
+        </script>
+    </body>
+</html>

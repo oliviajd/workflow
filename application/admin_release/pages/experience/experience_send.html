@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>聚车金融管理后台</title>
+<!-- Tell the browser to be responsive to screen width -->
+<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <!-- Bootstrap 3.3.6 -->
+        <link rel="stylesheet" href="/bootstrap/css/bootstrap.min_30630cd.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="//cdn.bootcss.com/ionicons/2.0.1/css/ionicons.min.css">
+        <!-- daterange picker -->
+        <link rel="stylesheet" href="/plugins/daterangepicker/daterangepicker_1885e7b.css">
+        <!-- bootstrap datepicker -->
+        <link rel="stylesheet" href="/plugins/datepicker/datepicker3_185b406.css">
+        <!-- DataTables -->
+        <link rel="stylesheet" href="/plugins/datatables/dataTables.bootstrap_49765a3.css">
+        <!-- Theme style -->
+        <link rel="stylesheet" href="/dist/css/AdminLTE.min_07613ed.css">
+        <!-- AdminLTE Skins. Choose a skin from the css/skins
+             folder instead of downloading all of them to reduce the load. -->
+        <link rel="stylesheet" href="/dist/css/skins/_all-skins.min_913ee60.css">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body class="hold-transition skin-blue sidebar-mini">
+        <div class="wrapper">
+
+            <header class="main-header">
+    <!-- Logo -->
+    <a href="/index.html" class="logo">
+        <!-- mini logo for sidebar mini 50x50 pixels -->
+        <span class="logo-mini"><b>IF</b>car</span>
+        <!-- logo for regular state and mobile devices -->
+        <span class="logo-lg"><b>IF</b>car</span>
+    </a>
+    <!-- Header Navbar: style can be found in header.less -->
+    <nav class="navbar navbar-static-top">
+        <!-- Sidebar toggle button-->
+        <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+            <span class="sr-only">Toggle navigation</span>
+        </a>
+
+        <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+                <!-- Messages: style can be found in dropdown.less-->
+                <li class="dropdown messages-menu">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-envelope-o"></i>
+                        <!--<span class="label label-success">0</span>-->
+                    </a>
+<!--                    <ul class="dropdown-menu">
+                        <li class="header">You have 4 messages</li>
+                        <li>
+                             inner menu: contains the actual data 
+                            <ul class="menu">
+                                <li> start message 
+                                    <a href="#">
+                                        <div class="pull-left">
+                                            <img src="/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                        </div>
+                                        <h4>
+                                            Support Team
+                                            <small><i class="fa fa-clock-o"></i> 5 mins</small>
+                                        </h4>
+                                        <p>Why not buy a new awesome theme?</p>
+                                    </a>
+                                </li>
+                                 end message 
+                                <li>
+                                    <a href="#">
+                                        <div class="pull-left">
+                                            <img src="/dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
+                                        </div>
+                                        <h4>
+                                            AdminLTE Design Team
+                                            <small><i class="fa fa-clock-o"></i> 2 hours</small>
+                                        </h4>
+                                        <p>Why not buy a new awesome theme?</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="pull-left">
+                                            <img src="/dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
+                                        </div>
+                                        <h4>
+                                            Developers
+                                            <small><i class="fa fa-clock-o"></i> Today</small>
+                                        </h4>
+                                        <p>Why not buy a new awesome theme?</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="pull-left">
+                                            <img src="/dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
+                                        </div>
+                                        <h4>
+                                            Sales Department
+                                            <small><i class="fa fa-clock-o"></i> Yesterday</small>
+                                        </h4>
+                                        <p>Why not buy a new awesome theme?</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="pull-left">
+                                            <img src="/dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
+                                        </div>
+                                        <h4>
+                                            Reviewers
+                                            <small><i class="fa fa-clock-o"></i> 2 days</small>
+                                        </h4>
+                                        <p>Why not buy a new awesome theme?</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="footer"><a href="#">See All Messages</a></li>
+                    </ul>-->
+                </li>
+                <!-- User Account: style can be found in dropdown.less -->
+                <li class="dropdown user user-menu">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <img src="/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                        <span class="hidden-xs">Alexander Pierce</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <!-- User image -->
+                        <li class="user-header">
+                            <img src="/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+
+                            <p>
+                                Alexander Pierce - Web Developer
+                                <small>Member since Nov. 2012</small>
+                            </p>
+                        </li>
+                        <!-- Menu Footer-->
+                        <li class="user-footer">
+                            <div class="pull-right">
+                                <a href="javascript:;" onclick="USER.clear() && (window.location.href='/login.html')" class="btn btn-default btn-flat">Sign out</a>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+            <!-- Left side column. contains the logo and sidebar -->
+            <aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+        <!-- Sidebar user panel -->
+        <div class="user-panel">
+            <div class="pull-left image">
+                <img src="/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+            </div>
+            <div class="pull-left info">
+                <p id="user_nick">管理员01</p>
+                <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+            </div>
+        </div>
+        <!-- search form -->
+        <form action="#" method="get" class="sidebar-form">
+            <div class="input-group">
+                <input type="text" name="q" class="form-control" placeholder="Search...">
+                <span class="input-group-btn">
+                    <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                    </button>
+                </span>
+            </div>
+        </form>
+        <!-- /.search form -->
+        <!-- sidebar menu: : style can be found in sidebar.less -->
+        <ul class="sidebar-menu">
+            <li class="header">主菜单</li>
+            <li data-mid="310" class="treeview hide">
+                <a href="#">
+                    <i class="fa fa-user"></i> <span>资金管理</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="/pages/account/account_log.html"><i class="fa fa-circle-o"></i> 资金记录</a></li>
+                    <li><a href="/pages/account/account.html"><i class="fa fa-circle-o"></i>账户列表</a></li>
+                    <li><a href="/pages/account/account_details_query.html"><i class="fa fa-circle-o"></i>交易明细实时查询</a></li>
+                    <li><a href="/pages/account/balance_query.html"><i class="fa fa-circle-o"></i>余额实时查询</a></li>
+                    <li><a href="/pages/account/bid_apply_query.html"><i class="fa fa-circle-o"></i>投标申请实时查询</a></li>
+                    <li><a href="/pages/account/debt_details_query.html"><i class="fa fa-circle-o"></i>标的信息查询</a></li>
+                    <li><a href="/pages/account/credit_details_query.html"><i class="fa fa-circle-o"></i>债权明细查询</a></li>
+                </ul>
+            </li>
+            <li data-mid="43" class="treeview hide">
+                <a href="#">
+                    <i class="fa fa-user"></i> <span>积分管理</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="/pages/credit/user.html"><i class="fa fa-circle-o"></i> 用户积分</a></li>
+                    <li><a href="/pages/credit/history.html"><i class="fa fa-circle-o"></i> 积分记录</a></li>
+                </ul>
+            </li>
+            <li data-mid="16" class="treeview hide">
+                <a href="#">
+                    <i class="fa fa-yen"></i> <span>订单管理</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="/pages/order/order_lists.html"><i class="fa fa-circle-o"></i> 全部订单</a></li>
+                </ul>
+            </li>
+            <li data-mid="125" class="treeview hide">
+                <a href="#">
+                    <i class="fa fa-won"></i> <span>抽奖管理</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="/pages/activity/activity_lists.html"><i class="fa fa-circle-o"></i> 活动管理</a></li>
+                    <li><a href="/pages/activity/winner_lists.html"><i class="fa fa-circle-o"></i> 中奖记录</a></li>
+                </ul>
+            </li>
+            <li data-mid="15" class="treeview hide">
+                <a href="#">
+                    <i class="fa fa-balance-scale"></i> <span>商品管理</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="/pages/goods/goods_lists.html"><i class="fa fa-circle-o"></i> 全部商品</a></li>
+                    <li><a href="/pages/goods/goods_zone_lists.html"><i class="fa fa-circle-o"></i> 商品专区</a></li>
+                    <li><a href="/pages/goods/goods_stats.html"><i class="fa fa-circle-o"></i> 商品统计</a></li>
+                </ul>
+            </li>
+            <li data-mid="341" class="treeview hide">
+                <a href="#">
+                    <i class="fa fa-balance-scale"></i> <span>消息管理</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="/pages/message/message_lists.html"><i class="fa fa-circle-o"></i> 站内信</a></li>
+                </ul>
+            </li>
+            <li data-mid="321" class="treeview hide">
+                <a href="#">
+                    <i class="fa fa-balance-scale"></i> <span>广告管理</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="/pages/banner/banner_lists.html"><i class="fa fa-circle-o"></i> 横幅广告</a></li>
+                </ul>
+            </li>
+            <li data-mid="18" class="treeview hide">
+                <a href="#">
+                    <i class="fa fa-credit-card"></i> <span>卡券管理</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="/pages/coupon/coupon_lists.html"><i class="fa fa-circle-o"></i> 加息券</a></li>
+                    <li><a href="/pages/bouns/bouns_lists.html"><i class="fa fa-circle-o"></i> 红包</a></li>
+                </ul>
+            </li>
+            <li data-mid="184" class="treeview hide">
+                <a href="#">
+                    <i class="fa fa-dollar"></i> <span>体验金</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="/pages/experience/experience_lists.html"><i class="fa fa-circle-o"></i> 体验金</a></li>
+                    <li><a href="/pages/experience/experience_send_lists.html"><i class="fa fa-circle-o"></i> 发放记录</a></li>
+                    <li><a href="/pages/experience/experience_transfer_lists.html"><i class="fa fa-circle-o"></i> 收益流水</a></li>
+                </ul>
+            </li>
+            <li data-mid="229" class="treeview hide">
+                <a href="/pages/risk/risk_lists.html">
+                    <i class="fa fa-cc-discover"></i> <span>风控管理</span>
+                    <span class="pull-right-container">
+                        <!--<i class="fa fa-angle-left pull-right"></i>-->
+                    </span>
+                </a>
+            </li>
+            <li data-mid="163" class="treeview hide">
+                <a href="#">
+                    <i class="fa fa-cc-discover"></i> <span>标的管理</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="/pages/borrow/borrow_lists.html"><i class="fa fa-circle-o"></i> 已发标的</a></li>
+                    <li><a href="/pages/borrow/borrow_bill_lists.html"><i class="fa fa-circle-o"></i> 待发标的</a></li>
+                </ul>
+            </li>
+            <li data-mid="288" class="treeview hide">
+                <a href="#">
+                    <i class="fa fa-bar-chart"></i> <span>统计信息</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="/pages/stats/risk.html"><i class="fa fa-circle-o"></i> 风控审核统计</a></li>
+                </ul>
+            </li>
+            <li data-mid="180" class="treeview hide">
+                <a href="#">
+                    <i class="fa fa-cc-discover"></i> <span>提现管理</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="/pages/cash/cash_lists.html"><i class="fa fa-circle-o"></i> 提现列表</a></li>
+                </ul>
+                <ul class="treeview-menu">
+                    <li><a href="/pages/cash/cash_control.html"><i class="fa fa-circle-o"></i> 提现开关</a></li>
+                </ul>
+            </li>
+            <li data-mid="215" class="treeview hide">
+                <a href="#">
+                    <i class="fa fa-cc-discover"></i> <span>打款还款</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="/pages/borrow/bill_pay_lists.html"><i class="fa fa-circle-o"></i> 打款确认</a></li>
+                    <li><a href="/pages/borrow/bill_repay_lists.html"><i class="fa fa-circle-o"></i> 还款确认</a></li>
+                </ul>
+            </li>
+            <li data-mid="206" class="treeview hide">
+                <a href="#">
+                    <i class="fa fa-user-plus"></i> <span>客户经理</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="/pages/manager/manager_lists_2.html"><i class="fa fa-line-chart"></i> 月汇总</a></li>
+                </ul>
+                <ul class="treeview-menu">
+                    <li><a href="/pages/manager/no_tender_user_lists.html"><i class="fa fa-line-chart"></i> 未投资用户列表</a></li>
+                </ul>
+            </li>
+            <li data-mid="161" class="treeview hide">
+                <a href="#">
+                    <i class="fa fa-cc-discover"></i> <span>对账管理</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="/pages/balance/balance_error.html"><i class="fa fa-circle-o"></i> 异常报警</a></li>
+                    <li><a href="/pages/balance/balance_account.html"><i class="fa fa-circle-o"></i> 账户对账</a></li>
+                    <li><a href="/pages/balance/balance_borrow.html"><i class="fa fa-circle-o"></i> 标的对账</a></li>
+                    <li><a href="/pages/balance/balance_log.html"><i class="fa fa-circle-o"></i> 流水对账</a></li>
+                </ul>
+            </li>
+            <li data-mid="204" class="treeview hide">
+                <a href="#">
+                    <i class="fa fa-wrench"></i> <span>权限管理</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="/pages/role/role_user_lists.html"><i class="fa fa-circle-o"></i> 用户角色</a></li>
+                    <li><a href="/pages/role/role_lists.html"><i class="fa fa-circle-o"></i> 角色设置</a></li>
+                </ul>
+            </li>
+            <li data-mid="265" class="treeview hide">
+                <a href="/pages/feedback/feedback_lists.html">
+                    <i class="fa fa-cc-discover"></i> <span>用户反馈</span>
+                    <span class="pull-right-container">
+                        <!--<i class="fa fa-angle-left pull-right"></i>-->
+                    </span>
+                </a>
+            </li>
+            <li data-mid="271" class="treeview hide">
+                <a href="#">
+                    <i class="fa fa-wrench"></i> <span>银行卡管理</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="/pages/userbank/userbank_modify_log_lists.html"><i class="fa fa-circle-o"></i> 修改银行卡列表</a></li>
+                </ul>
+            </li>
+            <li data-mid="100" class="treeview hide">
+                <a href="#">
+                    <i class="fa fa-wrench"></i> <span>脚本管理</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="/pages/script/script_lists.html"><i class="fa fa-circle-o"></i> 运行状态</a></li>
+                    <li><a href="/pages/script/script_log.html"><i class="fa fa-circle-o"></i> 运行日志</a></li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+    <!-- /.sidebar -->
+</aside>
+
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <h1>
+                        体验金发放管理
+                        <small>experience send lists</small>
+                    </h1>
+                    <ol class="breadcrumb">
+                        <li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>
+                        <li><a href="#">体验金发放管理</a></li>
+                        <li class="active">全部</li>
+                    </ol>
+                </section>
+
+                <!-- Main content -->
+                <section class="content">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="box">
+                                <div class="box-header with-border">
+                                    <h3 class="box-title">信息</h3>
+                                    <div class="box-tools pull-right fade">
+                                        <a name="experience-edit" class="btn btn-block btn-warning" href="/pages/experience/experience_edit.html?experience_id=">编辑</a>
+                                    </div>
+                                </div>
+                                <!-- /.box-header -->
+                                <div class="box-body">
+                                    <form role="form">
+                                        <!-- text input -->
+                                        <div class="form-group">
+                                            <label>名称</label>
+                                            <input type="text" name="experience[title]" class="form-control" placeholder="名称" disabled="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>备注</label>
+                                            <input type="text" name="experience[remark]" class="form-control" placeholder="备注" disabled="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>基本信息</label>
+                                            <div class="row">
+                                                <div class="col-lg-3">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            利率
+                                                        </span>
+                                                        <input type="text" name="experience[rate]" class="form-control" placeholder="最多2位小数" value="12.00" disabled="">
+                                                        <span class="input-group-addon">
+                                                            %
+                                                        </span>
+                                                    </div>
+                                                    <!-- /input-group -->
+                                                </div>
+                                                <div class="col-lg-3">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            体验期
+                                                        </span>
+                                                        <input type="text" name="experience[days]" class="form-control" placeholder="体验期" value="3" disabled="">
+                                                        <span class="input-group-addon">
+                                                            天
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-3">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            有效期
+                                                        </span>
+                                                        <input type="text" name="experience[expire]" class="form-control" placeholder="有效期" value="30" disabled="">
+                                                        <span class="input-group-addon">
+                                                            天
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>限制设置（0表示不设限）</label>
+                                            <div class="row margin-bottom">
+                                                <div class="col-lg-4">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            累计发放金额上限
+                                                        </span>
+                                                        <input type="text" name="experience[limit_upper_money]" class="form-control" placeholder="累计发放金额上限" value="0" disabled="">
+                                                        <span class="input-group-addon">
+                                                            元
+                                                        </span>
+                                                    </div>
+                                                    <!-- /input-group -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <!-- /.box-body -->
+                                <div class="box-footer">
+                                    <div class="form-group">
+                                        <label>用户名</label>
+                                        <textarea name="loginnames" class="form-control" rows="3" placeholder="用户名列表，多个用回车分隔"></textarea>
+                                    </div>
+                                    <button type="submit" name="find" class="btn btn-primary">查找</button>
+                                </div>
+                            </div>
+                            <!-- /.box -->
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="box">
+                                <div class="box-header">
+                                    <h3 class="box-title">待发放用户</h3>
+                                </div>
+                                <!-- /.box-header -->
+                                <div class="box-body">
+                                    <table id="example2" class="table table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>用户名</th>
+                                                <th>姓名</th>
+                                                <th>查找状态</th>
+                                                <th>发放结果</th>
+                                                <th>操作</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tfoot>
+                                            <tr>
+                                                <th>用户名</th>
+                                                <th>姓名</th>
+                                                <th>查找状态</th>
+                                                <th>发放结果</th>
+                                                <th>操作</th>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                                <!-- /.box-body -->
+                                <div class="box-footer">
+                                    <div class="form-group">
+                                        <label>金额</label>
+                                        <input name="money" class="form-control" placeholder="金额"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>备注</label>
+                                        <textarea name="remark" class="form-control" rows="3" placeholder="备注信息"></textarea>
+                                    </div>
+                                    <button type="submit" name="send_all" class="btn btn-primary">全部发放</button>
+                                    <a class="btn btn-default" href="/pages/experience/experience_lists.html">取消</a>
+                                </div>
+                            </div>
+                            <!-- /.box -->
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="box">
+                                <div class="box-header">
+                                    <h3 class="box-title">发放记录</h3>
+                                </div>
+                                <!-- /.box-header -->
+                                <div class="box-body">
+                                    <div class="row margin-bottom">
+                                        <div class="col-xs-3">
+                                            <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <i class="fa fa-clock-o"></i>
+                                                </div>
+                                                <input type="text" class="form-control pull-right" id="reservationtime" disabled="disabled">
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <div class="input-group">
+                                                <span class="input-group-addon">
+                                                    状态
+                                                </span>
+                                                <select name="search[status]" class="form-control">
+                                                    <option value="0">未选择</option>
+                                                    <option value="1">已生效</option>
+                                                    <option value="2">已失效</option>
+                                                    <option value="3">已过期</option>
+                                                    <option value="4">已关闭</option>
+                                                    <option value="5">已锁定</option>
+                                                    <option value="6">未激活</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <div class="input-group">
+                                                <input type="text" name="search[q]" class="form-control" placeholder="编号、关键词">
+                                                <span class="input-group-btn">
+                                                    <button type="button" id="experience_search" class="btn btn-info btn-flat">搜索</button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <table id="example1" class="table table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>用户名</th>
+                                                <th>金额</th>
+                                                <th>利率</th>
+                                                <th>总收益</th>
+                                                <th>未取得收益</th>
+                                                <th>状态</th>
+                                                <th>领取时间</th>
+                                                <th>过期时间</th>
+                                                <th>备注</th>
+                                                <th>操作</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tfoot>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>用户名</th>
+                                                <th>金额</th>
+                                                <th>利率</th>
+                                                <th>总收益</th>
+                                                <th>未取得收益</th>
+                                                <th>状态</th>
+                                                <th>领取时间</th>
+                                                <th>过期时间</th>
+                                                <th>备注</th>
+                                                <th>操作</th>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                                <!-- /.box-body -->
+                            </div>
+                            <!-- /.box -->
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+                </section>
+                <!-- /.content -->
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                            </div>
+                            <div class="modal-body">
+                                ...
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <!--<a href="/pages/experience/experience_lists.html" class="btn btn-default">返回列表</a>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.content-wrapper -->
+            <footer class="main-footer">
+    <div class="pull-right hidden-xs">
+        <b>Version</b> 2.3.6
+    </div>
+    <strong>Copyright &copy; 2014-2016 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights
+    reserved.
+</footer>
+
+            <!-- Control Sidebar -->
+            
+            <!-- /.control-sidebar -->
+        </div>
+        <!-- ./wrapper -->
+
+        <!-- jQuery 2.2.3 -->
+        <script src="/plugins/jQuery/jquery-2.2.3.min_33cabfa.js"></script>
+        <!-- Bootstrap 3.3.6 -->
+        <script src="/bootstrap/js/bootstrap.min_c5b5b2f.js"></script>
+        <!-- DataTables -->
+        <script src="/plugins/datatables/jquery.dataTables.min_280ff6a.js"></script>
+        <script src="/plugins/datatables/dataTables.bootstrap.min_eb35838.js"></script>
+        <!-- SlimScroll -->
+        <script src="/plugins/slimScroll/jquery.slimscroll.min_f1dbc79.js"></script>
+        <!-- FastClick -->
+        <script src="/plugins/fastclick/fastclick_6e9d3b0.js"></script>
+        <!-- AdminLTE App -->
+        <script src="/dist/js/app.min_add5b3f.js"></script>
+        <!-- AdminLTE for demo purposes -->
+        <script src="/dist/js/demo_ce1e8c9.js"></script>
+        <script src="/plugins/moment/moment.min_677846f.js"></script>
+        <script src="/plugins/daterangepicker/daterangepicker_62e1b67.js"></script>
+        <!-- bootstrap datepicker -->
+        <script src="/plugins/datepicker/bootstrap-datepicker_b214f48.js"></script>
+        <!-- page script -->
+        <script>
+            $(function () {
+                var token = USER.get_token();
+                var set_value = function (experience) {
+                    $('input[name="experience[title]"]').val(experience.title);
+                    $('input[name="experience[remark]"]').val(experience.remark);
+                    $('input[name="experience[rate]"]').val((experience.rate / 100).toFixed(2));
+                    $('input[name="experience[expire]"]').val(Math.floor(parseInt(experience.expire)/3600/24));
+                    $('input[name="experience[store]"]').val(experience.store);
+                    $('input[name="experience[use_times]"]').val(experience.use_times);
+                    $('input[name="experience[limit_lower_money]"]').val(experience.limit_lower_money);
+                    $('input[name="experience[limit_upper_money]"]').val(experience.limit_upper_money);
+                    $('select[name="experience[type]"]').val(experience.type);
+                    $('select[name="experience[check_store]"]').val(experience.check_store);
+                    if (parseInt(experience.limit_on_time) > 0) {
+                        $('input[name="experience[limit_on_time]"]').val(time_to_str(experience.limit_on_time));
+                    }
+                    if (parseInt(experience.limit_off_time) > 0) {
+                        $('input[name="experience[limit_off_time]"]').val(time_to_str(experience.limit_off_time));
+                    }
+                    if (parseInt(experience.start_time) > 0) {
+                        $('input[name="experience[start_time]"]').val(time_to_str(parseInt(experience.start_time)));
+                    }
+                    if (parseInt(experience.end_time) > 0) {
+                        $('input[name="experience[end_time]"]').val(time_to_str(parseInt(experience.end_time)));
+                    }
+                    $('input[name="experience[status]"]').each(function () {
+                        if ($(this).attr('value') == experience.status.id) {
+                            $(this).prop('checked', true);
+                        }
+                    });
+                }
+                if (getUrlParam('experience_id')) {//编辑模式
+                    var experience_id = getUrlParam('experience_id');
+                    EXPERIENCE.get({'experience_id': experience_id, token: token, callback: function (r) {
+                            if (r.error_no != '200') {
+                                var modal = $('#myModal');
+                                modal.find('.modal-body').text(r.error_msg);
+                                modal.modal('show');
+                                return;
+                            }
+                            set_value(r.result);
+                            $('a[name="experience-edit"]').attr('href',$('a[name="experience-edit"]').attr('href')+experience_id);
+                            $('.box-tools').removeClass('fade');
+                        }});
+                } else {
+
+                }
+                $('button[name="find"]').click(function () {
+                    var loginnames = JSON.stringify($('textarea[name="loginnames"]').val().split("\n"));
+                    USER.find({'loginnames': loginnames, token: token, callback: function (r) {
+                            if (r.error_no == '200') {
+                                table2.rows().remove().draw();
+                                for(var i in r.result.not_found) {
+                                    var row = r.result.not_found[i];
+                                    row.status = {id:2,text:'未找到'}
+                                    table2.row.add(row).draw();
+                                }
+                                for(var i in r.result.rows) {
+                                    var row = r.result.rows[i];
+                                    row.status = {id:1,text:'已找到'}
+                                    table2.row.add(row).draw();
+                                }
+                            } else {
+                                var modal = $('#myModal');
+                                modal.find('.modal-body').text(r.error_msg);
+                                modal.modal('show');
+                            }
+                        }});
+                });
+                $('button[name="send_all"]').click(function () {
+                    var rows = table2.rows().data();
+                    send_batch(experience_id,rows,0);
+                });
+                var table2 = $("#example2").DataTable({
+                    "processing": true,
+                    "paginate": false,
+                    'searching': false,
+                    "columns": [
+                        {
+                            "orderable": false,
+                            "data": function (row) {
+                                return row.loginname;
+                            }
+                        },
+                        {
+                            "orderable": false,
+                            "data": function (row) {
+                                return row.realname;
+                            }
+                        },
+                        {
+                            "orderable": false,
+                            "data": function (row) {
+                                if (row.status.id == '1') {
+                                    return '<span class="label label-success">' + row.status.text + '</span>';
+                                } else if (row.status.id == '2') {
+                                    return '<span class="label label-warning">' + row.status.text + '</span>';
+                                } else if (row.status.id == '3') {
+                                    return '<span class="label label-default">' + row.status.text + '</span>';
+                                } else {
+                                    return row.status.text;
+                                }
+                            },
+                        },
+                        {
+                            "orderable": false,
+                            "data": function (row) {
+                                return row.result || '';
+                            },
+                        },
+                        {
+                            "orderable": false,
+                            "data": function (row) {
+                                if (row.status.id == 1) {
+                                    return '<a href="javascript:;" onclick="send('+row.user_id+','+experience_id+',$(this).parent().parent())"><i class="fa fa-fw fa-send"></i>发放</a>';
+                                } else {
+                                    return '';
+                                }
+                            }
+                        }
+                    ],
+//                    "order": [[1, 'asc']]
+                });
+                //Date range picker with time picker
+                $('#reservationtime').daterangepicker({timePicker: true, timePickerIncrement: 30, format: 'MM/DD/YYYY h:mm A'});
+                $("#example1").on('preXhr.dt', function (e, setting, json, xhr) {
+                    //重写ajax 分页参数
+                    json.page = Math.floor(json.start / json.length) + 1;
+                    json.size = json.length || 10;
+                });
+                $('input[name="search[q]"]').keyup(function (e) {
+                    if (e.which == 13) {
+                        $('#experience_search').click();
+                    }
+                });
+                $('#experience_search').click(function () {
+                    $("#example1").on('preXhr.dt', function (e, setting, json, xhr) {
+                        //重写ajax 分页参数
+                        json.page = Math.floor(json.start / json.length) + 1;
+                        json.size = json.length || 10;
+                        //搜索条件
+                        json.user = $('input[name="search[q]"]').val();
+                        json.status = $('select[name="search[status]"]').val();
+                    });
+                    table.ajax.reload();
+                });
+                $("#example1").on('preXhr.dt', function (e, setting, json, xhr) {
+                        json.experience_id = experience_id;
+                    });
+                var table = $("#example1").DataTable({
+                    "processing": true,
+                    "serverSide": true,
+                    "paginate": true,
+                    'searching': false,
+                    "ajax": {
+                        'url': API_HOST + "/experience/send/lists/admin",
+                        'data': {
+                            'token': USER.get_token()
+                        },
+                        'dataSrc': function (r) {
+                            if (r.error_no !== 200) {
+                                return [];
+                            } else {
+                                //重写ajax 返回的总数等参数
+                                r.recordsTotal = r.result.total;
+                                r.recordsFiltered = r.result.total;
+                                return r.result.rows;
+                            }
+                        },
+                    },
+                    "columns": [
+                        {
+                            "orderable": false,
+                            "data": function (row) {
+                                return row.experience_user_id;
+                            }
+                        },
+                        {
+                            "orderable": false,
+                            "data": function (row) {
+                                return row.user.loginname + '(' + row.user.realname + ')';
+                            }
+                        },
+                        {
+                            "orderable": false,
+                            "data": function (row) {
+                                return row.money;
+                            }
+                        },
+                        {
+                            "orderable": false,
+                            "data": function (row) {
+                                return (row.rate / 100).toFixed(2) + '%';
+                            },
+                        },
+                        {
+                            "orderable": false,
+                            "data": function (row) {
+                                return row.profit;
+                            }
+                        },
+                        {
+                            "orderable": false,
+                            "data": function (row) {
+                                return row.profit_unget;
+                            }
+                        },
+                        {
+                            "orderable": false,
+                            "data": function (row) {
+                                if (row.status.id == '1') {
+                                    return '<span class="label label-success">' + row.status.text + '</span>';
+                                } else if (row.status.id == '2') {
+                                    return '<span class="label label-warning">' + row.status.text + '</span>';
+                                } else if (row.status.id == '3') {
+                                    return '<span class="label label-danger">' + row.status.text + '</span>';
+                                } else if (row.status.id == '4') {
+                                    return '<span class="label label-info">' + row.status.text + '</span>';
+                                } else if (row.status.id == '5') {
+                                    return '<span class="label label-danger">' + row.status.text + '</span>';
+                                } else if (row.status.id == '6') {
+                                    return '<span class="label label-default">' + row.status.text + '</span>';
+                                } else {
+                                    return row.status.text;
+                                }
+                            }
+                        },
+                        {
+                            "orderable": false,
+                            "data": function (row) {
+                                return time_to_str(parseInt(row.receive_time));
+                            }
+                        },
+                        {
+                            "orderable": false,
+                            "data": function (row) {
+                                return time_to_str(parseInt(row.expire_time));
+                            }
+                        },
+                        {
+                            "orderable": false,
+                            "data": function (row) {
+                                return row.remark;
+                            }
+                        },
+                        {
+                            "orderable": false,
+                            "data": function (row) {
+                                if (row.status.id == 6) {
+                                    return '<a href="javascript:;" onclick="user_close('+row.experience_user_id+',$(this).parent().parent())"><i class="fa fa-fw fa-hand-paper-o"></i>关闭</a>';
+                                } else if (row.status.id == 4) {
+                                    return '<a href="javascript:;" onclick="user_open('+row.experience_user_id+',$(this).parent().parent())"><i class="fa fa-fw fa-hand-peace-o"></i>启用</a>';
+                                } else {
+                                    return '';
+                                }
+                            }
+                        }
+                    ],
+//                    "order": [[1, 'asc']]
+                });
+            });
+            var send = function(user_id,experience_id,row){
+                    var table2 = $("#example2").DataTable();
+                    EXPERIENCE.send({token:USER.get_token(),experience_id:experience_id,user_id:user_id,money:$('input[name="money"]').val(),remark:$('textarea[name="remark"]').val(),callback:function(r){
+                            if (r.error_no != '200') {
+                                var data = table2.row(row).data();
+                                data.result = '<span class="text-danger">'+r.error_msg+'</span>';
+                                table2.row(row).data(data)
+                            } else {
+                                //发送成功，修改状态
+                                var data = table2.row(row).data();
+                                data.result = '<span class="text-green">成功</span>';
+                                table2.row(row).data(data)
+                                $("#example1").DataTable().ajax.reload();
+                            }
+                    }});
+                }
+            var send_batch = function (experience_id,rows,index){
+                var table2 = $("#example2").DataTable();
+                if (index > rows.length - 1) {
+                    $("#example1").DataTable().ajax.reload();
+                    var modal = $('#myModal');
+                    modal.find('.modal-body').text('操作全部完成！');
+                    modal.modal('show');
+                    return true;
+                }
+                var row = table2.row(index).data();
+                var user_id = row.user_id;
+                if (!user_id) {
+                    index = index+1;
+                    return send_batch(experience_id,rows,index);
+                }
+                EXPERIENCE.send({token:USER.get_token(),experience_id:experience_id,user_id:user_id,money:$('input[name="money"]').val(),remark:$('textarea[name="remark"]').val(),callback:function(r){
+                            if (r.error_no != '200') {
+                                var data = table2.row(index).data();
+                                data.result = '<span class="text-danger">'+r.error_msg+'</span>';
+                                table2.row(index).data(data)
+                            } else {
+                                //发送成功，修改状态
+                                var data = table2.row(index).data();
+                                data.result = '<span class="text-green">成功</span>';
+                                table2.row(index).data(data)
+                            }
+                            index = index+1;
+                            send_batch(experience_id,rows,index);
+                    }});
+            }
+            var user_close = function(experience_user_id,row){
+                var table = $("#example1").DataTable();
+                    EXPERIENCE.user_close({token:USER.get_token(),experience_user_id:experience_user_id,callback:function(r){
+                            if (r.error_no != '200') {
+                                var modal = $('#myModal');
+                                modal.find('.modal-body').text(r.error_msg);
+                                modal.modal('show');
+                            } else {
+                                //发送成功，修改状态
+                                var data = table.row(row).data();
+                                data.status = {'id':'4','text':'已关闭'};
+                                table.row(row).data(data)
+                            }
+                    }});
+            }
+            var user_open = function(experience_user_id,row){
+                var table = $("#example1").DataTable();
+                    EXPERIENCE.user_open({token:USER.get_token(),experience_user_id:experience_user_id,callback:function(r){
+                            if (r.error_no != '200') {
+                                var modal = $('#myModal');
+                                modal.find('.modal-body').text(r.error_msg);
+                                modal.modal('show');
+                            } else {
+                                //发送成功，修改状态
+                                var data = table.row(row).data();
+                                data.status = {'id':'6','text':'未激活'};
+                                table.row(row).data(data)
+                            }
+                    }});
+            }
+        </script>
+    </body>
+</html>

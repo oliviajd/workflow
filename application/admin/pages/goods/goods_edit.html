@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="import" href="/pages/common/title.html?__inline" >
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <!-- Bootstrap 3.3.6 -->
+        <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="//cdn.bootcss.com/ionicons/2.0.1/css/ionicons.min.css">
+        <!-- daterange picker -->
+        <link rel="stylesheet" href="../../plugins/datetimepicker/bootstrap-datetimepicker.min.css">
+        <!-- DataTables -->
+        <link rel="stylesheet" href="../../plugins/datatables/dataTables.bootstrap.css">
+        <!-- Theme style -->
+        <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
+        <!-- AdminLTE Skins. Choose a skin from the css/skins
+             folder instead of downloading all of them to reduce the load. -->
+        <link rel="stylesheet" href="../../dist/css/skins/_all-skins.min.css">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body class="hold-transition skin-blue sidebar-mini">
+        <div class="wrapper">
+
+            <link rel="import" href="../common/header.html?__inline" >
+            <!-- Left side column. contains the logo and sidebar -->
+            <link rel="import" href="../common/left.html?__inline" >
+
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <h1>
+                        商品编辑
+                        <small>goods edit</small>
+                    </h1>
+                    <ol class="breadcrumb">
+                        <li><a href="/index.html"><i class="fa fa-dashboard"></i> 首页</a></li>
+                        <li><a href="/pages/goods/goods_lists.html">商品管理</a></li>
+                        <li class="active">商品编辑</li>
+                    </ol>
+                </section>
+
+                <!-- Main content -->
+                <section class="content">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="box">
+                                <div class="box-header with-border">
+                                    <h3 class="box-title">商品信息</h3>
+                                    <div class="box-tools pull-right fade">
+                                        <button name="goods-delete" type="button" class="btn btn-block btn-danger">删除</button>
+                                    </div>
+                                </div>
+                                <!-- /.box-header -->
+                                <div class="box-body">
+                                    <form role="form">
+                                        <!-- text input -->
+                                        <div class="form-group">
+                                            <label>名称</label>
+                                            <input type="text" name="goods[title]" class="form-control" placeholder="商品名称">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>小标题</label>
+                                            <input type="text" name="goods[title_small]" class="form-control" placeholder="小标题">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>基本信息</label>
+                                            <div class="row">
+                                                <div class="col-lg-4">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            价格
+                                                        </span>
+                                                        <input type="text" name="goods[price]" class="form-control" placeholder="兑换商品所需的积分">
+                                                        <span class="input-group-addon">
+                                                            积分
+                                                        </span>
+                                                    </div>
+                                                    <!-- /input-group -->
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            库存
+                                                        </span>
+                                                        <input type="text" name="goods[store]" class="form-control" placeholder="商品库存数量">
+                                                        <span class="input-group-addon">
+                                                            件
+                                                        </span>
+                                                    </div>
+                                                    <!-- /input-group -->
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            市场价
+                                                        </span>
+                                                        <input type="text" name="goods[price_retail]" class="form-control" placeholder="商品在零售市场上的价格">
+                                                        <span class="input-group-addon">
+                                                            元
+                                                        </span>
+                                                    </div>
+                                                    <!-- /input-group -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>限购设置</label>
+                                            <div class="row">
+                                                <div class="col-lg-4">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            单人限购
+                                                        </span>
+                                                        <input type="text" name="goods[limit]" class="form-control" placeholder="每人最大购买数量" value="0">
+                                                        <span class="input-group-addon">0表示不限制购买数量</span>
+                                                    </div>
+                                                    <!-- /input-group -->
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            开放购买时间
+                                                        </span>
+                                                        <input type="text" name="goods[limit_on_time]" class="form-control" placeholder="空表示不限制">
+                                                    </div>
+                                                    <!-- /input-group -->
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            截止购买时间
+                                                        </span>
+                                                        <input type="text" name="goods[limit_off_time]" class="form-control" placeholder="空表示不限制">
+                                                    </div>
+                                                    <!-- /input-group -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>排序</label>
+                                            <div class="row">
+                                                <div class="col-lg-3">
+                                                    <input type="text" name="goods[is_rec]" class="form-control" placeholder="排序" value="0">
+                                                    <span class="help-block">数字越大越靠前</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>商品状态</label>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="goods[status]" id="optionsRadios1" value="1">
+                                                    已上架
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="goods[status]" id="optionsRadios2" value="2">
+                                                    已下架
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="goods[status]" id="optionsRadios3" value="3" checked="">
+                                                    未上架
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>商品类别</label>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="goods[cid]" value="1" checked="checked">
+                                                    实物
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="goods[cid]" value="3">
+                                                    红包
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="goods[cid]" value="5">
+                                                    话费充值卡
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="goods[cid]" value="6">
+                                                    积分(只能用于抽奖系统)
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="goods[cid]" value="4" disabled="">
+                                                    加息券(未开放)
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group" id="bouns_option" style="display: none;">
+                                            <label>红包设置</label>
+                                            <div class="row">
+                                                <div class="col-lg-3">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            金额
+                                                        </span>
+                                                        <input type="text" name="bouns[money]" class="form-control">
+                                                        <span class="input-group-addon">
+                                                            元
+                                                        </span>
+                                                    </div>
+                                                    <!-- /input-group -->
+                                                </div>
+                                                <div class="col-lg-3">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            有效期
+                                                        </span>
+                                                        <input type="text" name="bouns[expire]" class="form-control">
+                                                        <span class="input-group-addon">
+                                                            天
+                                                        </span>
+                                                    </div>
+                                                    <!-- /input-group -->
+                                                </div>
+                                                <div class="col-lg-3">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            红包使用渠道
+                                                        </span>
+                                                        <select name="bouns[use_channel]" class="form-control">
+                                                            <option value="all">通用</option>
+                                                            <option value="pc">PC端</option>
+                                                            <option value="app">APP端</option>
+                                                        </select>
+                                                    </div>
+                                                    <!-- /input-group -->
+                                                </div>
+                                                <div class="col-lg-3">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            红包使用限制
+                                                        </span>
+                                                        <select name="bouns[use_limit]" class="form-control">
+                                                            <option value="0">无限制</option>
+                                                            <option value="1">5天</option>
+                                                            <option value="2">10天</option>
+                                                            <option value="3">15天</option>
+                                                            <option value="4">30天</option>
+                                                        </select>
+                                                    </div>
+                                                    <!-- /input-group -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group" id="phone_option" style="display: none;">
+                                            <label>充值卡设置</label>
+                                            <div class="row">
+                                                <div class="col-lg-3">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            面值金额
+                                                        </span>
+                                                        <select name="phone[face_price]" class="form-control">
+                                                            <option value="5">5</option>
+                                                            <option value="10">10</option>
+                                                            <option value="20">20</option>
+                                                            <option value="30">30</option>
+                                                            <option value="50">50</option>
+                                                            <option value="100">100</option>
+                                                        </select>
+                                                        <span class="input-group-addon">
+                                                            元
+                                                        </span>
+                                                    </div>
+                                                    <!-- /input-group -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group" id="credit_option" style="display: none;">
+                                            <label>积分设置</label>
+                                            <div class="row">
+                                                <div class="col-lg-3">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            赠送
+                                                        </span>
+                                                        <input type="text" name="credit[num]" class="form-control">
+                                                        <span class="input-group-addon">
+                                                            积分
+                                                        </span>
+                                                    </div>
+                                                    <!-- /input-group -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group" id="goods_zone">
+                                            <label>商品所在专区</label>
+                                        </div>
+                                        <div class="form-group" id="coupon_option" style="display: none;">
+                                            <label>加息券设置</label>
+                                            无
+                                        </div>
+                                        <div class="form-group">
+                                            <label>商品缩略图（限1张）</label>
+                                            <ul id="pic_small" class="mailbox-attachments clearfix">
+                                                <li>
+                                                    <a href="javascript:;" id="promptzone_btn1"><span class="mailbox-attachment-icon"><i class="fa fa-cloud-upload"></i></span></a>
+
+                                                    <div class="mailbox-attachment-info">
+                                                        <a href="javascript:;" id="promptzone_txt1" class="mailbox-attachment-name">上传图片</a>
+                                                        <span class="mailbox-attachment-size">
+                                                            只支持jpg/png格式
+                                                        </span>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>商品缩略图（用于PC端显示，限1张）</label>
+                                            <ul id="pic_large" class="mailbox-attachments clearfix">
+                                                <li>
+                                                    <a href="javascript:;" id="promptzone_btn2"><span class="mailbox-attachment-icon"><i class="fa fa-cloud-upload"></i></span></a>
+
+                                                    <div class="mailbox-attachment-info">
+                                                        <a href="javascript:;" id="promptzone_txt2" class="mailbox-attachment-name">上传图片</a>
+                                                        <span class="mailbox-attachment-size">
+                                                            只支持jpg/png格式
+                                                        </span>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>商品图片</label>
+                                            <ul id="pic" class="mailbox-attachments clearfix">
+                                                <li>
+                                                    <a href="javascript:;" id="promptzone_btn"><span class="mailbox-attachment-icon"><i class="fa fa-cloud-upload"></i></span></a>
+
+                                                    <div class="mailbox-attachment-info">
+                                                        <a href="javascript:;" id="promptzone_txt" class="mailbox-attachment-name">上传图片</a>
+                                                        <span class="mailbox-attachment-size">
+                                                            只支持jpg/png格式
+                                                        </span>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <!-- textarea -->
+                                        <div class="form-group">
+                                            <label>商品描述</label>
+                                            <textarea id="editor1" name="goods[desc]" rows="10" cols="80"></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>兑换流程</label>
+                                            <textarea id="editor2" name="goods[desc_exchange_process]" rows="10" cols="80"></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>重要说明</label>
+                                            <textarea id="editor3" name="goods[desc_important_note]" rows="10" cols="80"></textarea>
+                                        </div>
+
+                                    </form>
+                                </div>
+                                <!-- /.box-body -->
+                                <div class="box-footer">
+                                    <button type="submit" class="btn btn-primary">保存</button>
+                                    <a class="btn btn-default" href="/pages/goods/goods_lists.html">取消</a>
+                                </div>
+                            </div>
+                            <!-- /.box -->
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+                </section>
+                <!-- /.content -->
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                            </div>
+                            <div class="modal-body">
+                                ...
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <a href="/pages/goods/goods_lists.html" class="btn btn-default">返回列表</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                            </div>
+                            <div class="modal-body">
+                                是否删除这个商品？
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success" name="goods-delete-confirm">确认</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.content-wrapper -->
+            <link rel="import" href="../common/footer.html?__inline" >
+
+            <!-- Control Sidebar -->
+            <link rel="import" href="../common/control_sidebar.html?__inline" >
+            <!-- /.control-sidebar -->
+        </div>
+        <!-- ./wrapper -->
+
+        <!-- jQuery 2.2.3 -->
+        <script src="../../plugins/jQuery/jquery-2.2.3.min.js"></script>
+        <!-- Bootstrap 3.3.6 -->
+        <script src="../../bootstrap/js/bootstrap.min.js"></script>
+        <!-- DataTables -->
+        <script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
+        <script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>
+        <!-- SlimScroll -->
+        <script src="../../plugins/slimScroll/jquery.slimscroll.min.js"></script>
+        <!-- FastClick -->
+        <script src="../../plugins/fastclick/fastclick.js"></script>
+        <!-- AdminLTE App -->
+        <script src="../../dist/js/app.min.js"></script>
+        <!-- AdminLTE for demo purposes -->
+        <script src="../../dist/js/demo.js"></script>
+        <script src="../../plugins/moment/moment.min.js"></script>
+        <script src="https://cdn.ckeditor.com/4.5.7/standard/ckeditor.js"></script>
+        <script src="../../plugins/ajaxupload/jquery.ajaxupload.js"></script>
+        <script src="../../plugins/datetimepicker/bootstrap-datetimepicker.min.js"></script>
+        <!-- page script -->
+        <script>
+            $(function () {
+                $('input[name="goods[limit_on_time]"],input[name="goods[limit_off_time]"]').datetimepicker({
+                    autoclose: true
+                });
+                var token = USER.get_token();
+                var editor1 = CKEDITOR.replace('editor1');
+                var editor2 = CKEDITOR.replace('editor2');
+                var editor3 = CKEDITOR.replace('editor3');
+                var goods = {};
+                var iid = 0;
+                var set_value = function (goods) {
+                    $('input[name="goods[title]"]').val(goods.title);
+                    $('input[name="goods[title_small]"]').val(goods.title_small);
+                    $('input[name="goods[price]"]').val(goods.price);
+                    $('input[name="goods[price_retail]"]').val(goods.price_retail);
+                    $('input[name="goods[store]"]').val(goods.store);
+                    $('input[name="goods[limit]"]').val(goods.limit);
+                    if (parseInt(goods.limit_on_time) > 0) {
+                        $('input[name="goods[limit_on_time]"]').val(time_to_str(goods.limit_on_time));
+                    }
+                    if (parseInt(goods.limit_off_time) > 0) {
+                        $('input[name="goods[limit_off_time]"]').val(time_to_str(goods.limit_off_time));
+                    }
+                    $('input[name="goods[is_rec]"]').val(goods.is_rec);
+                    $('input[name="goods[status]"]').each(function () {
+                        if ($(this).attr('value') == goods.status.id) {
+                            $(this).prop('checked', true);
+                        }
+                    });
+                    $('input[name="goods[cid]"]').each(function () {
+                        if ($(this).attr('value') == goods.category.id) {
+                            $(this).prop('checked', true);
+                        }
+                    });
+
+                    if (goods.category.id == '3') {
+                        var option = JSON.parse(goods.option || '{}');
+                        $('input[name="bouns[money]"]').val(option.money);
+                        $('input[name="bouns[expire]"]').val(option.expire);
+                        $('select[name="bouns[use_channel]"]').val(option.use_channel);
+                        $('select[name="bouns[use_limit]"]').val(option.use_limit);
+                    } else if (goods.category.id == '5') {
+                        var option = JSON.parse(goods.option || '{}');
+                        $('select[name="phone[face_price]"]').val(option.face_price);
+                    } else if (goods.category.id == '6') {
+                        var option = JSON.parse(goods.option || '{}');
+                        $('input[name="credit[num]"]').val(option.num);
+                    }
+                    for (var i in goods.pic) {
+                        add_image(goods.pic[i]);
+                    }
+                    add_small_image(goods.pic_small);
+                    add_large_image(goods.pic_large);
+                    show_option(parseInt(goods.category.id));
+                    editor1.setData(goods.desc);
+                    editor2.setData(goods.desc_other.exchange_process);
+                    editor3.setData(goods.desc_other.important_note);
+                }
+                var show_option = function (cid) {
+                    switch (cid) {
+                        case 1:
+                            $('#coupon_option').hide();
+                            $('#bouns_option').hide();
+                            $('#phone_option').hide();
+                            $('#credit_option').hide();
+                            break;
+                        case 3:
+                            $('#coupon_option').hide();
+                            $('#bouns_option').show();
+                            $('#phone_option').hide();
+                            $('#credit_option').hide();
+                            break;
+                        case 5:
+                            $('#coupon_option').hide();
+                            $('#bouns_option').hide();
+                            $('#phone_option').show();
+                            $('#credit_option').hide();
+                            break;
+                        case 6:
+                            $('#coupon_option').hide();
+                            $('#bouns_option').hide();
+                            $('#phone_option').hide();
+                            $('#credit_option').show();
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                var add_image = function (src) {
+                    var name = src.substr(src.lastIndexOf('/') + 1);
+                    var li = '<li>';
+                    li += '<span class="mailbox-attachment-icon has-img"><img src="' + INIT.SOURCE_HOST + src + '" alt="Attachment"></span>';
+                    li += '<div class="mailbox-attachment-info">';
+                    li += '<a href="javascript:;" class="mailbox-attachment-name"><i class="fa fa-camera"></i> ' + name.substr(0, 5) + '***' + name.substr(name.length - 8) + '</a>';
+                    li += '<span class="mailbox-attachment-size">';
+                    li += '**';
+                    li += '<a href="javascript:;" onclick="$(this).parents(\'li:eq(0)\').remove();" class="btn btn-default btn-xs pull-right"><i class="fa fa-remove"></i></a>';
+                    li += '</span>';
+                    li += '</div>';
+                    li += '</li>';
+                    $(li).insertBefore($('#pic li:last'));
+                }
+                var add_small_image = function (src) {
+                    if (!src) {
+                        return false;
+                    }
+                    var org = '<span class="mailbox-attachment-icon"><i class="fa fa-cloud-upload"></i></span>';
+                    $('#promptzone_btn1').html('<span class="mailbox-attachment-icon has-img"><img src="' + INIT.SOURCE_HOST + src + '" alt="Attachment"></span>');
+                }
+                var add_large_image = function (src) {
+                    if (!src) {
+                        return false;
+                    }
+                    var org = '<span class="mailbox-attachment-icon"><i class="fa fa-cloud-upload"></i></span>';
+                    $('#promptzone_btn2').html('<span class="mailbox-attachment-icon has-img"><img src="' + INIT.SOURCE_HOST + src + '" alt="Attachment"></span>');
+                }
+                var set_zone = function () {
+                    goods.zones = [];
+                    GOODS.get_zones({
+                        'token': token,
+                        'iid': iid,
+                        'callback': function (r) {
+                            if (r.error_no == '200') {
+                                for (var i in r.result.rows) {
+                                    var row = r.result.rows[i];
+                                    goods.zones.push(row.zone_id);
+                                    $('input[name="goods[zone_id]"]').each(function () {
+                                        if ($(this).attr('value') == row.zone_id) {
+                                            $(this).prop('checked', true);
+                                        }
+                                    });
+                                }
+                            } else {
+                                var modal = $('#myModal');
+                                modal.find('.modal-body').text(r.error_msg);
+                                modal.modal('show');
+                            }
+                        }
+                    });
+                }
+                var show_zone = function () {
+                    GOODS_ZONE.lists({
+                        'token': token,
+                        'callback': function (r) {
+                            if (r.error_no == '200') {
+                                if (r.result.total > 0) {
+                                    var radio = '<div class="radio"><label><input type="radio" name="goods[zone_id]" value="0" checked="checked">不设定</label></div>'
+                                    $('#goods_zone').append(radio);
+                                    for (var i in r.result.rows) {
+                                        var row = r.result.rows[i];
+                                        var status = '';
+                                        if (row.status.id == '1') {
+                                            status = '<span class="text-green">[' + row.status.text + ']</span>';
+                                        } else if (row.status.id == '2') {
+                                            status = '<span class="text-yellow">[' + row.status.text + ']</span>';
+                                        } else if (row.status.id == '3') {
+                                            status = '<span class="text-red">[' + row.status.text + ']</span>';
+                                        } else {
+                                            status = '[' + row.status.text + ']';
+                                        }
+                                        radio = '<div class="radio"><label><input type="radio" name="goods[zone_id]" value="' + row['zone_id'] + '">' + row['title'] + status +'</label></div>'
+                                        $('#goods_zone').append(radio);
+                                    }
+                                    set_zone();
+                                } else {
+                                    $('#goods_zone').append('<br/><a href="/pages/goods/goods_zone_edit.html" class="btn btn-info">添加商品专区</a>');
+                                }
+                            } else {
+                                var modal = $('#myModal');
+                                modal.find('.modal-body').text(r.error_msg);
+                                modal.modal('show');
+                            }
+                        }
+                    });
+                }
+                var update_zone = function (iid, callback) {
+                    callback = callback || function () {};
+                    var zone_ids = [];
+                    $('input[name="goods[zone_id]"]').each(function () {
+                        if ($(this).prop('checked')) {
+                            zone_ids.push($(this).val());
+                        }
+                    });
+                    GOODS.set_zones({
+                        'token': token,
+                        'iid': iid,
+                        'zone_ids': zone_ids,
+                        'callback': function (r) {
+                            if (r.error_no == '200') {
+                                callback();
+                            } else {
+                                var modal = $('#myModal');
+                                modal.find('.modal-body').text(r.error_msg);
+                                modal.modal('show');
+                            }
+                        }
+                    });
+                }
+                if (getUrlParam('iid')) {//编辑模式
+                    var iid = getUrlParam('iid');
+                    GOODS.get({'iid': iid, token: token, callback: function (r) {
+                            if (r.error_no != '200') {
+                                var modal = $('#myModal');
+                                modal.find('.modal-body').text(r.error_msg);
+                                modal.modal('show');
+                                return;
+                            }
+                            goods = r.result;
+                            set_value(goods);
+                            show_zone();
+                            $('.box-tools').removeClass('fade');
+                        }});
+                } else {
+                    show_zone();
+                }
+                $('input[name="goods[cid]"]').click(function () {
+                    show_option(parseInt($('input[name="goods[cid]"]:checked').val()));
+                });
+                $('button[type="submit"]').click(function () {
+                    var goods = {
+                        'title': $('input[name="goods[title]"]').val(),
+                        'title_small': $('input[name="goods[title_small]"]').val(),
+                        'pic': [],
+                        'pic_small': $('#pic_small').find('img').attr('src'),
+                        'pic_large': $('#pic_large').find('img').attr('src'),
+                        'cid': $('input[name="goods[cid]"]:checked').val(),
+                        'price': $('input[name="goods[price]"]').val(),
+                        'price_retail': $('input[name="goods[price_retail]"]').val(),
+                        'desc': editor1.getData(),
+                        'desc_exchange_process': editor2.getData(),
+                        'desc_important_note': editor3.getData(),
+                        'status': $('input[name="goods[status]"]:checked').val(),
+                        'store': $('input[name="goods[store]"]').val(),
+                        'option': '',
+                        'limit': $('input[name="goods[limit]"]').val(),
+                        'limit_on_time': (new Date($('input[name="goods[limit_on_time]"]').val()).getTime() || 0) / 1000,
+                        'limit_off_time': (new Date($('input[name="goods[limit_off_time]"]').val()).getTime() || 0) / 1000,
+                        'is_rec': $('input[name="goods[is_rec]"]').val(),
+                    }
+                    if (goods.cid == 3) {
+                        goods.option = JSON.stringify({
+                            'money': $('input[name="bouns[money]"]').val(),
+                            'expire': $('input[name="bouns[expire]"]').val(),
+                            'use_channel': $('select[name="bouns[use_channel]"]').val(),
+                            'use_limit': $('select[name="bouns[use_limit]"]').val(),
+                        });
+                    } else if (goods.cid == 5) {
+                        goods.option = JSON.stringify({
+                            'face_price': $('select[name="phone[face_price]"]').val(),
+                        });
+                    } else if (goods.cid == 6) {
+                        goods.option = JSON.stringify({
+                            'num': $('input[name="credit[num]"]').val(),
+                        });
+                    }
+                    $('#pic').find('img').each(function (index, obj) {
+                        goods.pic.push($(this).attr('src'));
+                    });
+                    goods.pic = goods.pic.join(',');
+                    if (!iid) {
+                        GOODS.add({'goods': goods, token: token, callback: function (r) {
+                                var modal = $('#myModal');
+                                if (r.error_no == '200') {
+                                    update_zone(r.result.iid, function () {
+                                        modal.find('.modal-body').text('操作成功！');
+                                    });
+                                } else {
+                                    modal.find('.modal-body').text(r.error_msg);
+                                }
+                                modal.modal('show');
+                            }});
+                    } else {
+                        GOODS.update({'goods': goods, token: token, 'iid': iid, callback: function (r) {
+                                var modal = $('#myModal');
+                                if (r.error_no == '200') {
+                                    update_zone(r.result.iid, function () {
+                                        modal.find('.modal-body').text('操作成功！');
+                                    });
+                                } else {
+                                    modal.find('.modal-body').text(r.error_msg);
+                                }
+                                modal.modal('show');
+                            }});
+                    }
+                });
+                //上传
+                // Set fieldname
+                $.ajaxUploadSettings.name = 'file';
+                // Set promptzone
+                $('#promptzone_btn,#promptzone_txt').ajaxUploadPrompt({
+                    url: INIT.API_HOST + '/file/upload/form',
+                    data: {
+                        'token': token,
+                        'type': 'image',
+                        'sync_to_upyun': 1
+                    },
+                    dataType: 'json',
+                    error: function () {
+                    },
+                    success: function (r) {
+                        if (r.error_no == '200') {
+                            var size = '';
+                            if (r.result.size < 1000) {
+                                size = r.result.size + 'B';
+                            } else if (r.result.size < 1000 * 1000) {
+                                size = (r.result.size / 1000).toFixed(2) + 'KB';
+                            } else {
+                                size = (r.result.size / 1000 / 1000).toFixed(2) + 'MB';
+                            }
+                            var li = '<li>';
+                            li += '<span class="mailbox-attachment-icon has-img"><img src="' + r.result.url + '" alt="Attachment"></span>';
+                            li += '<div class="mailbox-attachment-info">';
+                            li += '<a href="javascript:;" class="mailbox-attachment-name"><i class="fa fa-camera"></i> ' + r.result.fid.substr(0, 5) + '***' + r.result.fid.substr(r.result.fid.length - 5) + '.' + r.result.suffix + '</a>';
+                            li += '<span class="mailbox-attachment-size">';
+                            li += size;
+                            li += '<a href="javascript:;" onclick="$(this).parents(\'li:eq(0)\').remove();" class="btn btn-default btn-xs pull-right"><i class="fa fa-remove"></i></a>';
+                            li += '</span>';
+                            li += '</div>';
+                            li += '</li>';
+                            $(li).insertBefore($('#pic li:last'));
+                            //没有缩略图时第一张大图压缩后设为缩略图
+                            if ($('#pic_small').find('img').length < 1 || $('#pic_large').find('img').length < 1) {
+                                var pic_big = $('#pic li:first').find('img').attr('src');
+                                var filename = pic_big.substr(pic_big.lastIndexOf('/') + 1);
+                                var fid = filename.substr(filename, filename.lastIndexOf('.'));
+                                $.ajax({
+                                    url: INIT.API_HOST + '/file/image/resize',
+                                    data: {
+                                        'token': token,
+                                        'file_id': fid,
+                                    },
+                                    dataType: 'json',
+                                    success: function (r) {
+                                        if (r.error_no == '200') {
+                                            if ($('#pic_small').find('img').length < 1) {
+                                                $('#promptzone_btn1').html('<span class="mailbox-attachment-icon has-img"><img src="' + r.result.url + '" alt="Attachment"></span>');
+                                            }
+                                            if ($('#pic_large').find('img').length < 1) {
+                                                $('#promptzone_btn2').html('<span class="mailbox-attachment-icon has-img"><img src="' + r.result.url + '" alt="Attachment"></span>');
+                                            }
+                                        }
+                                    }
+                                });
+                            }
+                        } else {
+                            var modal = $('#myModal');
+                            modal.find('.modal-body').text(r.error_msg);
+                            modal.modal('show');
+                        }
+                    }
+                });
+                $('#promptzone_btn1,#promptzone_txt1').ajaxUploadPrompt({
+                    url: INIT.API_HOST + '/file/upload/form',
+                    data: {
+                        'token': token,
+                        'type': 'image',
+                        'sync_to_upyun': 1
+                    },
+                    dataType: 'json',
+                    error: function () {
+                    },
+                    success: function (r) {
+                        if (r.error_no == '200') {
+                            var org = '<span class="mailbox-attachment-icon"><i class="fa fa-cloud-upload"></i></span>';
+                            $('#promptzone_btn1').html('<span class="mailbox-attachment-icon has-img"><img src="' + r.result.url + '" alt="Attachment"></span>');
+//                            $(li).insertBefore($('#pic_small li:last'));
+//                            $('#pic_small li:last').addClass('hide');
+                        } else {
+                            var modal = $('#myModal');
+                            modal.find('.modal-body').text(r.error_msg);
+                            modal.modal('show');
+                        }
+                    }
+                });
+                $('#promptzone_btn2,#promptzone_txt2').ajaxUploadPrompt({
+                    url: INIT.API_HOST + '/file/upload/form',
+                    data: {
+                        'token': token,
+                        'type': 'image',
+                        'sync_to_upyun': 1
+                    },
+                    dataType: 'json',
+                    error: function () {
+                    },
+                    success: function (r) {
+                        if (r.error_no == '200') {
+                            var org = '<span class="mailbox-attachment-icon"><i class="fa fa-cloud-upload"></i></span>';
+                            $('#promptzone_btn2').html('<span class="mailbox-attachment-icon has-img"><img src="' + r.result.url + '" alt="Attachment"></span>');
+//                            $(li).insertBefore($('#pic_small li:last'));
+//                            $('#pic_small li:last').addClass('hide');
+                        } else {
+                            var modal = $('#myModal');
+                            modal.find('.modal-body').text(r.error_msg);
+                            modal.modal('show');
+                        }
+                    }
+                });
+                $('button[name="goods-delete"]').click(function () {
+                    var modal2 = $('#myModal2').modal('show');
+
+                });
+                $('button[name="goods-delete-confirm"]').click(function () {
+                    $('#myModal2').on('hidden.bs.modal', function (e) {
+                        GOODS.delete({
+                            'iid': iid,
+                            'token': token,
+                            'callback': function (r) {
+                                if (r.error_no == '200') {
+
+                                } else {
+                                }
+                                var modal = $('#myModal');
+                                modal.find('.modal-body').text(r.error_msg);
+                                modal.modal('show');
+                            }
+                        });
+                    })
+                    $('#myModal2').modal('hide');
+                });
+            });
+        </script>
+    </body>
+</html>

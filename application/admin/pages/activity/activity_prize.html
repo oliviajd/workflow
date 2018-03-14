@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="import" href="/pages/common/title.html?__inline" >
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <!-- Bootstrap 3.3.6 -->
+        <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="//cdn.bootcss.com/ionicons/2.0.1/css/ionicons.min.css">
+        <!-- Bootstrap Color Picker -->
+        <!--<link rel="stylesheet" href="../../plugins/colorpicker/bootstrap-colorpicker.min.css">-->
+        <!-- Theme style -->
+        <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
+        <!-- AdminLTE Skins. Choose a skin from the css/skins
+             folder instead of downloading all of them to reduce the load. -->
+        <link rel="stylesheet" href="../../dist/css/skins/_all-skins.min.css">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body class="hold-transition skin-blue sidebar-mini">
+        <div class="wrapper">
+
+            <link rel="import" href="../common/header.html?__inline" >
+            <!-- Left side column. contains the logo and sidebar -->
+            <link rel="import" href="../common/left.html?__inline" >
+
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <h1>
+                        奖品设置
+                        <small>prize configure</small>
+                    </h1>
+                    <ol class="breadcrumb">
+                        <li><a href="/index.html"><i class="fa fa-dashboard"></i> 首页</a></li>
+                        <li><a href="/pages/activity/activity_lists.html">活动管理</a></li>
+                        <li class="active">奖品设置</li>
+                    </ol>
+                </section>
+
+                <!-- Main content -->
+                <section class="content">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="box">
+                                <div class="box-header with-border">
+                                    <h3 class="box-title">奖品信息</h3>
+                                </div>
+                                <!-- /.box-header -->
+                                <div class="box-body">
+                                    <form role="form">
+                                        <!-- text input -->
+                                        <div class="form-group">
+                                            <label>名称</label>
+                                            <input type="text" name="activity[title]" class="form-control" placeholder="活动名称" disabled="disabled">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>备注</label>
+                                            <input type="text" name="activity[remark]" class="form-control" placeholder="备注" disabled="disabled">
+                                        </div>
+                                        <div class="form-group" id="prize_lists">
+                                            <label>奖品设置</label>
+                                            <div class="row hide margin-bottom" data-pid="0">
+                                                <div class="col-lg-2">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            奖品名称
+                                                        </span>
+                                                        <input type="text" name="prize[title]" class="form-control" placeholder="奖品名称">
+                                                    </div>
+                                                    <!-- /input-group -->
+                                                </div>
+                                                <div class="col-lg-2">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            概率
+                                                        </span>
+                                                        <input type="text" name="prize[rate]" class="form-control" placeholder="中奖概率">
+                                                        <span class="input-group-addon">
+                                                            %
+                                                        </span>
+                                                    </div>
+                                                    <!-- /input-group -->
+                                                </div>
+                                                <div class="col-lg-2">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            数量
+                                                        </span>
+                                                        <input type="text" name="prize[store]" class="form-control" placeholder="数量">
+                                                    </div>
+                                                    <!-- /input-group -->
+                                                </div>
+                                                <div class="col-lg-2">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            关联商品类别
+                                                        </span>
+                                                        <select name="prize[cid]" class="form-control">
+                                                            <option value="0">未选择</option>
+                                                            <option value="1">实物</option>
+                                                            <option value="3">红包</option>
+                                                            <option value="5">话费充值</option>
+                                                            <!--<option value="4">加息券</option>-->
+                                                            <option value="6">积分</option>
+                                                        </select>
+                                                    </div>
+                                                    <!-- /input-group -->
+                                                </div>
+                                                <div class="col-lg-2">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            关联商品
+                                                        </span>
+                                                        <select name="prize[iid]" class="form-control">
+                                                            <option value="0">未选择</option>
+                                                        </select>
+                                                    </div>
+                                                    <!-- /input-group -->
+                                                </div>
+                                                <div class="col-lg-1">
+                                                    <div class="input-group">
+                                                        <input type="text" name="prize[background]" class="form-control" placeholder="背景色">
+                                                    </div>
+                                                    <!-- /input-group -->
+                                                </div>
+                                                <div class="col-lg-1">
+                                                    <div class="input-group">
+                                                        <button type="button" class="btn btn-block btn-danger" name="button[remove]">删除</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-lg-1">
+                                                    <button type="button" class="btn btn-block btn-success" name="button[add]">添加奖品</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <!-- /.box-body -->
+                                <div class="box-footer">
+                                    <button type="submit" class="btn btn-primary">保存</button>
+                                    <a class="btn btn-default" href="/pages/activity/activity_lists.html">返回</a>
+                                </div>
+                            </div>
+                            <!-- /.box -->
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+                </section>
+                <!-- /.content -->
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                            </div>
+                            <div class="modal-body">
+                                ...
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <a href="/pages/activity/activity_lists.html" class="btn btn-default">返回列表</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                            </div>
+                            <div class="modal-body">
+                                是否删除这个奖品？
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success" name="activity-delete-confirm">确认</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.content-wrapper -->
+            <link rel="import" href="../common/footer.html?__inline" >
+
+            <!-- Control Sidebar -->
+            <link rel="import" href="../common/control_sidebar.html?__inline" >
+            <!-- /.control-sidebar -->
+        </div>
+        <!-- ./wrapper -->
+
+        <!-- jQuery 2.2.3 -->
+        <script src="../../plugins/jQuery/jquery-2.2.3.min.js"></script>
+        <!-- Bootstrap 3.3.6 -->
+        <script src="../../bootstrap/js/bootstrap.min.js"></script>
+        <!-- DataTables -->
+        <script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
+        <script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>
+        <!-- SlimScroll -->
+        <script src="../../plugins/slimScroll/jquery.slimscroll.min.js"></script>
+        <!-- FastClick -->
+        <script src="../../plugins/fastclick/fastclick.js"></script>
+        <!-- AdminLTE App -->
+        <script src="../../dist/js/app.min.js"></script>
+        <!-- AdminLTE for demo purposes -->
+        <script src="../../dist/js/demo.js"></script>
+        <!-- bootstrap color picker -->
+        <!--<script src="../../plugins/colorpicker/bootstrap-colorpicker.min.js"></script>-->
+        <!-- page script -->
+        <script>
+            $(function () {
+                var token = USER.get_token();
+                var prizes = {
+                    'update': {},
+                    'delete': {},
+                    'add': 0
+                };
+                var activity_id = 0;
+                var set_value = function (activity) {
+                    $('input[name="activity[title]"]').val(activity.title);
+                    $('input[name="activity[remark]"]').val(activity.remark);
+                }
+                var is_save_success = function () {
+                    var success = true;
+                    for (var i in prizes.delete) {
+                        success = false;
+                    }
+                    for (var i in prizes.update) {
+                        success = false;
+                    }
+                    if (prizes.add > 0) {
+                        success = false;
+                    }
+                    if (success == false) {
+                        return;
+                    }
+                    var modal = $('#myModal');
+                    modal.find('.modal-body').text('操作成功！');
+                    modal.modal('show');
+                }
+                var set_prize = function (prizes) {
+                    for (var i in prizes) {
+                        var prize = prizes[i];
+                        var div = $('#prize_lists div').first().clone(true);
+                        div.removeClass('hide');
+                        div.attr('data-pid', prize.pid);
+                        div.find('input[name="prize[title]"]').val(prize.title);
+                        div.find('input[name="prize[store]"]').val(prize.store);
+                        div.find('input[name="prize[rate]"]').val(prize.rate);
+                        div.find('input[name="prize[background]"]').val(prize.background);
+                        div.find('select[name="prize[cid]"]').val(prize.category.id);
+                        //先赋值iid 通过change事件触发
+                        div.find('select[name="prize[iid]"]').attr('data-iid', prize.iid);
+                        div.find('select[name="prize[cid]"]').change();
+                        $('#prize_lists').append(div);
+                    }
+                }
+                $('select[name="prize[cid]"]').change(function () {
+                    var _this = $(this);
+                    var cid = $(this).val();
+                    var zone_id = 5;
+                    var select = _this.parent().parent().next().find('select');
+                    select.children('option:gt(0)').remove();
+                    if (parseInt(cid) == 0) {
+                        return;
+                    }
+                    GOODS.lists({token: token, cid: cid, zone_id: zone_id, page: 1, size: 999, callback: function (r) {
+                            if (r.error_no == '200') {
+                                var checked_iid = select.attr('data-iid') != '' ? select.attr('data-iid') : '0'
+                                for (var i in r.result.rows) {
+                                    var row = r.result.rows[i];
+                                    select.append('<option value="' + row['iid'] + '" ' + (checked_iid == row['iid'] ? 'selected' : '') + '>' + row['title'] + '</option>');
+                                }
+                            } else {
+
+                            }
+                        }});
+                });
+//                $('input[name="prize[background]"]').colorpicker();
+                $('input[name="prize[title]"],input[name="prize[rate]"],input[name="prize[store]"],select[name="prize[cid]"],select[name="prize[iid]"]').change(function () {
+                    var div = $(this).parent().parent().parent();
+                    if (parseInt(div.attr('data-pid')) > 0) {
+                        prizes.update[parseInt(div.attr('data-pid'))] = true;
+                    }
+                });
+                $('button[name="button[remove]"]').click(function () {
+                    var div = $(this).parent().parent().parent();
+                    div.remove();
+                    if (parseInt(div.attr('data-pid')) > 0) {
+                        prizes.delete[parseInt(div.attr('data-pid'))] = true;
+                    }
+                });
+                $('button[name="button[add]"]').click(function () {
+                    var div = $('#prize_lists div').first().clone(true);
+                    div.removeClass('hide');
+                    $('#prize_lists').append(div);
+                    prizes.add = prizes.add + 1;
+                });
+                $('button[type="submit"]').click(function () {
+                    //删除旧数据
+                    for (var i in prizes.delete) {
+                        if (prizes.delete[i] = true) {
+                            PRIZE.delete({pid: i, token: token, callback: function (r, option) {
+                                    if (r.error_no != '200') {
+                                        var modal = $('#myModal');
+                                        modal.find('.modal-body').text(r.error_msg);
+                                        modal.modal('show');
+                                    } else {
+                                        delete prizes.delete[option.pid];
+                                        delete prizes.update[option.pid];
+                                        is_save_success();
+                                    }
+                                }});
+                        }
+                    }
+                    //添加新数据，修改旧数据
+                    $('#prize_lists div:gt(0)').each(function () {
+                        var _this = $(this);
+                        var modal = $('#myModal');
+                        modal.find('.modal-body').text('请稍后...');
+                        modal.modal('show');
+                        var pid = parseInt($(this).attr('data-pid'));
+                        if (prizes.update.hasOwnProperty(pid)) {
+                            PRIZE.update({
+                                pid: pid,
+                                prize: {
+                                    title: _this.find('input[name="prize[title]"]').val(),
+                                    rate: _this.find('input[name="prize[rate]"]').val(),
+                                    store: _this.find('input[name="prize[store]"]').val(),
+                                    cid: _this.find('select[name="prize[cid]"]').val(),
+                                    iid: _this.find('select[name="prize[iid]"]').val(),
+                                    activity_id: activity_id,
+                                    background: _this.find('input[name="prize[background]"]').val(),
+                                },
+                                token: token,
+                                callback: function (r) {
+                                    if (r.error_no != '200') {
+                                        var modal = $('#myModal');
+                                        modal.find('.modal-body').text(r.error_msg);
+                                        modal.modal('show');
+                                    } else {
+                                        delete prizes.update[parseInt(r.result.pid)];
+                                        is_save_success();
+                                    }
+                                }});
+                        } else if (pid == 0) {
+                            PRIZE.add({
+                                prize: {
+                                    title: _this.find('input[name="prize[title]"]').val(),
+                                    rate: _this.find('input[name="prize[rate]"]').val(),
+                                    store: _this.find('input[name="prize[store]"]').val(),
+                                    cid: _this.find('select[name="prize[cid]"]').val(),
+                                    iid: _this.find('select[name="prize[iid]"]').val(),
+                                    activity_id: activity_id,
+                                    background: _this.find('input[name="prize[background]"]').val(),
+                                },
+                                token: token, callback: function (r) {
+                                    if (r.error_no != '200') {
+                                        var modal = $('#myModal');
+                                        modal.find('.modal-body').text(r.error_msg);
+                                        modal.modal('show');
+                                    } else {
+                                        prizes.add = prizes.add - 1;
+                                        is_save_success();
+                                    }
+                                }});
+                        }
+                    });
+                });
+                if (getUrlParam('id')) {//编辑模式
+                    var activity_id = getUrlParam('id');
+                    ACTIVITY.get({'activity_id': activity_id, token: token, callback: function (r) {
+                            if (r.error_no != '200') {
+                                var modal = $('#myModal');
+                                modal.find('.modal-body').text(r.error_msg);
+                                modal.modal('show');
+                                return;
+                            }
+                            set_value(r.result);
+                            $('.box-tools').removeClass('fade');
+                            PRIZE.lists({activity_id: activity_id, callback: function (r) {
+                                    if (r.error_no == '200') {
+                                        set_prize(r.result.rows);
+                                    } else {
+                                        var modal = $('#myModal');
+                                        modal.find('.modal-body').text(r.error_msg);
+                                        modal.modal('show');
+                                    }
+                                }});
+                        }});
+                } else {
+
+                }
+            });
+        </script>
+    </body>
+</html>

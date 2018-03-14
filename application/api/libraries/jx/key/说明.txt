@@ -1,0 +1,11 @@
+SIT测试需要的p2p公私钥：
+
+yb_sit.crt       
+
+yb_sit.p12
+
+
+私钥密码为
+yibao_sit
+SIT测试需要的服务端的公钥：
+fdep.crt

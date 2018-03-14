@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="import" href="/pages/common/title.html?__inline" >
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <!-- Bootstrap 3.3.6 -->
+        <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="//cdn.bootcss.com/ionicons/2.0.1/css/ionicons.min.css">
+        <!-- daterange picker -->
+        <link rel="stylesheet" href="../../plugins/daterangepicker/daterangepicker.css">
+        <!-- bootstrap datepicker -->
+        <link rel="stylesheet" href="../../plugins/datepicker/datepicker3.css">
+        <!-- DataTables -->
+        <link rel="stylesheet" href="../../plugins/datatables/dataTables.bootstrap.css">
+        <!-- Theme style -->
+        <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
+        <!-- AdminLTE Skins. Choose a skin from the css/skins
+             folder instead of downloading all of them to reduce the load. -->
+        <link rel="stylesheet" href="../../dist/css/skins/_all-skins.min.css">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body class="hold-transition skin-blue sidebar-mini">
+        <div class="wrapper">
+
+            <link rel="import" href="../common/header.html?__inline" >
+            <!-- Left side column. contains the logo and sidebar -->
+            <link rel="import" href="../common/left.html?__inline" >
+
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <h1>
+                        用户反馈
+                        <small>advanced tables</small>
+                    </h1>
+                    <ol class="breadcrumb">
+                        <li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>
+                        <li><a href="#">用户反馈</a></li>
+                        <li class="active">反馈列表</li>
+                    </ol>
+                </section>
+
+                <!-- Main content -->
+                <section class="content">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="box">
+                                <div class="box-header">
+                                    <h3 class="box-title">反馈列表</h3>
+                                    <div class="box-tools pull-right">
+                                        <!--<a class="btn btn-box-tool" href="/pages/goods/goods_edit.html">添加订单+</a>-->
+                                    </div>
+                                </div>
+                                <!-- /.box-header -->
+                                <div class="box-body">
+                                    <div class="row margin-bottom">
+                                        <div class="col-xs-2">
+                                            <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <i class="fa fa-clock-o"></i>
+                                                </div>
+                                                <input type="text" class="form-control pull-right" id="reservationtime" disabled="disabled" placeholder="时间范围">
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-2">
+                                            <div class="input-group">
+                                                <input type="text" name="search[id]" class="form-control" placeholder="ID">
+                                                <span class="input-group-btn">
+                                                    <button type="button" id="goods_search" class="btn btn-info btn-flat">搜索</button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <table id="example1" class="table table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>内容</th>
+                                                <th>联系方式</th>
+                                                <th>提交日期</th>
+                                                <th>操作</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tfoot>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>内容</th>
+                                                <th>联系方式</th>
+                                                <th>提交日期</th>
+                                                <th>操作</th>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                                <!-- /.box-body -->
+                            </div>
+                            <!-- /.box -->
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+                </section>
+                <!-- /.content -->
+            </div>
+            <!-- /.content-wrapper -->
+            <link rel="import" href="../common/footer.html?__inline" >
+
+            <!-- Control Sidebar -->
+            <link rel="import" href="../common/control_sidebar.html?__inline" >
+            <!-- /.control-sidebar -->
+        </div>
+        <!-- ./wrapper -->
+
+        <!-- jQuery 2.2.3 -->
+        <script src="../../plugins/jQuery/jquery-2.2.3.min.js"></script>
+        <!-- Bootstrap 3.3.6 -->
+        <script src="../../bootstrap/js/bootstrap.min.js"></script>
+        <!-- DataTables -->
+        <script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
+        <script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>
+        <!-- SlimScroll -->
+        <script src="../../plugins/slimScroll/jquery.slimscroll.min.js"></script>
+        <!-- FastClick -->
+        <script src="../../plugins/fastclick/fastclick.js"></script>
+        <!-- AdminLTE App -->
+        <script src="../../dist/js/app.min.js"></script>
+        <!-- AdminLTE for demo purposes -->
+        <script src="../../dist/js/demo.js"></script>
+        <script src="../../plugins/moment/moment.min.js"></script>
+        <script src="../../plugins/daterangepicker/daterangepicker.js"></script>
+        <!-- bootstrap datepicker -->
+        <!--<script src="../../plugins/datepicker/bootstrap-datepicker.js"></script>-->
+        <!-- page script -->
+        <script>
+            $(function () {
+                //Date range picker with time picker
+                $('#reservationtime').daterangepicker({timePicker: true, timePickerIncrement: 30, format: 'MM/DD/YYYY h:mm A'});
+                $("#example1").on('preXhr.dt', function (e, setting, json, xhr) {
+                    //重写ajax 分页参数
+                    json.page = Math.floor(json.start / json.length) + 1;
+                    json.size = json.length || 10;
+                });
+                $('#goods_search').click(function () {
+                    $("#example1").on('preXhr.dt', function (e, setting, json, xhr) {
+                        //重写ajax 分页参数
+                        json.page = Math.floor(json.start / json.length) + 1;
+                        json.size = json.length || 10;
+                        //搜索条件
+                        json.id = $('input[name="search[id]"]').val();
+                        json.status = $('select[name="search[status]"]').val();
+                        json.pay_status = $('select[name="search[pay_status]"]').val();
+                        json.type = $('select[name="search[type]"]').val();
+                        json.shipping_status = $('select[name="search[shipping_status]"]').val();
+                    });
+                    table.ajax.reload();
+                });
+                var table = $("#example1").DataTable({
+                    "processing": true,
+                    "serverSide": true,
+                    "paginate": true,
+                    'searching': false,
+                    "ajax": {
+                        'url': API_HOST + "/feedback/lists",
+                        'data': {
+                        },
+                        'dataSrc': function (r) {
+                            if (r.error_no !== 200) {
+                                return [];
+                            } else {
+                                //重写ajax 返回的总数等参数
+                                r.recordsTotal = r.result.total;
+                                r.recordsFiltered = r.result.total;
+                                return r.result.rows;
+                            }
+                        },
+                    },
+                    "columns": [
+                        {
+                            "orderable": false,
+                            "data": function (row) {
+                                return row.id;
+                            }
+                        },
+                        {
+                            "orderable": false,
+                            "data": function (row) {
+                                return row.content;
+                            }
+                        },
+                        {
+                            "orderable": false,
+                            "data": function (row) {
+                                return row.contact;
+                            }
+                        },
+                        {
+                            "orderable": false,
+                            "data": function (row) {
+                                return time_to_str(parseInt(row.create_time));
+                            }
+                        },
+                        {
+                            "orderable": false,
+                            "data": function (row) {
+                                return '<a href="/pages/feedback/feedback_detail.html?id=' + row.id + '"><i class="fa fa-fw fa-edit"></i>详情</a>';
+                            }
+                        }
+                    ],
+//                    "order": [[1, 'asc']]
+                });
+            });
+        </script>
+    </body>
+</html>

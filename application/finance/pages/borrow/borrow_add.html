@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="import" href="/pages/common/title.html?__inline" >
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <!-- Bootstrap 3.3.6 -->
+        <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="//cdn.bootcss.com/ionicons/2.0.1/css/ionicons.min.css">
+        <!-- daterange picker -->
+        <link rel="stylesheet" href="../../plugins/datetimepicker/bootstrap-datetimepicker.min.css">
+        <!-- DataTables -->
+        <link rel="stylesheet" href="../../plugins/datatables/dataTables.bootstrap.css">
+        <!-- Theme style -->
+        <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
+        <!-- AdminLTE Skins. Choose a skin from the css/skins
+             folder instead of downloading all of them to reduce the load. -->
+        <link rel="stylesheet" href="../../dist/css/skins/_all-skins.min.css">
+        <!-- iCheck for checkboxes and radio inputs -->
+        <link rel="stylesheet" href="../../plugins/iCheck/all.css">
+        <!-- bootstrap wysihtml5 - text editor -->
+        <link rel="stylesheet" href="../../plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+        <link rel="stylesheet" href="../../plugins/imgviewer/viewer.min.css">
+        <link rel="import" href="../common/template_upload_css.html?__inline" >
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body class="hold-transition skin-blue sidebar-mini">
+        <div class="wrapper">
+
+            <link rel="import" href="../common/header.html?__inline" >
+            <!-- Left side column. contains the logo and sidebar -->
+            <link rel="import" href="../common/left.html?__inline" >
+
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <h1>
+                        提交融资单
+                        <small>new bill</small>
+                    </h1>
+                    <ol class="breadcrumb">
+                        <li><a href="/index.html"><i class="fa fa-dashboard"></i> 首页</a></li>
+                        <li><a href="/pages/bill/bill_lists.html">融资记录</a></li>
+                        <li class="active">我要融资</li>
+                    </ol>
+                </section>
+
+                <!-- Main content -->
+                <section class="content">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="box">
+                                <div class="box-header with-border">
+                                    <h3 class="box-title">信息</h3>
+                                </div>
+                                <!-- /.box-header -->
+                                <div class="box-body">
+                                    <!-- text input -->
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                融资金额
+                                            </span>
+                                            <input type="text" name="bill[money]" class="form-control" placeholder="需为100的倍数">
+                                            <span class="input-group-addon">
+                                                元
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                客户姓名
+                                            </span>
+                                            <input type="text" name="bill[name]" class="form-control" placeholder="客户姓名">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                身份证号码
+                                            </span>
+                                            <input type="text" name="bill[id_card]" class="form-control" placeholder="身份证号码">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon">
+                                                        车辆信息
+                                                    </span>
+                                                    <input type="text" name="bill[car]" class="form-control" placeholder="车辆信息">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="btn-group" id="car_type">
+                                                    <button type="button" class="btn btn-default" data-tid="1">新车</button>
+                                                    <button type="button" class="btn btn-default" data-tid="2">二手车</button>
+                                                    <input type="hidden" name="bill[car_type]" class="form-control" />
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                经销商
+                                            </span>
+                                            <!--<input type="text" name="bill[company]" class="form-control" placeholder="经销商名称" disabled="disabled">-->
+                                            <select name="bill[finance_account_sub_id]" class="form-control">
+                                                <option value="0">请选择...</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                垫付按揭款
+                                            </span>
+                                            <input type="text" name="bill[advance]" class="form-control" placeholder="垫付按揭款">
+                                            <span class="input-group-addon">
+                                                元
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                打款时间
+                                            </span>
+                                            <input type="text" name="bill[paid_time]" class="form-control" placeholder="打款时间">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>电子银行回单</label>
+                                        <form id="payment_certificate" action="//jquery-file-upload.appspot.com/" method="POST" enctype="multipart/form-data">
+                                            <!-- The table listing the files available for upload/download -->
+                                            <table role="presentation" class="table table-striped"><tbody class="files"></tbody></table>
+                                            <!-- Redirect browsers with JavaScript disabled to the origin page -->
+                                            <noscript><input type="hidden" name="redirect" value="https://blueimp.github.io/jQuery-File-Upload/"></noscript>
+                                            <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
+                                            <div class="row fileupload-buttonbar">
+                                                <div class="col-lg-3">
+                                                    <!-- The fileinput-button span is used to style the file input field as button -->
+                                                    <span class="btn btn-success fileinput-button">
+                                                        <i class="glyphicon glyphicon-plus"></i>
+                                                        <span>添加...</span>
+                                                        <input type="file" name="file" multiple accept="image/gif,image/jpg,image/jpeg,image/png">
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>用户资料（压缩包）</label>
+                                        <form id="attach" action="//jquery-file-upload.appspot.com/" method="POST" enctype="multipart/form-data">
+                                            <!-- The table listing the files available for upload/download -->
+                                            <table role="presentation" class="table table-striped"><tbody class="files"></tbody></table>
+                                            <!-- Redirect browsers with JavaScript disabled to the origin page -->
+                                            <noscript><input type="hidden" name="redirect" value="https://blueimp.github.io/jQuery-File-Upload/"></noscript>
+                                            <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
+                                            <div class="row fileupload-buttonbar">
+                                                <div class="col-lg-3">
+                                                    <!-- The fileinput-button span is used to style the file input field as button -->
+                                                    <span class="btn btn-success fileinput-button">
+                                                        <i class="glyphicon glyphicon-plus"></i>
+                                                        <span>添加...</span>
+                                                        <input type="file" name="file">
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>资料完整情况说明：</label>
+                                        <textarea class="form-control" name="bill[user_remark]" rows="3" placeholder="Enter ..."></textarea>
+                                    </div>
+                                </div>
+                                <!-- /.box-body -->
+                                <div class="box-footer">
+                                    <button type="submit" class="btn btn-primary">保存</button>
+                                    <a class="btn btn-default" href="/pages/bill/bill_lists.html">取消</a>
+                                </div>
+                            </div>
+                            <!-- /.box -->
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+                </section>
+                <!-- /.content -->
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                            </div>
+                            <div class="modal-body">
+                                ...
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <a href="/pages/borrow/borrow_lists.html" class="btn btn-default">返回列表</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.content-wrapper -->
+            <link rel="import" href="../common/footer.html?__inline" >
+
+            <!-- Control Sidebar -->
+            <link rel="import" href="../common/control_sidebar.html?__inline" >
+            <!-- /.control-sidebar -->
+        </div>
+        <!-- ./wrapper -->
+        <link rel="import" href="../common/template_upload.html?__inline" >
+        <!-- jQuery 2.2.3 -->
+        <script src="../../plugins/jQuery/jquery-2.2.3.min.js"></script>
+        <!-- Bootstrap 3.3.6 -->
+        <script src="../../bootstrap/js/bootstrap.min.js"></script>
+        <!-- DataTables -->
+        <script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
+        <script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>
+        <!-- SlimScroll -->
+        <script src="../../plugins/slimScroll/jquery.slimscroll.min.js"></script>
+        <!-- FastClick -->
+        <script src="../../plugins/fastclick/fastclick.js"></script>
+        <!-- AdminLTE App -->
+        <script src="../../dist/js/app.min.js"></script>
+        <!-- AdminLTE for demo purposes -->
+        <script src="../../dist/js/demo.js"></script>
+        <!-- iCheck 1.0.1 -->
+        <script src="../../plugins/iCheck/icheck.min.js"></script>
+        <script src="/plugins/moment/moment.min.js"></script>
+        <script src="../../plugins/datepicker/bootstrap-datepicker.js"></script>
+        <!-- Bootstrap WYSIHTML5 -->
+        <script src="../../plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+        <!-- page script -->
+        <script src="../../plugins/ajaxupload/jquery.ajaxupload.js"></script>
+        <script src="../../plugins/imgviewer/viewer.min.js"></script>
+        <link rel="import" href="../common/template_upload_js.html?__inline" >
+        <script>
+            $(function () {
+                $('input[name="bill[paid_time]"]').datepicker({
+                    format: 'yyyy-mm-dd',
+                    autoclose: true
+                });
+                var token = USER.get_token();
+                FINANCE_ACCOUNT_SUB.lists({
+                        token: token, callback: function (r) {
+                            if (r.error_no != '200') {
+                                var modal = $('#myModal');
+                                modal.find('.modal-body').text(r.error_msg);
+                                modal.modal('show');
+                            } else {
+                                for (var i in r.result.rows) {
+                                    var row = r.result.rows[i];
+                                    $('select[name="bill[finance_account_sub_id]"]').append("<option value='" + row.finance_account_sub_id + "'>" + row.company + ' ' + row.name + ' ' + row.bank + ' ' + row.bank_card + "</option>");
+                                }
+                            }
+                        }
+                    });
+                $('button[type="submit"]').click(function () {
+                    if (parseInt($('input[name="bill[money]"]').val()) < parseInt($('input[name="bill[advance]"]').val())) {
+                        var modal = $('#myModal');
+                        modal.find('.modal-body').text('垫付金额不能大于融资金额！');
+                        modal.modal('show');
+                        return false;
+                    }
+                    var bill = {
+                        'money': $('input[name="bill[money]"]').val().replace(/(^\s*)|(\s*$)/g, "") ? parseInt($('input[name="bill[money]"]').val()) * 100 : '',
+                        'name': $('input[name="bill[name]"]').val(),
+                        'id_card': $('input[name="bill[id_card]"]').val(),
+                        'car': $('input[name="bill[car]"]').val(),
+                        'car_type': $('input[name="bill[car_type]"]').val(),
+                        'advance': $('input[name="bill[advance]"]').val().replace(/(^\s*)|(\s*$)/g, "") ? $('input[name="bill[advance]"]').val().replace(/(^\s*)|(\s*$)/g, "") : '',
+                        'paid_time': (new Date($('input[name="bill[paid_time]"]').val()).getTime() || 0) / 1000,
+                        'payment_certificate': $('#payment_certificate').find('.name>a').attr('href'),
+                        'attach': $('#attach').find('.name>a').attr('href'),
+                        'user_remark': $('textarea[name="bill[user_remark]"]').val(),
+                        'finance_account_sub_id':$('select[name="bill[finance_account_sub_id]"]').val(),
+                    }
+                    FINANCE_BILL.add({'bill': bill, token: token, callback: function (r) {
+                            var modal = $('#myModal');
+                            if (r.error_no == '200') {
+                                modal.find('.modal-body').text('操作成功！');
+                            } else {
+                                modal.find('.modal-body').text(r.error_msg);
+                            }
+                            modal.modal('show');
+                        }});
+                });
+                $('#car_type button').click(function () {
+                    $('#car_type button').removeClass('btn-info');
+                    $('#car_type button').removeClass('btn-default');
+                    $('#car_type button').addClass('btn-default');
+                    $(this).removeClass('btn-default');
+                    $(this).addClass('btn-info');
+                    $('input[name="bill[car_type]"]').val($(this).attr('data-tid'));
+                });
+                $('#payment_certificate').fileupload({
+                    // Uncomment the following to send cross-domain cookies:
+                    //xhrFields: {withCredentials: true},
+                    url: INIT.API_HOST + '/file/upload/form/',
+                    formData:[{'name':'token','value':token},{'name':'type','value':'image'},{'name':'sync_to_upyun','value':1}],
+                    autoUpload:true,
+                    getFilesFromResponse:function(r){
+                        if (r.result.error_no == 200) {
+                            var file = r.result.result;
+                            file.name = file.fid + '.' + file.suffix;
+                            file.type = 'image/' + file.suffix;
+                            file.thumbnailUrl = file.thumbnailUrl ? file.thumbnailUrl : file.url;
+                            file.size = parseInt(file.size);
+                            return [file];
+                        } else {
+                            return [];
+                        }
+                    }
+                })
+                $('#attach').fileupload({
+                    // Uncomment the following to send cross-domain cookies:
+                    //xhrFields: {withCredentials: true},
+                    url: INIT.API_HOST + '/file/upload/form/',
+                    formData:[{'name':'token','value':token},{'name':'type','value':'zip'}],
+                    autoUpload:true,
+                    getFilesFromResponse:function(r){
+                        if (r.result.error_no == 200) {
+                            var file = r.result.result;
+                            file.name = file.fid + '.' + file.suffix;
+                            file.type = 'application/' + file.suffix;
+                            file.thumbnailUrl = '../../dist/img/rar.png';
+                            file.size = parseInt(file.size);
+                            return [file];
+                        } else {
+                            return array();
+                        }
+                    }
+                });
+            });
+            function view(obj) {
+                var v = new Viewer(obj, {
+                    navbar: false,
+                    title: false,
+                    toolbar: false
+                });
+                v.show();
+            }
+        </script>
+    </body>
+</html>

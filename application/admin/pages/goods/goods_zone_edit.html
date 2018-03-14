@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="import" href="/pages/common/title.html?__inline" >
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <!-- Bootstrap 3.3.6 -->
+        <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="//cdn.bootcss.com/ionicons/2.0.1/css/ionicons.min.css">
+        <!-- daterange picker -->
+        <link rel="stylesheet" href="/plugins/datetimepicker/bootstrap-datetimepicker.min.css">
+        <!-- DataTables -->
+        <link rel="stylesheet" href="/plugins/datatables/dataTables.bootstrap.css">
+        <!-- Theme style -->
+        <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
+        <!-- AdminLTE Skins. Choose a skin from the css/skins
+             folder instead of downloading all of them to reduce the load. -->
+        <link rel="stylesheet" href="../../dist/css/skins/_all-skins.min.css">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body class="hold-transition skin-blue sidebar-mini">
+        <div class="wrapper">
+
+            <link rel="import" href="../common/header.html?__inline" >
+            <!-- Left side column. contains the logo and sidebar -->
+            <link rel="import" href="../common/left.html?__inline" >
+
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <h1>
+                        商品专区信息
+                        <small>goods zone informaition</small>
+                    </h1>
+                    <ol class="breadcrumb">
+                        <li><a href="/index.html"><i class="fa fa-dashboard"></i> 首页</a></li>
+                        <li><a href="/pages/goods/goods_zone_lists.html">商品专区管理</a></li>
+                        <li class="active">商品专区信息</li>
+                    </ol>
+                </section>
+
+                <!-- Main content -->
+                <section class="content">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="box">
+                                <div class="box-header with-border">
+                                    <h3 class="box-title">商品专区信息</h3>
+                                    <div class="box-tools pull-right fade">
+                                        <button name="goods_zone-delete" type="button" class="btn btn-block btn-danger">删除</button>
+                                    </div>
+                                </div>
+                                <!-- /.box-header -->
+                                <div class="box-body">
+                                    <form role="form">
+                                        <!-- text input -->
+                                        <div class="form-group">
+                                            <label>名称</label>
+                                            <input type="text" name="goods_zone[title]" class="form-control" placeholder="商品专区名称">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>排序</label>
+                                            <input type="text" name="goods_zone[is_rec]" class="form-control" placeholder="排序" value="0">
+                                            <span class="help-block">数字越大越靠前</span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>状态</label>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="goods_zone[status]" id="optionsRadios1" value="1">
+                                                    开放
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="goods_zone[status]" id="optionsRadios2" value="2">
+                                                    关闭
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="goods_zone[status]" id="optionsRadios2" value="3">
+                                                    隐藏
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <!-- textarea -->
+                                        <div class="form-group">
+                                            <label>描述</label>
+                                            <textarea class="form-control" name="goods_zone[desc]" rows="10" cols="80"></textarea>
+                                        </div>
+
+                                    </form>
+                                </div>
+                                <!-- /.box-body -->
+                                <div class="box-footer">
+                                    <button type="submit" class="btn btn-primary">保存</button>
+                                    <a class="btn btn-default" href="/pages/goods/goods_zone_lists.html">取消</a>
+                                </div>
+                            </div>
+                            <!-- /.box -->
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+                </section>
+                <!-- /.content -->
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                            </div>
+                            <div class="modal-body">
+                                ...
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <a href="/pages/goods/goods_zone_lists.html" class="btn btn-default">返回列表</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                            </div>
+                            <div class="modal-body">
+                                是否删除这个商品专区？
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success" name="goods_zone-delete-confirm">确认</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.content-wrapper -->
+            <link rel="import" href="../common/footer.html?__inline" >
+
+            <!-- Control Sidebar -->
+            <link rel="import" href="../common/control_sidebar.html?__inline" >
+            <!-- /.control-sidebar -->
+        </div>
+        <!-- ./wrapper -->
+
+        <!-- jQuery 2.2.3 -->
+        <script src="../../plugins/jQuery/jquery-2.2.3.min.js"></script>
+        <!-- Bootstrap 3.3.6 -->
+        <script src="../../bootstrap/js/bootstrap.min.js"></script>
+        <!-- DataTables -->
+        <script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
+        <script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>
+        <!-- SlimScroll -->
+        <script src="../../plugins/slimScroll/jquery.slimscroll.min.js"></script>
+        <!-- FastClick -->
+        <script src="../../plugins/fastclick/fastclick.js"></script>
+        <!-- AdminLTE App -->
+        <script src="../../dist/js/app.min.js"></script>
+        <!-- AdminLTE for demo purposes -->
+        <script src="../../dist/js/demo.js"></script>
+        <script src="/plugins/moment/moment.min.js"></script>
+        <!-- page script -->
+        <script>
+            $(function () {
+                var token = USER.get_token();
+                var goods_zone = {};
+                var zone_id = 0;
+                var set_value = function (goods_zone) {
+                    $('input[name="goods_zone[title]"]').val(goods_zone.title);
+                    $('input[name="goods_zone[is_rec]"]').val(goods_zone.is_rec);
+                    $('input[name="goods_zone[status]"]').each(function () {
+                        if ($(this).attr('value') == goods_zone.status.id) {
+                            $(this).prop('checked', true);
+                        }
+                    });
+                    $('textarea[name="goods_zone[desc]"]').val(goods_zone.desc);
+                }
+                if (getUrlParam('zone_id')) {//编辑模式
+                    var zone_id = getUrlParam('zone_id');
+                    GOODS_ZONE.get({'zone_id': zone_id, token: token, callback: function (r) {
+                            if (r.error_no != '200') {
+                                var modal = $('#myModal');
+                                modal.find('.modal-body').text(r.error_msg);
+                                modal.modal('show');
+                                return;
+                            }
+                            goods_zone = r.result;
+                            set_value(goods_zone);
+                            $('.box-tools').removeClass('fade');
+                        }});
+                }
+                $('button[type="submit"]').click(function () {
+                    var goods_zone = {
+                        'title': $('input[name="goods_zone[title]"]').val(),
+                        'desc': $('textarea[name="goods_zone[desc]"]').val(),
+                        'status': $('input[name="goods_zone[status]"]:checked').val(),
+                        'is_rec': $('input[name="goods_zone[is_rec]"]').val(),
+                    }
+                    if (!zone_id) {
+                        GOODS_ZONE.add({'goods_zone': goods_zone, token: token, callback: function (r) {
+                                var modal = $('#myModal');
+                                if (r.error_no == '200') {
+                                    modal.find('.modal-body').text('操作成功！');
+                                } else {
+                                    modal.find('.modal-body').text(r.error_msg);
+                                }
+                                modal.modal('show');
+                            }});
+                    } else {
+                        GOODS_ZONE.update({'goods_zone': goods_zone, token: token, 'zone_id': zone_id, callback: function (r) {
+                                var modal = $('#myModal');
+                                if (r.error_no == '200') {
+                                    modal.find('.modal-body').text('操作成功！');
+                                } else {
+                                    modal.find('.modal-body').text(r.error_msg);
+                                }
+                                modal.modal('show');
+                            }});
+                    }
+                });
+                
+                $('button[name="goods_zone-delete"]').click(function () {
+                    var modal2 = $('#myModal2').modal('show');
+
+                });
+                $('button[name="goods_zone-delete-confirm"]').click(function () {
+                    $('#myModal2').on('hidden.bs.modal', function (e) {
+                        GOODS_ZONE.delete({
+                            'zone_id': zone_id,
+                            'token': token,
+                            'callback': function (r) {
+                                if (r.error_no == '200') {
+
+                                } else {
+                                }
+                                var modal = $('#myModal');
+                                modal.find('.modal-body').text(r.error_msg);
+                                modal.modal('show');
+                            }
+                        });
+                    })
+                    $('#myModal2').modal('hide');
+                });
+            });
+        </script>
+    </body>
+</html>

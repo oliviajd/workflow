@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>AdminLTE 2 | Data Tables</title>
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <!-- Bootstrap 3.3.6 -->
+        <link rel="stylesheet" href="/bootstrap/css/bootstrap.min_30630cd.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="//cdn.bootcss.com/ionicons/2.0.1/css/ionicons.min.css">
+        <link rel="stylesheet" href="/plugins/datetimepicker/bootstrap-datetimepicker.min_2f0baee.css">
+        <!-- DataTables -->
+        <link rel="stylesheet" href="/plugins/datatables/dataTables.bootstrap_49765a3.css">
+        <!-- Theme style -->
+        <link rel="stylesheet" href="/dist/css/AdminLTE.min_07613ed.css">
+        <!-- AdminLTE Skins. Choose a skin from the css/skins
+             folder instead of downloading all of them to reduce the load. -->
+        <link rel="stylesheet" href="/dist/css/skins/_all-skins.min_913ee60.css">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body class="hold-transition skin-blue sidebar-mini">
+        <div class="wrapper">
+
+            <header class="main-header">
+    <!-- Logo -->
+    <a href="/index.html" class="logo">
+        <!-- mini logo for sidebar mini 50x50 pixels -->
+        <span class="logo-mini"><b>IF</b>car</span>
+        <!-- logo for regular state and mobile devices -->
+        <span class="logo-lg"><b>IF</b>car</span>
+    </a>
+    <!-- Header Navbar: style can be found in header.less -->
+    <nav class="navbar navbar-static-top">
+        <!-- Sidebar toggle button-->
+        <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+            <span class="sr-only">Toggle navigation</span>
+        </a>
+
+        <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+                <!-- Messages: style can be found in dropdown.less-->
+                <li class="dropdown messages-menu">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-envelope-o"></i>
+                        <!--<span class="label label-success">0</span>-->
+                    </a>
+<!--                    <ul class="dropdown-menu">
+                        <li class="header">You have 4 messages</li>
+                        <li>
+                             inner menu: contains the actual data 
+                            <ul class="menu">
+                                <li> start message 
+                                    <a href="#">
+                                        <div class="pull-left">
+                                            <img src="/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                        </div>
+                                        <h4>
+                                            Support Team
+                                            <small><i class="fa fa-clock-o"></i> 5 mins</small>
+                                        </h4>
+                                        <p>Why not buy a new awesome theme?</p>
+                                    </a>
+                                </li>
+                                 end message 
+                                <li>
+                                    <a href="#">
+                                        <div class="pull-left">
+                                            <img src="/dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
+                                        </div>
+                                        <h4>
+                                            AdminLTE Design Team
+                                            <small><i class="fa fa-clock-o"></i> 2 hours</small>
+                                        </h4>
+                                        <p>Why not buy a new awesome theme?</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="pull-left">
+                                            <img src="/dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
+                                        </div>
+                                        <h4>
+                                            Developers
+                                            <small><i class="fa fa-clock-o"></i> Today</small>
+                                        </h4>
+                                        <p>Why not buy a new awesome theme?</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="pull-left">
+                                            <img src="/dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
+                                        </div>
+                                        <h4>
+                                            Sales Department
+                                            <small><i class="fa fa-clock-o"></i> Yesterday</small>
+                                        </h4>
+                                        <p>Why not buy a new awesome theme?</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="pull-left">
+                                            <img src="/dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
+                                        </div>
+                                        <h4>
+                                            Reviewers
+                                            <small><i class="fa fa-clock-o"></i> 2 days</small>
+                                        </h4>
+                                        <p>Why not buy a new awesome theme?</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="footer"><a href="#">See All Messages</a></li>
+                    </ul>-->
+                </li>
+                <!-- User Account: style can be found in dropdown.less -->
+                <li class="dropdown user user-menu">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <img src="/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                        <span class="hidden-xs">Alexander Pierce</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <!-- User image -->
+                        <li class="user-header">
+                            <img src="/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+
+                            <p>
+                                Alexander Pierce - Web Developer
+                                <small>Member since Nov. 2012</small>
+                            </p>
+                        </li>
+                        <!-- Menu Footer-->
+                        <li class="user-footer">
+                            <div class="pull-right">
+                                <a href="javascript:;" onclick="USER.clear() && (window.location.href='/login.html')" class="btn btn-default btn-flat">Sign out</a>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+            <!-- Left side column. contains the logo and sidebar -->
+            <aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+        <!-- Sidebar user panel -->
+        <div class="user-panel">
+            <div class="pull-left image">
+                <img src="/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+            </div>
+            <div class="pull-left info">
+                <p id="user_nick">管理员01</p>
+                <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+            </div>
+        </div>
+        <!-- search form -->
+        <form action="#" method="get" class="sidebar-form">
+            <div class="input-group">
+                <input type="text" name="q" class="form-control" placeholder="Search...">
+                <span class="input-group-btn">
+                    <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                    </button>
+                </span>
+            </div>
+        </form>
+        <!-- /.search form -->
+        <!-- sidebar menu: : style can be found in sidebar.less -->
+        <ul class="sidebar-menu">
+            <li class="header">主菜单</li>
+            <li data-mid="310" class="treeview hide">
+                <a href="#">
+                    <i class="fa fa-user"></i> <span>资金管理</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="/pages/account/account_log.html"><i class="fa fa-circle-o"></i> 资金记录</a></li>
+                    <li><a href="/pages/account/account.html"><i class="fa fa-circle-o"></i>账户列表</a></li>
+                    <li><a href="/pages/account/account_details_query.html"><i class="fa fa-circle-o"></i>交易明细实时查询</a></li>
+                    <li><a href="/pages/account/balance_query.html"><i class="fa fa-circle-o"></i>余额实时查询</a></li>
+                    <li><a href="/pages/account/bid_apply_query.html"><i class="fa fa-circle-o"></i>投标申请实时查询</a></li>
+                    <li><a href="/pages/account/debt_details_query.html"><i class="fa fa-circle-o"></i>标的信息查询</a></li>
+                    <li><a href="/pages/account/credit_details_query.html"><i class="fa fa-circle-o"></i>债权明细查询</a></li>
+                </ul>
+            </li>
+            <li data-mid="43" class="treeview hide">
+                <a href="#">
+                    <i class="fa fa-user"></i> <span>积分管理</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="/pages/credit/user.html"><i class="fa fa-circle-o"></i> 用户积分</a></li>
+                    <li><a href="/pages/credit/history.html"><i class="fa fa-circle-o"></i> 积分记录</a></li>
+                </ul>
+            </li>
+            <li data-mid="16" class="treeview hide">
+                <a href="#">
+                    <i class="fa fa-yen"></i> <span>订单管理</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="/pages/order/order_lists.html"><i class="fa fa-circle-o"></i> 全部订单</a></li>
+                </ul>
+            </li>
+            <li data-mid="125" class="treeview hide">
+                <a href="#">
+                    <i class="fa fa-won"></i> <span>抽奖管理</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="/pages/activity/activity_lists.html"><i class="fa fa-circle-o"></i> 活动管理</a></li>
+                    <li><a href="/pages/activity/winner_lists.html"><i class="fa fa-circle-o"></i> 中奖记录</a></li>
+                </ul>
+            </li>
+            <li data-mid="15" class="treeview hide">
+                <a href="#">
+                    <i class="fa fa-balance-scale"></i> <span>商品管理</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="/pages/goods/goods_lists.html"><i class="fa fa-circle-o"></i> 全部商品</a></li>
+                    <li><a href="/pages/goods/goods_zone_lists.html"><i class="fa fa-circle-o"></i> 商品专区</a></li>
+                    <li><a href="/pages/goods/goods_stats.html"><i class="fa fa-circle-o"></i> 商品统计</a></li>
+                </ul>
+            </li>
+            <li data-mid="341" class="treeview hide">
+                <a href="#">
+                    <i class="fa fa-balance-scale"></i> <span>消息管理</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="/pages/message/message_lists.html"><i class="fa fa-circle-o"></i> 站内信</a></li>
+                </ul>
+            </li>
+            <li data-mid="321" class="treeview hide">
+                <a href="#">
+                    <i class="fa fa-balance-scale"></i> <span>广告管理</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="/pages/banner/banner_lists.html"><i class="fa fa-circle-o"></i> 横幅广告</a></li>
+                </ul>
+            </li>
+            <li data-mid="18" class="treeview hide">
+                <a href="#">
+                    <i class="fa fa-credit-card"></i> <span>卡券管理</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="/pages/coupon/coupon_lists.html"><i class="fa fa-circle-o"></i> 加息券</a></li>
+                    <li><a href="/pages/bouns/bouns_lists.html"><i class="fa fa-circle-o"></i> 红包</a></li>
+                </ul>
+            </li>
+            <li data-mid="184" class="treeview hide">
+                <a href="#">
+                    <i class="fa fa-dollar"></i> <span>体验金</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="/pages/experience/experience_lists.html"><i class="fa fa-circle-o"></i> 体验金</a></li>
+                    <li><a href="/pages/experience/experience_send_lists.html"><i class="fa fa-circle-o"></i> 发放记录</a></li>
+                    <li><a href="/pages/experience/experience_transfer_lists.html"><i class="fa fa-circle-o"></i> 收益流水</a></li>
+                </ul>
+            </li>
+            <li data-mid="229" class="treeview hide">
+                <a href="/pages/risk/risk_lists.html">
+                    <i class="fa fa-cc-discover"></i> <span>风控管理</span>
+                    <span class="pull-right-container">
+                        <!--<i class="fa fa-angle-left pull-right"></i>-->
+                    </span>
+                </a>
+            </li>
+            <li data-mid="163" class="treeview hide">
+                <a href="#">
+                    <i class="fa fa-cc-discover"></i> <span>标的管理</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="/pages/borrow/borrow_lists.html"><i class="fa fa-circle-o"></i> 已发标的</a></li>
+                    <li><a href="/pages/borrow/borrow_bill_lists.html"><i class="fa fa-circle-o"></i> 待发标的</a></li>
+                </ul>
+            </li>
+            <li data-mid="288" class="treeview hide">
+                <a href="#">
+                    <i class="fa fa-bar-chart"></i> <span>统计信息</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="/pages/stats/risk.html"><i class="fa fa-circle-o"></i> 风控审核统计</a></li>
+                </ul>
+            </li>
+            <li data-mid="180" class="treeview hide">
+                <a href="#">
+                    <i class="fa fa-cc-discover"></i> <span>提现管理</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="/pages/cash/cash_lists.html"><i class="fa fa-circle-o"></i> 提现列表</a></li>
+                </ul>
+                <ul class="treeview-menu">
+                    <li><a href="/pages/cash/cash_control.html"><i class="fa fa-circle-o"></i> 提现开关</a></li>
+                </ul>
+            </li>
+            <li data-mid="215" class="treeview hide">
+                <a href="#">
+                    <i class="fa fa-cc-discover"></i> <span>打款还款</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="/pages/borrow/bill_pay_lists.html"><i class="fa fa-circle-o"></i> 打款确认</a></li>
+                    <li><a href="/pages/borrow/bill_repay_lists.html"><i class="fa fa-circle-o"></i> 还款确认</a></li>
+                </ul>
+            </li>
+            <li data-mid="206" class="treeview hide">
+                <a href="#">
+                    <i class="fa fa-user-plus"></i> <span>客户经理</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="/pages/manager/manager_lists_2.html"><i class="fa fa-line-chart"></i> 月汇总</a></li>
+                </ul>
+                <ul class="treeview-menu">
+                    <li><a href="/pages/manager/no_tender_user_lists.html"><i class="fa fa-line-chart"></i> 未投资用户列表</a></li>
+                </ul>
+            </li>
+            <li data-mid="161" class="treeview hide">
+                <a href="#">
+                    <i class="fa fa-cc-discover"></i> <span>对账管理</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="/pages/balance/balance_error.html"><i class="fa fa-circle-o"></i> 异常报警</a></li>
+                    <li><a href="/pages/balance/balance_account.html"><i class="fa fa-circle-o"></i> 账户对账</a></li>
+                    <li><a href="/pages/balance/balance_borrow.html"><i class="fa fa-circle-o"></i> 标的对账</a></li>
+                    <li><a href="/pages/balance/balance_log.html"><i class="fa fa-circle-o"></i> 流水对账</a></li>
+                </ul>
+            </li>
+            <li data-mid="204" class="treeview hide">
+                <a href="#">
+                    <i class="fa fa-wrench"></i> <span>权限管理</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="/pages/role/role_user_lists.html"><i class="fa fa-circle-o"></i> 用户角色</a></li>
+                    <li><a href="/pages/role/role_lists.html"><i class="fa fa-circle-o"></i> 角色设置</a></li>
+                </ul>
+            </li>
+            <li data-mid="265" class="treeview hide">
+                <a href="/pages/feedback/feedback_lists.html">
+                    <i class="fa fa-cc-discover"></i> <span>用户反馈</span>
+                    <span class="pull-right-container">
+                        <!--<i class="fa fa-angle-left pull-right"></i>-->
+                    </span>
+                </a>
+            </li>
+            <li data-mid="271" class="treeview hide">
+                <a href="#">
+                    <i class="fa fa-wrench"></i> <span>银行卡管理</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="/pages/userbank/userbank_modify_log_lists.html"><i class="fa fa-circle-o"></i> 修改银行卡列表</a></li>
+                </ul>
+            </li>
+            <li data-mid="100" class="treeview hide">
+                <a href="#">
+                    <i class="fa fa-wrench"></i> <span>脚本管理</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="/pages/script/script_lists.html"><i class="fa fa-circle-o"></i> 运行状态</a></li>
+                    <li><a href="/pages/script/script_log.html"><i class="fa fa-circle-o"></i> 运行日志</a></li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+    <!-- /.sidebar -->
+</aside>
+
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <h1>
+                        客户经理 月汇总
+                        <small>manager monthly statictis</small>
+                    </h1>
+                    <ol class="breadcrumb">
+                        <li><a href="/"><i class="fa fa-dashboard"></i> 首页</a></li>
+                        <li><a href="#">客户经理</a></li>
+                        <li class="active">月汇总</li>
+                    </ol>
+                </section>
+
+                <!-- Main content -->
+                <section class="content">
+                    <div class="box">
+                        <!-- /.box-header -->
+                        <div class="box-header">
+                            <h3 class="box-title">客户经理月汇总</h3>
+                            <div class="box-tools pull-right">
+                                <!--<a class="btn btn-box-tool" href="javascript:;" onclick="exports_owner()">导出&nbsp;<i class="fa  fa-download"></i></a>-->
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <div class="row margin-bottom">
+                                <div class="col-xs-3">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </div>
+                                        <input type="text" class="form-control" name="owner_search[date]" data-mask placeholder="年月">
+                                    </div>
+                                </div>
+                                <div class="col-xs-9">
+                                    <div class="input-group">
+                                        <input type="text" name="owner_search[q]" class="form-control" placeholder="客户经理的编号/姓名">
+                                        <span class="input-group-btn">
+                                            <button type="button" id="owner_search" class="btn btn-info btn-flat">搜索</button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <table id="example3" class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>编号</th>
+                                        <th>经理</th>
+                                        <th>月度实际投资总额</th>
+                                        <th>日均的月合计</th>
+                                        <th>月份</th>
+                                        <th>操作</th>
+                                    </tr>
+                                </thead>
+
+                                <tfoot>
+                                    <tr>
+                                        <th>编号</th>
+                                        <th>经理</th>
+                                        <th>月度实际投资总额</th>
+                                        <th>日均的月合计</th>
+                                        <th>月份</th>
+                                        <th>操作</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                        <!-- /.box-body -->
+                        <div class="box-footer">
+                            <span class="margin">实际投资合计：<i id="mo_sum">0</i></span>
+                            <span class="margin">日均合计：<i id="mo_sum_achievement">0</i></span>
+                        </div>
+                        <!-- /.box-footer -->
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="box">
+                                <!-- /.box-header -->
+                                <div class="box-header">
+                                    <h3 class="box-title">每月详情</h3>
+                                    <div class="box-tools pull-right">
+                                        <a class="btn btn-box-tool" href="javascript:;" onclick="exports()">导出&nbsp;<i class="fa  fa-download"></i></a>
+                                    </div>
+                                </div>
+                                <div class="box-body">
+                                    <div class="row margin-bottom">
+                                        <div class="col-xs-3">
+                                            <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <i class="fa fa-calendar"></i>
+                                                </div>
+                                                <input type="text" class="form-control" name="search[date]" data-mask placeholder="年月">
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <div class="input-group">
+                                                <input type="text" name="search[user]" class="form-control" placeholder="用户名">
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <div class="input-group">
+                                                <input type="text" name="search[q]" class="form-control" placeholder="客户经理">
+                                                <span class="input-group-btn">
+                                                    <button type="button" id="search" class="btn btn-info btn-flat">搜索</button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <table id="example1" class="table table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>用户名</th>
+                                                <th>姓名</th>
+                                                <th>经理</th>
+                                                <th>月度实际投资总额</th>
+                                                <th>日均的月合计</th>
+                                                <th>月份</th>
+                                                <th>操作</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tfoot>
+                                            <tr>
+                                                <th>用户名</th>
+                                                <th>姓名</th>
+                                                <th>经理</th>
+                                                <th>月度实际投资总额</th>
+                                                <th>日均的月合计</th>
+                                                <th>月份</th>
+                                                <th>操作</th>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                                <!-- /.box-body -->
+                                <div class="box-footer">
+                                    <span class="margin">实际投资合计：<i id="m_sum">0</i></span>
+                                    <span class="margin">日均合计：<i id="m_sum_achievement">0</i></span>
+                                </div>
+                                <!-- /.box-footer -->
+                            </div>
+                            <!-- /.box -->
+                        </div>
+                        <div class="col-md-6">
+                            <div class="box">
+                                <div class="box-header">
+                                    <h3 class="box-title">明细</h3>
+                                    <div class="box-tools pull-right">
+                                        <a class="btn btn-box-tool" href="javascript:;" onclick="export_logs()">导出&nbsp;<i class="fa  fa-download"></i></a>
+                                    </div>
+                                </div>
+                                <!-- /.box-header -->
+                                <div class="box-body">
+                                    <div class="row margin-bottom">
+                                        <div class="col-xs-6">
+                                            <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    标的编号>=
+                                                </div>
+                                                <input type="text" class="form-control" name="log_search[borrow_min]" placeholder="">
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    标的编号<=
+                                                </div>
+                                                <input type="text" class="form-control" name="log_search[borrow_max]" placeholder="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row margin-bottom">
+                                        <div class="col-xs-3">
+                                            <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <i class="fa fa-calendar"></i>
+                                                </div>
+                                                <input type="text" class="form-control" name="log_search[date]" data-mask placeholder="年月">
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-9">
+                                            <div class="input-group">
+                                                <span class="input-group-addon">
+                                                    客户经理
+                                                </span>
+                                                <input type="text" name="log_search[q]" class="form-control" placeholder="客户经理">
+                                                <span class="input-group-btn">
+                                                    <button type="button" id="log_search" class="btn btn-info btn-flat">搜索</button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <table id="example2" class="table table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>用户名</th>
+                                                <th>姓名</th>
+                                                <th>经理</th>
+                                                <th>投资金额</th>
+                                                <th>借款标题</th>
+                                                <th>天数</th>
+                                                <th>日均</th>
+                                                <th>投资日期</th>
+                                                <th>月份</th>
+                                                <th>本月合计</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tfoot>
+                                            <tr>
+                                                <th>用户名</th>
+                                                <th>姓名</th>
+                                                <th>经理</th>
+                                                <th>投资金额</th>
+                                                <th>借款标题</th>
+                                                <th>天数</th>
+                                                <th>日均</th>
+                                                <th>投资日期</th>
+                                                <th>月份</th>
+                                                <th>本月合计</th>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                                <!-- /.box-body -->
+                                <div class="box-footer">
+                                    <span class="margin">实际投资合计：<i id="ml_sum">0</i></span>
+                                    <span class="margin">日均合计：<i id="ml_sum_achievement">0</i></span>
+                                </div>
+                                <!-- /.box-footer -->
+                            </div>
+                            <!-- /.box -->
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+                </section>
+                <!-- /.content -->
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                            </div>
+                            <div class="modal-body">
+                                ...
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.content-wrapper -->
+            <footer class="main-footer">
+    <div class="pull-right hidden-xs">
+        <b>Version</b> 2.3.6
+    </div>
+    <strong>Copyright &copy; 2014-2016 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights
+    reserved.
+</footer>
+
+            <!-- Control Sidebar -->
+            
+            <!-- /.control-sidebar -->
+        </div>
+        <!-- ./wrapper -->
+
+        <!-- jQuery 2.2.3 -->
+        <script src="/plugins/jQuery/jquery-2.2.3.min_33cabfa.js"></script>
+        <!-- Bootstrap 3.3.6 -->
+        <script src="/bootstrap/js/bootstrap.min_c5b5b2f.js"></script>
+        <!-- DataTables -->
+        <script src="/plugins/datatables/jquery.dataTables.min_280ff6a.js"></script>
+        <script src="/plugins/datatables/dataTables.bootstrap.min_eb35838.js"></script>
+        <!-- SlimScroll -->
+        <script src="/plugins/slimScroll/jquery.slimscroll.min_f1dbc79.js"></script>
+        <!-- FastClick -->
+        <script src="/plugins/fastclick/fastclick_6e9d3b0.js"></script>
+        <!-- AdminLTE App -->
+        <script src="/dist/js/app.min_add5b3f.js"></script>
+        <!-- AdminLTE for demo purposes -->
+        <script src="/dist/js/demo_ce1e8c9.js"></script>
+        <script src="/plugins/input-mask/jquery.inputmask_bef28c0.js"></script>
+        <script src="/plugins/input-mask/jquery.inputmask.date.extensions_4cc7408.js"></script>
+        <script src="/plugins/input-mask/jquery.inputmask.extensions_ac7972c.js"></script>
+        <script>
+            $(function () {
+                $("[data-mask]").inputmask({mask: 'ym'});
+                $("#example1").on('preXhr.dt', function (e, setting, json, xhr) {
+                    //重写ajax 分页参数
+                    json.page = Math.floor(json.start / json.length) + 1;
+                    json.size = json.length;
+                });
+                var table1 = $("#example1").DataTable({
+                    "processing": true,
+                    "serverSide": true,
+                    "paginate": true,
+                    "searching": false,
+                    "ajax": {
+                        'url': INIT.API_HOST + "/stats/manager/monthly",
+                        'data': {
+                            'token': USER.get_token(),
+                        },
+                        'dataSrc': function (r) {
+                            if (r.error_no !== 200) {
+                                return [];
+                            } else {
+                                //重写ajax 返回的总数等参数
+                                r.recordsTotal = r.result.total;
+                                r.recordsFiltered = r.result.total;
+                                $('#m_sum').text(r.result.sum);
+                                $('#m_sum_achievement').text(r.result.sum_achievement);
+                                return r.result.rows;
+                            }
+                        },
+                    },
+                    "columns": [
+                        {
+                            "orderable": false,
+                            "data": function (row) {
+                                return typeof row.user == 'object' ? row.user.mobile : '非法数据，请联系技术人员';
+                            }
+                        },
+                        {
+                            "orderable": false,
+                            "data": function (row) {
+                                return typeof row.user == 'object' ? row.user.realname : '非法数据，请联系技术人员';
+                            }
+                        },
+                        {
+                            "orderable": false,
+                            "data": function (row) {
+                                return row.manager.realname + '(' + row.manager.user_id + ')';
+                            },
+                        },
+                        {
+                            "orderable": false,
+                            "data": function (row) {
+                                return row.avg;
+                            }
+                        },
+                        {
+                            "orderable": false,
+                            "data": function (row) {
+                                return row.avg_achievement;
+                            }
+                        },
+                        {
+                            "orderable": false,
+                            "data": function (row) {
+                                return row.ym;
+                            }
+                        },
+                        {
+                            "orderable": false,
+                            "data": function (row) {
+                                return '<a href="javascript:;" onclick="load_logs(' + row.manager.user_id + ',\'' + row.ym + '\')">详情</a>';
+                            }
+                        }
+                    ],
+//                    "order": [[1, 'asc']]
+                });
+                $("#example2").on('preXhr.dt', function (e, setting, json, xhr) {
+                    //重写ajax 分页参数
+                    json.page = Math.floor(json.start / json.length) + 1;
+                    json.size = json.length;
+                });
+                var table = $("#example2").DataTable({
+                    "processing": true,
+                    "serverSide": true,
+                    "paginate": true,
+                    "searching": false,
+                    "ajax": {
+                        'url': INIT.API_HOST + "/stats/manager/monthly/logs/",
+                        'data': {
+                            'token': USER.get_token(),
+                        },
+                        'dataSrc': function (r) {
+                            if (r.error_no !== 200) {
+                                return [];
+                            } else {
+                                //重写ajax 返回的总数等参数
+                                r.recordsTotal = r.result.total;
+                                r.recordsFiltered = r.result.total;
+                                $('#ml_sum').text(r.result.sum);
+                                $('#ml_sum_achievement').text(r.result.sum_achievement);
+                                return r.result.rows;
+                            }
+                        },
+                    },
+                    "columns": [
+                        {
+                            "orderable": false,
+                            "data": function (row) {
+                                return typeof row.user == 'object' ? row.user.mobile : '非法数据，请联系技术人员';
+                            }
+                        },
+                        {
+                            "orderable": false,
+                            "data": function (row) {
+                                return typeof row.user == 'object' ? row.user.realname : '非法数据，请联系技术人员';
+                            }
+                        },
+                        {
+                            "orderable": false,
+                            "data": function (row) {
+                                return row.manager.realname + '(' + row.manager.user_id + ')';
+                            },
+                        },
+                        {
+                            "orderable": false,
+                            "data": function (row) {
+                                return row.amount;
+                            }
+                        },
+                        {
+                            "orderable": false,
+                            "data": function (row) {
+                                return row.borrow_title;
+                            }
+                        },
+                        {
+                            "orderable": false,
+                            "data": function (row) {
+                                return row.days;
+                            }
+                        },
+                        {
+                            "orderable": false,
+                            "data": function (row) {
+                                return row.avg;
+                            }
+                        },
+                        {
+                            "orderable": false,
+                            "data": function (row) {
+                                return row.invest_time;
+                            }
+                        },
+                        {
+                            "orderable": false,
+                            "data": function (row) {
+                                return row.ym;
+                            }
+                        },
+                        {
+                            "orderable": false,
+                            "data": function (row) {
+                                return row.avg_achievement;
+                            }
+                        }
+                    ],
+//                    "order": [[1, 'asc']]
+                });
+                $("#example3").on('preXhr.dt', function (e, setting, json, xhr) {
+                    //重写ajax 分页参数
+                    json.page = Math.floor(json.start / json.length) + 1;
+                    json.size = json.length;
+                });
+                var table3 = $("#example3").DataTable({
+                    "processing": true,
+                    "serverSide": true,
+                    "paginate": true,
+                    "searching": false,
+                    "ajax": {
+                        'url': INIT.API_HOST + "/stats/manager/owner/monthly",
+                        'data': {
+                            'token': USER.get_token(),
+                        },
+                        'dataSrc': function (r) {
+                            if (r.error_no !== 200) {
+                                return [];
+                            } else {
+                                //重写ajax 返回的总数等参数
+                                r.recordsTotal = r.result.total;
+                                r.recordsFiltered = r.result.total;
+                                $('#mo_sum').text(r.result.sum);
+                                $('#mo_sum_achievement').text(r.result.sum_achievement);
+                                return r.result.rows;
+                            }
+                        },
+                    },
+                    "columns": [
+                        {
+                            "orderable": false,
+                            "data": function (row) {
+                                return row.manager.user_id;
+                            }
+                        },
+                        {
+                            "orderable": false,
+                            "data": function (row) {
+                                return row.manager.realname;
+                            },
+                        },
+                        {
+                            "orderable": false,
+                            "data": function (row) {
+                                return row.avg;
+                            }
+                        },
+                        {
+                            "orderable": false,
+                            "data": function (row) {
+                                return row.avg_achievement;
+                            }
+                        },
+                        {
+                            "orderable": false,
+                            "data": function (row) {
+                                return row.ym;
+                            }
+                        },
+                        {
+                            "orderable": false,
+                            "data": function (row) {
+                                return '<a href="javascript:;" onclick="load_manager(' + row.manager.user_id + ',\'' + row.ym + '\')">详情</a>';
+                            }
+                        }
+                    ],
+//                    "order": [[1, 'asc']]
+                });
+                $('#log_search').click(function () {
+                    $("#example2").on('preXhr.dt', function (e, setting, json, xhr) {
+                        //重写ajax 分页参数
+                        json.page = Math.floor(json.start / json.length) + 1;
+                        json.size = json.length || 10;
+                        //搜索条件
+                        json.ym = $('input[name="log_search[date]"]').val();
+                        json.manager_user_id = $('input[name="log_search[q]"]').val();
+                        json.borrow_max = $('input[name="log_search[borrow_max]"]').val();
+                        json.borrow_min = $('input[name="log_search[borrow_min]"]').val();
+                    });
+                    table.ajax.reload();
+                });
+                $('#search').click(function () {
+                    $("#example1").on('preXhr.dt', function (e, setting, json, xhr) {
+                        //重写ajax 分页参数
+                        json.page = Math.floor(json.start / json.length) + 1;
+                        json.size = json.length || 10;
+                        //搜索条件
+                        json.ym = $('input[name="search[date]"]').val();
+                        json.manager_user_id = $('input[name="search[q]"]').val();
+                        json.user = $('input[name="search[user]"]').val();
+                    });
+                    table1.ajax.reload();
+                });
+                $('#owner_search').click(function () {
+                    $("#example3").on('preXhr.dt', function (e, setting, json, xhr) {
+                        //重写ajax 分页参数
+                        json.page = Math.floor(json.start / json.length) + 1;
+                        json.size = json.length || 10;
+                        //搜索条件
+                        json.ym = $('input[name="owner_search[date]"]').val();
+                        json.manager_user_id = $('input[name="owner_search[q]"]').val();
+                    });
+                    table3.ajax.reload();
+                });
+                $('input[name="log_search[q]"],input[name="log_search[date]"]').keyup(function (e) {
+                    if (e.which == 13) {
+                        $('#log_search').click();
+                    }
+                });
+                $('input[name="search[q]"],input[name="search[date]"],input[name="search[user]"]').keyup(function (e) {
+                    if (e.which == 13) {
+                        $('#search').click();
+                    }
+                });
+                $('input[name="owner_search[q]"],input[name="owner_search[date]"]').keyup(function (e) {
+                    if (e.which == 13) {
+                        $('#owner_search').click();
+                    }
+                });
+            });
+            var downloading = false;
+            function load_logs(manager_user_id, date) {
+                $('input[name="log_search[date]"]').val(date);
+                $('input[name="log_search[q]"]').val(manager_user_id)
+                $('#log_search').click();
+            }
+            function load_manager(manager_user_id, date) {
+                $('input[name="search[date]"]').val(date);
+                $('input[name="search[q]"]').val(manager_user_id)
+                $('#search').click();
+            }
+            function exports() {
+                var modal = $('#myModal');
+                if ($.trim($('input[name="search[date]"]').val()) == '' && $.trim($('input[name="search[q]"]').val()) == '' && $.trim($('input[name="search[user]"]').val()) == '') {
+                    modal.find('.modal-body').text('请至少填写月份或用户名或客户经理中的一项');
+                    modal.modal('show');
+                    return;
+                } else {
+                    modal.find('.modal-body').text('正在创建文件，请稍候...');
+                    modal.modal('show');
+                }
+                if (downloading) {
+                    return false;
+                } else {
+                    downloading = true;
+                }
+                var download_name = $.trim($('input[name="search[date]"]').val()) + '_' + $.trim($('input[name="search[user]"]').val()) + '_' + $.trim($('input[name="search[q]"]').val()) + '_' + '客户经理月投资汇总';
+//                var w = window.open();
+                STATS.manager_monthly_export({
+                    'token': USER.get_token(),
+                    'ym': $('input[name="search[date]"]').val(),
+                    'manager_user_id': $('input[name="search[q]"]').val(),
+                    'user': $('input[name="search[user]"]').val(),
+                    size: 0,
+                    callback: function (r) {
+                        downloading = false;
+                        if (r.error_no == '200') {
+//                            w.location = API_HOST + '/file/download?token=' + USER.get_token()+'&file_id=' + r.result.fid + '&download_name=' + (download_name+'.'+r.result.suffix);
+//                            w.close();
+                            //FILE.download({token:USER.get_token(),file_id:r.result.fid,download_name:download_name+'.'+r.result.suffix})
+                            modal.find('.modal-body').html('<a class="btn btn-box-tool" href="' + API_HOST + '/file/download?token=' + USER.get_token() + '&file_id=' + r.result.fid + '&download_name=' + (download_name + '.' + r.result.suffix) + '" target="_blank">' + download_name + '.' + r.result.suffix + '&nbsp;<i class="fa  fa-download"></i></a>');
+                        } else {
+                            modal.find('.modal-body').text(r.error_msg);
+                            modal.modal('show');
+                        }
+                    }
+                });
+            }
+            function export_logs() {
+                var modal = $('#myModal');
+                if ($.trim($('input[name="log_search[date]"]').val()) == '' && $.trim($('input[name="log_search[q]"]').val()) == '') {
+                    modal.find('.modal-body').text('请至少填写月份或客户经理中的一项');
+                    modal.modal('show');
+                    return;
+                } else {
+                    modal.find('.modal-body').text('正在创建文件，请稍候...');
+                    modal.modal('show');
+                }
+                if (downloading) {
+                    return false;
+                } else {
+                    downloading = true;
+                }
+                var download_name = $.trim($('input[name="log_search[date]"]').val()) + '_' + $.trim($('input[name="log_search[q]"]').val()) + '_' + '客户经理月投资汇总';
+//                var w = window.open();
+                STATS.manager_monthly_logs_export({
+                    'token': USER.get_token(),
+                    'ym': $('input[name="log_search[date]"]').val(),
+                    'manager_user_id': $('input[name="log_search[q]"]').val(),
+                    'borrow_max' : $('input[name="log_search[borrow_max]"]').val(),
+                    'borrow_min' : $('input[name="log_search[borrow_min]"]').val(),
+                    size: 0,
+                    callback: function (r) {
+                        downloading = false;
+                        if (r.error_no == '200') {
+//                            w.location = API_HOST + '/file/download?token=' + USER.get_token()+'&file_id=' + r.result.fid + '&download_name=' + (download_name+'.'+r.result.suffix);
+//                            w.close();
+                            //FILE.download({token:USER.get_token(),file_id:r.result.fid,download_name:download_name+'.'+r.result.suffix})
+                            modal.find('.modal-body').html('<a class="btn btn-box-tool" href="' + API_HOST + '/file/download?token=' + USER.get_token() + '&file_id=' + r.result.fid + '&download_name=' + (download_name + '.' + r.result.suffix) + '" target="_blank">' + download_name + '.' + r.result.suffix + '&nbsp;<i class="fa  fa-download"></i></a>');
+                        } else {
+                            modal.find('.modal-body').text(r.error_msg);
+                            modal.modal('show');
+                        }
+                    }
+                });
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="import" href="/pages/common/title.html?__inline" >
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <!-- Bootstrap 3.3.6 -->
+        <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="//cdn.bootcss.com/ionicons/2.0.1/css/ionicons.min.css">
+        <!-- daterange picker -->
+        <link rel="stylesheet" href="../../plugins/datepicker/datepicker3.css">
+        <!-- DataTables -->
+        <link rel="stylesheet" href="../../plugins/datatables/dataTables.bootstrap.css">
+        <!-- Theme style -->
+        <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
+        <!-- AdminLTE Skins. Choose a skin from the css/skins
+             folder instead of downloading all of them to reduce the load. -->
+        <link rel="stylesheet" href="../../dist/css/skins/_all-skins.min.css">
+        <link rel="stylesheet" href="../../plugins/imgviewer/viewer.min.css">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body class="hold-transition skin-blue sidebar-mini">
+        <div class="wrapper">
+
+            <link rel="import" href="../common/header.html?__inline" >
+            <!-- Left side column. contains the logo and sidebar -->
+            <link rel="import" href="../common/left.html?__inline" >
+
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <h1>
+                        融资单详情
+                        <small>borrow detail</small>
+                    </h1>
+                    <ol class="breadcrumb">
+                        <li><a href="/index.html"><i class="fa fa-dashboard"></i> 首页</a></li>
+                        <li><a href="/pages/risk/risk_lists.html">风控管理</a></li>
+                        <li class="active">融资单详情</li>
+                    </ol>
+                </section>
+
+                <!-- Main content -->
+                <section class="content">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="box">
+                                <div class="box-body">
+                                    <div class="form-group">
+                                        <label>合同编号：</label>
+                                        <span style="padding-left:10px;padding-right: 10px;" id="bill_sn"></span>
+                                        <a href="#" class="btn btn-default btn-xs">查看合同</a>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>融资企业：</label>
+                                        <span style="padding-left:10px;" id="company"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>收款账户：</label>
+                                        <span style="padding-left:10px;" id="account"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>融资金额：</label>
+                                        <span style="padding-left:10px;" id="money"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>项目内容：</label>
+                                        <span style="padding-left:10px;" id="content"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>打款时间：</label>
+                                        <span style="padding-left:10px;" id="paid_time"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>打款凭证：</label>
+                                        <ul id="payment_certificate" class="mailbox-attachments clearfix" style="margin:10px;">
+                                            <li>
+                                                <a href="javascript:;" id="promptzone_btn"><span class="mailbox-attachment-icon"><i class="fa fa-cloud-upload"></i></span></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>风控资料：</label>
+                                        <span style="padding-left:10px;" class="text-red fade" id="need_add">需要补充资料</span>
+                                        <ul id="attach" class="mailbox-attachments clearfix" style="margin:10px;">
+                                            
+                                        </ul>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>资料完整情况说明：</label>
+                                        <textarea class="form-control" name="user_remark" rows="3" placeholder="Enter ..." disabled="disabled"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>风控图片</label>
+                                        <ul id="pic" class="mailbox-attachments clearfix">
+                                            <li>
+                                                <a href="javascript:;" id="promptzone_btn3"><span class="mailbox-attachment-icon"><i class="fa fa-cloud-upload"></i></span></a>
+
+                                                <div class="mailbox-attachment-info">
+                                                    <a href="javascript:;" id="promptzone_txt3" class="mailbox-attachment-name">上传图片</a>
+                                                    <span class="mailbox-attachment-size">
+                                                        只支持jpg/png格式
+                                                    </span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>审核意见：</label>
+                                        <textarea class="form-control" name="remark" rows="3" placeholder="Enter ..."></textarea>
+                                    </div>
+                                </div>
+                                <div class="box-footer">
+                                    <button name="verify" class="btn btn-success margin" data-status="3">通过</button>
+                                    <button name="verify" class="btn btn-warning margin" data-status="5">通过但需要补充资料</button>
+                                    <button name="verify" class="btn btn-danger margin" data-status="4">不通过</button>
+                                    <button class="btn btn-default margin" onclick="history.go(-1);">返回</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <!-- The time line -->
+                            <ul class="timeline">
+                                
+                            </ul>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+                </section>
+                <!-- /.content -->
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                            </div>
+                            <div class="modal-body">
+                                ...
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <a href="risk_lists.html" class="btn btn-default" >返回列表</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.content-wrapper -->
+            <link rel="import" href="../common/footer.html?__inline" >
+
+            <!-- Control Sidebar -->
+            <link rel="import" href="../common/control_sidebar.html?__inline" >
+            <!-- /.control-sidebar -->
+        </div>
+        <!-- ./wrapper -->
+
+        <!-- jQuery 2.2.3 -->
+        <script src="../../plugins/jQuery/jquery-2.2.3.min.js"></script>
+        <!-- Bootstrap 3.3.6 -->
+        <script src="../../bootstrap/js/bootstrap.min.js"></script>
+        <!-- SlimScroll -->
+        <script src="../../plugins/slimScroll/jquery.slimscroll.min.js"></script>
+        <!-- FastClick -->
+        <script src="../../plugins/fastclick/fastclick.js"></script>
+        <!-- AdminLTE App -->
+        <script src="../../dist/js/app.min.js"></script>
+        <!-- AdminLTE for demo purposes -->
+        <script src="../../dist/js/demo.js"></script>
+        <script src="../../plugins/moment/moment.min.js"></script>
+        <script src="../../plugins/datepicker/bootstrap-datepicker.js"></script>
+        <script src="../../plugins/imgviewer/viewer.min.js"></script>
+        <script src="../../plugins/ajaxupload/jquery.ajaxupload.js"></script>
+        <!-- page script -->
+        <script>
+            $(function () {
+                var token = USER.get_token();
+                var set_value = function(data){
+                    $('#bill_sn').text(data.bill_sn);
+                    $('#company').text(data.company);
+                    $('#account').text(data.pay_account);
+                    $('#money').text(Math.floor(data.money/100));
+                    $('textarea[name=user_remark]').val(data.user_remark);
+                    $('textarea[name=remark]').val(data.verify_remark);
+                    $('#content').html('客户<font class="text-yellow">'+data.name+'</font>购买'+data.car+'<font class="text-blue">('+data.car_type.text+')</font>汽车，实际贷款金额<font class="text-red">'+Math.floor(data.money/100)+'</font>元，实际垫付给经销商'+data.company+'按揭款 <font class="text-yellow">'+data.advance+'</font>元');
+                    $('#paid_time').html(parseInt(data.paid_time) > 0 ? time_to_str_ymd(data.paid_time) : '<font class="text-yellow">未打款</font>');
+                    for (var i in data.pic) {
+                        add_image(data.pic[i]);
+                    }
+                    for (var i in data.attach) {
+                        add_attach(data.attach[i],data);
+                    }
+                    add_small_image(data.payment_certificate);
+                    if (data.has_online.id == 1) {
+                        $('textarea[name=remark]').prop('disabled',true);
+                        $('.box-footer').addClass('fade');
+                    } else {
+                        $('textarea[name=remark]').prop('disabled',false);
+                        $('.box-footer').removeClass('fade');
+                    }
+                }
+                var add_image = function (src) {
+                    if (!src) {
+                        return false;
+                    }
+                    var name = src.substr(src.lastIndexOf('/') + 1);
+                    var li = '<li>';
+                    li += '<span class="mailbox-attachment-icon has-img"><img onclick="view(this)" src="' + INIT.SOURCE_HOST + src + '" alt="Attachment"></span>';
+                    li += '<div class="mailbox-attachment-info">';
+                    li += '<a href="javascript:;" class="mailbox-attachment-name"><i class="fa fa-camera"></i> ' + name.substr(0, 5) + '***' + name.substr(name.length - 8) + '</a>';
+                    li += '<span class="mailbox-attachment-size">';
+                    li += '**';
+                    li += '<a href="javascript:;" onclick="$(this).parents(\'li:eq(0)\').remove();" class="btn btn-default btn-xs pull-right"><i class="fa fa-remove"></i></a>';
+                    li += '</span>';
+                    li += '</div>';
+                    li += '</li>';
+                    $('#pic li:last').length > 0 ? $(li).insertBefore($('#pic li:last')) : $(li).appendTo($('#pic'));
+                }
+                var add_small_image = function (src) {
+                    if (!src) {
+                        return false;
+                    }
+                    var org = '<span class="mailbox-attachment-icon"><i class="fa fa-cloud-upload"></i></span>';
+                    $('#promptzone_btn').html('<span class="mailbox-attachment-icon has-img"><img onclick="view(this)" src="' + INIT.SOURCE_HOST + src + '" alt="Attachment"></span>');
+                }
+                var add_attach = function (src,data) {
+                    if (!src) {
+                        return false;
+                    }
+                    var name = src.substr(src.lastIndexOf('/') + 1);
+                    var file_id = name.split('.')[0];
+                    var li = '<li>';
+                    li += '<span class="mailbox-attachment-icon has-img"><i class="fa fa-fw fa-folder"></i></span>';
+                    li += '<div class="mailbox-attachment-info" style="text-align:right;">';
+                    li += '<a href="'+ INIT.API_HOST +'/file/download?token='+token+'&file_id='+file_id+'&download_name='+data.bill_sn+'_'+data.name+'_'+Math.floor(data.money/100)+'.zip" target="_blank" class="mailbox-attachment-name"><i class="fa fa-download"></i> 下载</a>';
+                    li += '</div>';
+                    li += '</li>';
+                    $('#attach li:last').length > 0 ? $(li).insertBefore($('#attach li:last')) : $(li).appendTo($('#attach'));
+                }
+                var show_actions = function(lists) {
+                    var timeline = $('.timeline');
+                    timeline.empty();
+                    var c_date = function(str) {
+                        return '<li class="time-label"><span class="bg-red">' + str + '</span></li>'
+                    }
+                    var c_text = function(row){
+                        var li = ''
+                        li += '<li>'
+                        li += '<i class="fa fa-user bg-blue"></i>'
+
+                        li += '<div class="timeline-item">'
+                        li += '<span class="time"><i class="fa fa-clock-o"></i> '+time_to_str(parseInt(row.create_time))+'</span>'
+
+                        li += '<h3 class="timeline-header"><a href="javascript:;">'+(row.realname||'') +'</a> '+(row.title||'') +'</h3>'
+
+                        li += '<div class="timeline-body text-red">'
+                        li += ''+(row.msg||'') +''
+                        li += '</div>'
+                        li += '</div>'
+                        li += '</li>'
+                        return li;
+                    }
+                    var c_pic = function(row) {
+                        var li = '';
+                        li += '<li>'
+                        li += '<i class="fa fa-user bg-blue"></i>'
+                        li += '<div class="timeline-item">'
+                        li += '<span class="time"><i class="fa fa-clock-o"></i> 12:05</span>'
+                        li += '<h3 class="timeline-header"><a href="#">Support Team</a> 补充照片</h3>'
+                        li += '<div class="timeline-body">'
+                        li += '<img src="http://placehold.it/150x100" alt="..." class="margin">'
+                        li += '<img src="http://placehold.it/150x100" alt="..." class="margin">'
+                        li += '<img src="http://placehold.it/150x100" alt="..." class="margin">'
+                        li += '<img src="http://placehold.it/150x100" alt="..." class="margin">'
+                        li += '</div>'
+                        li += '</div>'
+                        li += '</li>'
+                        return li;
+                    }
+                    var c_end = function () {
+                        return '<li><i class="fa fa-clock-o bg-gray"></i></li>';
+                    }
+                    var ds = {};
+                    for(var i in lists){
+                        var date = new Date(parseInt(lists[i]['create_time'])*1000);
+                        var ymd = date.getFullYear() + '/' + (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '/' + date.getDate();
+                        if (!ds[ymd]) {
+                            ds[ymd] = true;
+                            timeline.append(c_date(ymd));
+                        }
+                        timeline.append(c_text(lists[i]));
+                    }
+                    timeline.append(c_end());
+                }
+                if (getUrlParam('bill_id')) {
+                    var bill_id = getUrlParam('bill_id');
+                    FINANCE_BILL.get({token: token, finance_bill_id: bill_id, callback: function (r) {
+                            if (r.error_no == '200') {
+                                set_value(r.result);
+                            } else {
+                                var modal = $('#myModal');
+                                modal.find('.modal-body').text('获取信息失败！');
+                                modal.modal('show');
+                            }
+                        }
+                    });
+                    FINANCE_BILL.action_lists({token: token, finance_bill_id: bill_id, callback: function (r) {
+                            if (r.error_no == '200') {
+                                show_actions(r.result.rows);
+                            } else {
+                                var modal = $('#myModal');
+                                modal.find('.modal-body').text('获取信息失败！');
+                                modal.modal('show');
+                            }
+                        }
+                    });
+                    $('button[name="verify"]').click(function () {
+                        var pic = [];
+                        $('#pic').find('img').each(function (index, obj) {
+                            pic.push($(this).attr('src'));
+                        });
+                        pic = pic.join(',');
+                        RISK_MANAGER.verify({finance_bill_id:bill_id,pic:pic,status:$(this).attr('data-status'),remark:$('textarea[name=remark]').val(), token: token, callback: function (r) {
+                                var modal = $('#myModal');
+                                if (r.error_no == '200') {
+                                    modal.find('.modal-body').text('操作成功！');
+                                } else {
+                                    modal.find('.modal-body').text(r.error_msg);
+                                }
+                                modal.modal('show');
+                            }});
+                    });
+                } else {
+                    var modal = $('#myModal');
+                    modal.find('.modal-body').text('获取编号失败！');
+                    modal.modal('show');
+                }
+                //上传
+                // Set fieldname
+                $.ajaxUploadSettings.name = 'file';
+                // Set promptzone
+                $('#promptzone_btn3,#promptzone_txt3').ajaxUploadPrompt({
+                    multiple: true,
+                    url: INIT.API_HOST + '/file/upload/form',
+                    data: {
+                        'token': token,
+                        'type': 'image',
+                        'sync_to_upyun': 1
+                    },
+                    dataType: 'json',
+                    error: function () {
+                    },
+                    success: function (r) {
+                        if (r.error_no == '200') {
+                            var size = '';
+                            if (r.result.size < 1000) {
+                                size = r.result.size + 'B';
+                            } else if (r.result.size < 1000 * 1000) {
+                                size = (r.result.size / 1000).toFixed(2) + 'KB';
+                            } else {
+                                size = (r.result.size / 1000 / 1000).toFixed(2) + 'MB';
+                            }
+                            var li = '<li>';
+                            li += '<span class="mailbox-attachment-icon has-img"><img onclick=view(this) src="' + r.result.url + '" alt="Attachment"></span>';
+                            li += '<div class="mailbox-attachment-info">';
+                            li += '<a href="javascript:;" class="mailbox-attachment-name"><i class="fa fa-camera"></i> ' + r.result.fid.substr(0, 5) + '***' + r.result.fid.substr(r.result.fid.length - 5) + '.' + r.result.suffix + '</a>';
+                            li += '<span class="mailbox-attachment-size">';
+                            li += size;
+                            li += '<a href="javascript:;" onclick="$(this).parents(\'li:eq(0)\').remove();" class="btn btn-default btn-xs pull-right"><i class="fa fa-remove"></i></a>';
+                            li += '</span>';
+                            li += '</div>';
+                            li += '</li>';
+                            $(li).insertBefore($('#pic li:last'));
+                        } else {
+                            var modal = $('#myModal');
+                            modal.find('.modal-body').text(r.error_msg);
+                            modal.modal('show');
+                        }
+                    }
+                });
+            });
+            function view(obj) {
+                var v = new Viewer(obj,{
+                    navbar:false,
+                    title:false,
+                    toolbar:false
+                });
+                v.show();
+            }
+        </script>
+    </body>
+</html>

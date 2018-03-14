@@ -1,0 +1,1 @@
+<?php echo file_get_contents(dirname(APPPATH).'/data/html/404.html');?>

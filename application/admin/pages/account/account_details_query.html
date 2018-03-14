@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="import" href="/pages/common/title.html?__inline" >
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <!-- Bootstrap 3.3.6 -->
+        <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="//cdn.bootcss.com/ionicons/2.0.1/css/ionicons.min.css">
+        <!-- daterange picker -->
+        <link rel="stylesheet" href="../../plugins/daterangepicker/daterangepicker.css">
+        <!-- bootstrap datepicker -->
+        <link rel="stylesheet" href="../../plugins/datepicker/datepicker3.css">
+        <!-- DataTables -->
+        <link rel="stylesheet" href="../../plugins/datatables/dataTables.bootstrap.css">
+        <!-- iCheck for checkboxes and radio inputs -->
+        <link rel="stylesheet" href="../../plugins/iCheck/all.css">
+        <!-- Theme style -->
+        <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
+        <!-- AdminLTE Skins. Choose a skin from the css/skins
+             folder instead of downloading all of them to reduce the load. -->
+        <link rel="stylesheet" href="../../dist/css/skins/_all-skins.min.css">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+        <style>
+            .form-group label{
+                margin-right: 10px;
+                width: 70px;
+            }
+        </style>
+    </head>
+    <body class="hold-transition skin-blue sidebar-mini">
+        <div class="wrapper">
+
+            <link rel="import" href="../common/header.html?__inline" >
+            <!-- Left side column. contains the logo and sidebar -->
+            <link rel="import" href="../common/left.html?__inline" >
+
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <h1>
+                        交易明细实时查询
+                        <small>account_log</small>
+                    </h1>
+                    <ol class="breadcrumb">
+                        <li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>
+                        <li><a href="#">资金管理</a></li>
+                        <li class="active">交易明细实时查询</li>
+                    </ol>
+                </section>
+
+                <!-- Main content -->
+                <section class="content">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="box">
+                                <div class="box-header">
+                                    <h3 class="box-title">交易明细实时查询</h3>
+                                    <div class="box-tools pull-right">
+                                        <a class="btn btn-box-tool" href="javascript:;" onclick="exports()">导出&nbsp;<i class="fa  fa-download"></i></a>
+                                    </div>
+                                </div>
+                                <!-- /.box-header -->
+                                <div class="box-body">
+                                    <div class="row margin-bottom">
+                                        <div class="col-xs-4">
+                                            <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <i class="fa fa-clock-o"></i>
+                                                </div>
+                                                <input type="text" class="form-control pull-right" id="reservationtime" disabled="disabled">
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-2">
+                                            <div class="input-group">
+                                                <span class="input-group-addon">
+                                                    类型
+                                                </span>
+                                                <select name="search[type]" class="form-control">
+                                                    <option value="">未选择</option>
+                                                    <option value="1">转入</option>
+                                                    <option value="2">转出</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <div class="input-group">
+                                                <input type="text" name="search[q]" class="form-control" placeholder="用户ID、手机号、真实姓名、存管账户">
+                                                <span class="input-group-btn">
+                                                    <button type="button" id="table_search" class="btn btn-info btn-flat">搜索</button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group form-group-inline">
+                                        <div class="col-xs-4"><label>交易代码 </label><span id="txCode" class="text-blue"></span></div>
+                                        <div class="col-xs-4"><label>机构代码 </label><span id="instCode" class="text-blue"></span></div>
+                                        <div class="col-xs-4"><label>银行代码 </label><span id="bankCode" class="text-blue"></span></div>
+                                    </div>
+                                    <div class="form-group form-group-inline">
+                                        <div class="col-xs-4"><label>交易日期 </label><span id="txDate" class="text-blue"></span></div>
+                                        <div class="col-xs-4"><label>交易时间 </label><span id="txTime" class="text-blue"></span></div>
+                                        <div class="col-xs-4"><label>交易流水号 </label><span id="seqNo" class="text-blue"></span></div>
+                                    </div>
+                                    <div class="form-group form-group-inline">
+                                        <div class="col-xs-4"><label>交易渠道 </label><span id="channel" class="text-blue"></span></div>
+                                        <div class="col-xs-4"><label>响应代码 </label><span id="retCode" class="text-blue"></span></div>
+                                        <div class="col-xs-4"><label>响应描述 </label><span id="retMsg" class="text-blue"></span></div>
+                                    </div>
+                                    <div class="form-group form-group-inline">
+                                        <div class="col-xs-4"><label>电子账号 </label><span id="accountId" class="text-blue"></span></div>
+                                        <div class="col-xs-4"><label>起始日期 </label><span id="startDate" class="text-blue"></span></div>
+                                        <div class="col-xs-4"><label>结束日期 </label><span id="endDate" class="text-blue"></span></div>
+                                    </div>
+                                    <div class="form-group form-group-inline">
+                                        <div class="col-xs-4"><label>交易种类 </label><span id="type" class="text-blue"></span></div>
+                                        <div class="col-xs-4"><label>姓名 </label><span id="name" class="text-blue"></span></div>
+                                        <div class="col-xs-4"><label>总记录数 </label><span id="totalItems" class="text-blue"></span></div>
+                                    </div>
+                                    
+                                    <div class="form-group form-group-inline">
+                                        <label>交易明细</label>
+                                        <table id="example1" class="table table-bordered table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>电子账号</th>
+                                                    <th>入账日期</th>
+                                                    <th>交易日期</th>
+                                                    <th>自然日期</th>
+                                                    <th>交易时间</th>
+                                                    <th>流水号</th>
+                                                    <th>交易类型</th>
+                                                    <th>冲正撤销标志</th>
+                                                    <th>交易金额</th>
+                                                    <th>交易金额符号</th>
+                                                    <th>交易描述</th>
+                                                    <th>货币代码</th>
+                                                    <th>交易后余额</th>
+                                                    <th>对手电子账号</th>
+                                                </tr>
+                                            </thead>
+
+                                            <tfoot>
+                                                <tr>
+                                                    <th>accountId</th>
+                                                    <th>accDate</th>
+                                                    <th>inpDate</th>
+                                                    <th>relDate</th>
+                                                    <th>inpTime</th>
+                                                    <th>traceNo</th>
+                                                    <th>tranType</th>
+                                                    <th>orFlag</th>
+                                                    <th>txAmount</th>
+                                                    <th>txFlag</th>
+                                                    <th>describe</th>
+                                                    <th>currency</th>
+                                                    <th>currBal</th>
+                                                    <th>forAccountId</th>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                    
+                                </div>
+                                <!-- /.box-body -->
+                            </div>
+                            <!-- /.box -->
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+                </section>
+                <!-- /.content -->
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                            </div>
+                            <div class="modal-body">
+                                ...
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <!-- /.content-wrapper -->
+            <link rel="import" href="../common/footer.html?__inline" >
+
+            <!-- Control Sidebar -->
+            <link rel="import" href="../common/control_sidebar.html?__inline" >
+            <!-- /.control-sidebar -->
+        </div>
+        <!-- ./wrapper -->
+
+        <!-- jQuery 2.2.3 -->
+        <script src="../../plugins/jQuery/jquery-2.2.3.min.js"></script>
+        <!-- Bootstrap 3.3.6 -->
+        <script src="../../bootstrap/js/bootstrap.min.js"></script>
+        <!-- DataTables -->
+        <script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
+        <script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>
+        <!-- SlimScroll -->
+        <script src="../../plugins/slimScroll/jquery.slimscroll.min.js"></script>
+        <!-- FastClick -->
+        <script src="../../plugins/fastclick/fastclick.js"></script>
+        <!-- AdminLTE App -->
+        <script src="../../dist/js/app.min.js"></script>
+        <!-- AdminLTE for demo purposes -->
+        <script src="../../dist/js/demo.js"></script>
+        <script src="../../plugins/moment/moment.min.js"></script>
+        <script src="../../plugins/daterangepicker/daterangepicker.js"></script>
+        <!-- bootstrap datepicker -->
+        <script src="../../plugins/datepicker/bootstrap-datepicker.js"></script>
+        <!-- page script -->
+        <script>
+            $(function () {
+                //Date range picker with time picker
+                /*$('#reservationtime').daterangepicker({
+                    autoUpdateInput: false,
+                    timePicker24Hour: true,
+                    timePicker: true, 
+                    timePickerIncrement: 5,
+                    showDropdowns: true,
+                    linkedCalendars: false,
+                    locale: {
+                        cancelLabel: 'Clear',
+                        format: 'YYYY/MM/DD HH:mm:ss'
+                      }
+                });
+                $('#reservationtime').on('apply.daterangepicker', function(ev, picker) {
+                    $(this).val(picker.startDate.format('YYYY/MM/DD HH:mm:ss') + ' - ' + picker.endDate.format('YYYY/MM/DD HH:mm:ss'));
+                });
+                $('#reservationtime').on('cancel.daterangepicker', function(ev, picker) {
+                    $(this).val('');
+                });*/
+                $("#example1").on('preXhr.dt', function (e, setting, json, xhr) {
+                    //重写ajax 分页参数
+                    json.page = Math.floor(json.start / json.length) + 1;
+                    json.size = json.length || 10;
+                });
+                $('input[name="search[q]"]').keyup(function (e) {
+                    if (e.which == 13) {
+                        $('#table_search').click();
+                    }
+                });
+                var flag = 0;
+                $('#table_search').click(function () {
+                    $("#example1").on('preXhr.dt', function (e, setting, json, xhr) {
+                        //重写ajax 分页参数
+                        json.page = Math.floor(json.start / json.length) + 1;
+                        json.size = json.length || 10;
+                        //搜索条件
+                        json.q = $('input[name="search[q]"]').val();
+                        json.q ? flag = 1 : flag = 0;
+                        json.type = $('select[name="search[type]"]').val();
+                        json.startDate = '20140101';
+                        json.endDate = nowdate();
+                    });
+                    table.ajax.reload();
+                });
+                  
+                var table = $("#example1").DataTable({
+                    "processing": true,
+                    "serverSide": true,
+                    "paginate": true,
+                    'searching': false,
+                    "ajax": {
+                        'url': API_HOST + "/ba/account/details/query/",
+                        'data': {
+                            'token': USER.get_token()
+                        },
+                        'dataSrc': function (r) {
+                            if (r.error_no !== 200) {
+                                if(flag){
+                                   var modal = $('#myModal');
+                                    modal.find('.modal-body').text(r.error_msg);
+                                    modal.modal('show');
+                                }
+                                return false;
+                            } else {
+                                query = r.result;
+                                $('.form-group span').text('');
+                                $('#txCode').text(query.txCode);
+                                $('#instCode').text(query.instCode);
+                                $('#bankCode').text(query.bankCode);
+                                $('#txDate').text(query.txDate);
+                                $('#txTime').text(query.txTime);
+                                $('#seqNo').text(query.seqNo);
+                                $('#txCode').text(query.txCode);
+                                $('#channel').text(query.channel);
+                                $('#retCode').text(query.retCode);
+                                $('#retMsg').text(query.retMsg);
+                                $('#accountId').text(query.accountId);
+                                $('#startDate').text(query.startDate);
+                                $('#endDate').text(query.endDate);
+                                $('#type').text(query.type);
+                                $('#name').text(query.name);
+                                $('#totalItems').text(query.totalItems);
+                                //console.log(eval("("+r.result.subPacks+")"));
+                                //return false;
+                                //重写ajax 返回的总数等参数
+                                r.recordsTotal = r.result.total;
+                                r.recordsFiltered = r.result.total;
+                                r.recordsrows = eval("("+r.result.subPacks+")")
+                                return r.recordsrows;
+                            }
+                        },
+                    },
+                    "columns": [
+                        {
+                            "orderable": false,
+                            "data": function (row) {
+                                return row.accountId;
+                            }
+                        },
+                        {
+                            "orderable": false,
+                            "data": function (row) {
+                                return row.accDate;
+                            }
+                        },
+                        {
+                            "orderable": false,
+                            "data": function (row) {
+                                return row.inpDate;
+                            }
+                        },
+                        {
+                            "orderable": false,
+                            "data": function (row) {
+                                return row.relDate;
+                            }
+                        },
+                        {
+                            "orderable": false,
+                            "data": function (row) {
+                                return row.inpTime;
+                            }
+                        },
+                        {
+                            "orderable": false,
+                            "data": function (row) {
+                                return row.traceNo;
+                            }
+                        },
+                        {
+                            "orderable": false,
+                            "data": function (row) {
+                                return row.tranType;
+                            }
+                        },
+                        {
+                            "orderable": false,
+                            "data": function (row) {
+                                return row.orFlag;
+                            }
+                        },
+                        {
+                            "orderable": false,
+                            "data": function (row) {
+                                return row.txAmount;
+                            }
+                        },
+                        {
+                            "orderable": false,
+                            "data": function (row) {
+                                return row.txFlag;
+                            }
+                        },
+                        {
+                            "orderable": false,
+                            "data": function (row) {
+                                return row.describe;
+                            }
+                        },
+                        {
+                            "orderable": false,
+                            "data": function (row) {
+                                return row.currency;
+                            },
+                        },
+                        {
+                            "orderable": false,
+                            "data": function (row) {
+                                return row.currBal;
+                            },
+                        },
+                        {
+                            "orderable": false,
+                            "data": function (row) {
+                                return row.forAccountId;
+                            }
+                        }
+                    ],
+//                    "order": [[1, 'asc']]
+                });
+                
+                
+            });
+            
+            
+            function removeByValue(arr, val) {
+                for(var i=0; i<arr.length; i++) {
+                  if(arr[i] == val) {
+                    arr.splice(i, 1);
+                    break;
+                  }
+                }
+              }
+            
+            var downloading = false;
+            var exports = function() {
+                var modal = $('#myModal');
+
+                modal.find('.modal-body').text('正在创建文件，请稍候...');
+                modal.modal('show');
+
+                if (downloading) {
+                    return false;
+                } else {
+                    downloading = true;
+                }
+                var download_name = $.trim($('input[name="search[q]"]').val()) + '_' + '未投资用户列表';
+//                var w = window.open();
+                USER.no_tender_user_lists_admin_export({
+                    'token': USER.get_token(),
+                    size: 0,
+                    callback: function (r) {
+                        downloading = false;
+                        if (r.error_no == '200') {
+//                            w.location = API_HOST + '/file/download?token=' + USER.get_token()+'&file_id=' + r.result.fid + '&download_name=' + (download_name+'.'+r.result.suffix);
+//                            w.close();
+                            //FILE.download({token:USER.get_token(),file_id:r.result.fid,download_name:download_name+'.'+r.result.suffix})
+                            modal.find('.modal-body').html('<a class="btn btn-box-tool" href="' + API_HOST + '/file/download?token=' + USER.get_token() + '&file_id=' + r.result.fid + '&download_name=' + (download_name + '.' + r.result.suffix) + '" target="_blank">' + download_name + '.' + r.result.suffix + '&nbsp;<i class="fa  fa-download"></i></a>');
+                        } else {
+                            modal.find('.modal-body').text(r.error_msg);
+                            modal.modal('show');
+                        }
+                    }
+                });
+            }
+            
+            var nowdate = function(){
+                var myDate = new Date();
+                var Y = myDate.getFullYear(); //获取完整的年份(4位,1970-????)
+                var m = (myDate.getMonth()+1) < 10 ? ('0' + (myDate.getMonth()+1)) : (myDate.getMonth()+1); //获取当前月份(0-11,0代表1月)
+                var d = myDate.getDate() < 10 ? ('0' + myDate.getDate()) : myDate.getDate(); //获取当前日(1-31)
+                
+                var date = Y + m + d;
+                return date;
+            }
+        </script>
+    </body>
+</html>

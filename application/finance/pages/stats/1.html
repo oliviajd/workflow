@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body style="background-color: #2a3b55;">
+        <!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
+        <div id="main" style="width: 100%;height:800px;"></div>
+        <!-- 引入 ECharts 文件 -->
+        <script src="../../plugins/echarts/echarts.min.js"></script>
+        <script src="../../plugins/jQuery/jquery-2.2.3.min.js"></script>
+        <script>
+            var STATS = {};
+            STATS.business_city_daily = function (option) {
+                var callback = option.callback || function () {};
+                $.ajax({
+                    url: API_HOST + '/stats/business/city/daily',
+                    data: {token: option.token},
+                    dataType: 'json',
+                    success: function (r) {
+                        callback(r);
+                    }
+                });
+            }
+
+            if (window.location.host == 'admintest.ifcar99.com') {
+                var INIT = {
+                    'API_HOST': 'http://apitest.ifcar99.com',
+                    'SOURCE_HOST': 'http://apitest.ifcar99.com'
+                };
+            } else {
+                var INIT = {
+                    'API_HOST': 'http://api.car.com',
+                    'SOURCE_HOST': 'http://api.car.com'
+                };
+            }
+            var API_HOST = INIT.API_HOST;
+
+            var gb = {
+                color: {
+                    white: '#fff',
+                    textLarge: '#a2c3e6',
+                    bg: '#2a3b55',
+                    xAxis: '#5b7493',
+                    xAxisText: '#a7b7c7',
+                    yAxis: '#5c7594',
+                    yAxisText: '#5c7594',
+                    ci: '#538bc6',
+                    hv: '#c5556d',
+                    re: '#eb92a4',
+                    paid: '#deb55d',
+                    splitLine: '#eeeeee'
+                },
+                size: {
+                    large: 24
+                },
+                font: {
+                    'yahei': 'Microsoft Yahei',
+                    'arial': 'arial'
+                }
+            }
+
+            // 基于准备好的dom，初始化echarts实例
+            var myChart = echarts.init(document.getElementById('main'));
+
+            STATS.business_city_daily({
+                callback: function (r) {
+                    if (r.error_no == '200') {
+                        var xAxisData = [];
+                        var legendData = {
+                            data: ['征信', '家访', '拒绝', '打款']
+                        }
+                        var data_credit_investigation = [];
+                        var data_home_visits = [];
+                        var data_refuse = [];
+                        var data_paid = [];
+                        var data_paid_nums = [];
+                        for (var i in r.result.rows) {
+                            var row = r.result.rows[i];
+                            xAxisData.push(row['city']['text']);
+                            data_credit_investigation.push(row['data_credit_investigation']);
+                            data_home_visits.push(row['data_home_visits']);
+                            data_refuse.push(row['data_refuse']);
+                            data_paid.push(Math.floor(row['data_paid'] / 10000));
+                            data_paid_nums.push(row['data_paid_nums']);
+                        }
+                        console.log(xAxisData, data_credit_investigation, data_home_visits, data_refuse, data_paid, data_paid_nums);
+                        var option = {
+                            tooltip: {
+                                trigger: 'axis',
+                                axisPointer: {// 坐标轴指示器，坐标轴触发有效
+                                    type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                                }
+                            },
+                            legend: {
+                                data: legendData
+                            },
+                            grid: {
+                                left: '3%',
+                                right: '4%',
+                                bottom: '3%',
+                                containLabel: true,
+                                borderWidth: 0
+                            },
+                            xAxis: [
+                                {
+                                    type: 'category',
+                                    data: xAxisData,
+                                    axisLine: {
+                                        lineStyle: {
+                                            color: gb.color.xAxis,
+                                        }
+                                    },
+                                    axisLabel: {
+                                        textStyle: {
+                                            color: gb.color.xAxisText,
+                                            fontSize: gb.size.large,
+                                        }
+                                    },
+                                    axisTick: {
+                                        show: false
+                                    },
+                                    splitLine: {
+                                        show: 0,
+                                        lineStyle: {
+                                            type: "dashed",
+                                            color: gb.color.splitLine
+                                        }
+                                    }
+                                }
+                            ],
+                            yAxis: [
+                                {
+                                    type: 'value',
+                                    axisLine: {
+                                        lineStyle: {
+                                            color: gb.color.yAxis,
+                                            type: 'dashed',
+                                        },
+                                        show: false
+                                    },
+                                    axisLabel: {
+                                        formatter: function (value) {
+                                            // Function formatter
+                                            return value + ' 人'
+                                        },
+                                        textStyle: {
+                                            color: gb.color.yAxisText
+                                        }
+                                    },
+                                    splitLine: {
+                                        show: false
+                                    }
+                                },
+                                {
+                                    type: 'value',
+                                    axisLine: {
+                                        lineStyle: {
+                                            color: gb.color.yAxis,
+                                            type: 'dashed',
+                                        },
+                                        show: false
+                                    },
+                                    axisLabel: {
+                                        formatter: function (value) {
+                                            // Function formatter
+                                            return value + ' 万元'
+                                        },
+                                        textStyle: {
+                                            color: gb.color.yAxisText
+                                        }
+                                    },
+                                    splitLine: {
+                                        show: false
+                                    }
+                                }
+                            ],
+                            series: [
+                                {
+                                    name: '征信',
+                                    type: 'bar',
+                                    data: data_credit_investigation,
+                                    itemStyle: {
+                                        normal: {
+                                            color: gb.color.ci
+                                        }
+                                    },
+                                    label: {
+                                        normal: {
+                                            show: true,
+                                            position: 'insideTop'
+                                        }
+                                    }
+                                },
+                                {
+                                    name: '家访',
+                                    type: 'bar',
+                                    stack: '家访和拒绝',
+                                    data: data_home_visits,
+                                    itemStyle: {
+                                        normal: {
+                                            color: gb.color.hv
+                                        }
+                                    },
+                                    label: {
+                                        normal: {
+                                            show: true,
+                                            position: 'insideTop'
+                                        }
+                                    }
+                                },
+                                {
+                                    name: '拒绝',
+                                    type: 'bar',
+                                    stack: '家访和拒绝',
+                                    data: data_refuse,
+                                    itemStyle: {
+                                        normal: {
+                                            color: gb.color.re
+                                        }
+                                    },
+                                    label: {
+                                        normal: {
+                                            show: true,
+                                            position: 'insideTop'
+                                        }
+                                    }
+                                },
+                                {
+                                    name: '打款',
+                                    type: 'bar',
+                                    data: data_paid,
+                                    yAxisIndex: 1,
+                                    itemStyle: {
+                                        normal: {
+                                            color: gb.color.paid
+                                        }
+                                    },
+                                    label: {
+                                        normal: {
+                                            show: true,
+                                            position: 'insideTop'
+                                        }
+                                    }
+                                }
+                            ]
+                        };
+                    }
+                    myChart.setOption(option);
+                }
+            });
+        </script>
+    </body>
+</html>

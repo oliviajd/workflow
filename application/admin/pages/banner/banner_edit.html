@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="import" href="/pages/common/title.html?__inline" >
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <!-- Bootstrap 3.3.6 -->
+        <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="//cdn.bootcss.com/ionicons/2.0.1/css/ionicons.min.css">
+        <!-- daterange picker -->
+        <link rel="stylesheet" href="../../plugins/datetimepicker/bootstrap-datetimepicker.min.css">
+        <!-- DataTables -->
+        <link rel="stylesheet" href="../../plugins/datatables/dataTables.bootstrap.css">
+        <!-- Theme style -->
+        <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
+        <!-- AdminLTE Skins. Choose a skin from the css/skins
+             folder instead of downloading all of them to reduce the load. -->
+        <link rel="stylesheet" href="../../dist/css/skins/_all-skins.min.css">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body class="hold-transition skin-blue sidebar-mini">
+        <div class="wrapper">
+
+            <link rel="import" href="../common/header.html?__inline" >
+            <!-- Left side column. contains the logo and sidebar -->
+            <link rel="import" href="../common/left.html?__inline" >
+
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <h1>
+                        横幅编辑
+                        <small>banner edit</small>
+                    </h1>
+                    <ol class="breadcrumb">
+                        <li><a href="/index.html"><i class="fa fa-dashboard"></i> 首页</a></li>
+                        <li><a href="/pages/banner/banner_lists.html">横幅管理</a></li>
+                        <li class="active">横幅编辑</li>
+                    </ol>
+                </section>
+
+                <!-- Main content -->
+                <section class="content">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="box">
+                                <div class="box-header with-border">
+                                    <h3 class="box-title">横幅信息</h3>
+                                    <div class="box-tools pull-right fade">
+                                        <button name="banner-delete" type="button" class="btn btn-block btn-danger">删除</button>
+                                    </div>
+                                </div>
+                                <!-- /.box-header -->
+                                <div class="box-body">
+                                    <form role="form">
+                                        <!-- text input -->
+                                        <div class="form-group">
+                                            <label>标题1</label>
+                                            <input type="text" name="banner[title]" class="form-control" placeholder="标题">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>PC链接</label>
+                                            <input type="text" name="banner[url]" class="form-control" placeholder="PC链接">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>移动端链接</label>
+                                            <input type="text" name="banner[mobile_url]" class="form-control" placeholder="移动端链接">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>时间段</label>
+                                            <div class="col-md-12">
+                                                <div class="col-md-6">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            开始时间
+                                                        </span>
+                                                        <input type="text" name="banner[starttime]" class="form-control" placeholder="banner在此时间前不可用">
+                                                    </div>
+                                                    <!-- /input-group -->
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            结束时间
+                                                        </span>
+                                                        <input type="text" name="banner[endtime]" class="form-control" placeholder="banner在此时间后不可用">
+                                                    </div>
+                                                    <!-- /input-group -->
+                                                </div> 
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>排序</label>
+                                            <div class="row">
+                                                <div class="col-lg-3">
+                                                    <input type="text" name="banner[order]" class="form-control" placeholder="排序" value="0">
+                                                    <span class="help-block">数字越大越靠前</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>分享标题</label>
+                                            <input type="text" name="banner[share_title]" class="form-control" placeholder="分享标题">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>分享内容</label>
+                                            <input type="text" name="banner[share_content]" class="form-control" placeholder="分享内容">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>分享链接</label>
+                                            <input type="text" name="banner[share_url]" class="form-control" placeholder="分享链接">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>状态</label>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="banner[status]" id="optionsRadios1" value="1">
+                                                    显示
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="banner[status]" id="optionsRadios1" value="2">
+                                                    隐藏
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>PC图片（限1张）</label>
+                                            <ul id="pic" class="mailbox-attachments clearfix">
+                                                <li>
+                                                    <a href="javascript:;" id="promptzone_btn1"><span class="mailbox-attachment-icon"><i class="fa fa-cloud-upload"></i></span></a>
+
+                                                    <div class="mailbox-attachment-info">
+                                                        <a href="javascript:;" id="promptzone_txt1" class="mailbox-attachment-name">上传图片</a>
+                                                        <span class="mailbox-attachment-size">
+                                                            只支持jpg/png格式
+                                                        </span>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>移动端图片（限1张）</label>
+                                            <ul id="mobile_pic" class="mailbox-attachments clearfix">
+                                                <li>
+                                                    <a href="javascript:;" id="promptzone_btn2"><span class="mailbox-attachment-icon"><i class="fa fa-cloud-upload"></i></span></a>
+
+                                                    <div class="mailbox-attachment-info">
+                                                        <a href="javascript:;" id="promptzone_txt2" class="mailbox-attachment-name">上传图片</a>
+                                                        <span class="mailbox-attachment-size">
+                                                            只支持jpg/png格式
+                                                        </span>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                    </form>
+                                </div>
+                                <!-- /.box-body -->
+                                <div class="box-footer">
+                                    <button type="submit" class="btn btn-primary">保存</button>
+                                    <a class="btn btn-default" href="/pages/banner/banner_lists.html">取消</a>
+                                </div>
+                            </div>
+                            <!-- /.box -->
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+                </section>
+                <!-- /.content -->
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                            </div>
+                            <div class="modal-body">
+                                ...
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <a href="/pages/banner/banner_lists.html" class="btn btn-default">返回列表</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                            </div>
+                            <div class="modal-body">
+                                是否删除这个商品？
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success" name="banner-delete-confirm">确认</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.content-wrapper -->
+            <link rel="import" href="../common/footer.html?__inline" >
+
+            <!-- Control Sidebar -->
+            <link rel="import" href="../common/control_sidebar.html?__inline" >
+            <!-- /.control-sidebar -->
+        </div>
+        <!-- ./wrapper -->
+
+        <!-- jQuery 2.2.3 -->
+        <script src="../../plugins/jQuery/jquery-2.2.3.min.js"></script>
+        <!-- Bootstrap 3.3.6 -->
+        <script src="../../bootstrap/js/bootstrap.min.js"></script>
+        <!-- DataTables -->
+        <script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
+        <script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>
+        <!-- SlimScroll -->
+        <script src="../../plugins/slimScroll/jquery.slimscroll.min.js"></script>
+        <!-- FastClick -->
+        <script src="../../plugins/fastclick/fastclick.js"></script>
+        <!-- AdminLTE App -->
+        <script src="../../dist/js/app.min.js"></script>
+        <!-- AdminLTE for demo purposes -->
+        <script src="../../dist/js/demo.js"></script>
+        <script src="../../plugins/moment/moment.min.js"></script>
+        <script src="https://cdn.ckeditor.com/4.5.7/standard/ckeditor.js"></script>
+        <script src="../../plugins/ajaxupload/jquery.ajaxupload.js"></script>
+        <script src="../../plugins/datetimepicker/bootstrap-datetimepicker.min.js"></script>
+        <!-- page script -->
+        <script>
+            $(function () {
+                var token = USER.get_token();
+                var banner = {};
+                var id = 0;
+                $('input[name="banner[starttime]"],input[name="banner[endtime]"]').datetimepicker({
+                    autoclose: true
+                });
+                var set_value = function (banner) {
+                    $('input[name="banner[title]"]').val(banner.title);
+                    $('input[name="banner[pic]"]').val(banner.pic);
+                    $('input[name="banner[mobile_pic]"]').val(banner.mobile_pic);
+                    $('input[name="banner[url]"]').val(banner.url);
+                    $('input[name="banner[mobile_url]"]').val(banner.mobile_url);
+                    $('input[name="banner[share_title]"]').val(banner.share_title);
+                    $('input[name="banner[share_content]"]').val(banner.share_content);
+                    $('input[name="banner[share_url]"]').val(banner.share_url);
+                    $('input[name="banner[order]"]').val(banner.order);
+                    
+                    if (parseInt(banner.starttime) > 0) {
+                        $('input[name="banner[starttime]"]').val(time_to_str(banner.starttime));
+                    }
+                    if (parseInt(banner.endtime) > 0) {
+                        $('input[name="banner[endtime]"]').val(time_to_str(banner.endtime));
+                    }
+                    
+                    $('input[name="banner[status]"]').each(function () {
+                        if ($(this).attr('value') == banner.status.id) {
+                            $(this).prop('checked', true);
+                        }
+                    });
+
+                    add_pc_image(banner.pic);
+                    add_mobile_image(banner.mobile_pic);
+                }
+                var add_pc_image = function (src) {
+                    if (!src) {
+                        return false;
+                    }
+                    var org = '<span class="mailbox-attachment-icon"><i class="fa fa-cloud-upload"></i></span>';
+                    $('#promptzone_btn1').html('<span class="mailbox-attachment-icon has-img"><img src="' + INIT.SOURCE_HOST + src + '" alt="Attachment"></span>');
+                }
+                var add_mobile_image = function (src) {
+                    if (!src) {
+                        return false;
+                    }
+                    var org = '<span class="mailbox-attachment-icon"><i class="fa fa-cloud-upload"></i></span>';
+                    $('#promptzone_btn2').html('<span class="mailbox-attachment-icon has-img"><img src="' + INIT.SOURCE_HOST + src + '" alt="Attachment"></span>');
+                }
+                
+                if (getUrlParam('id')) {//编辑模式
+                    var id = getUrlParam('id');
+                    BANNER.get({'id': id, token: token, callback: function (r) {
+                            if (r.error_no != '200') {
+                                var modal = $('#myModal');
+                                modal.find('.modal-body').text(r.error_msg);
+                                modal.modal('show');
+                                return;
+                            }
+                            banner = r.result;
+                            set_value(banner);
+                            //show_zone();
+                            $('.box-tools').removeClass('fade');
+                        }});
+                }
+                $('button[type="submit"]').click(function () {
+                    var banner = {
+                        'title': $('input[name="banner[title]"]').val(),
+                        'pic': $('#pic').find('img').attr('src'),
+                        'mobile_pic': $('#mobile_pic').find('img').attr('src'),
+                        'url': $('input[name="banner[url]"]').val(),
+                        'mobile_url': $('input[name="banner[mobile_url]"]').val(),
+                        'share_title': $('input[name="banner[share_title]"]').val(),
+                        'share_content': $('input[name="banner[share_content]"]').val(),
+                        'share_url': $('input[name="banner[share_url]"]').val(),
+                        'status': $('input[name="banner[status]"]:checked').val(),
+                        'order': $('input[name="banner[order]"]').val(),
+                        'starttime': (new Date($('input[name="banner[starttime]"]').val()).getTime() || 0) / 1000,
+                        'endtime': (new Date($('input[name="banner[endtime]"]').val()).getTime() || 0) / 1000,
+                    }
+                    if (!id) {
+                        BANNER.add({'banner': banner, token: token, callback: function (r) {
+                                var modal = $('#myModal');
+                                if (r.error_no == '200') {
+                                    modal.find('.modal-body').text('操作成功！');
+                                } else {
+                                    modal.find('.modal-body').text(r.error_msg);
+                                }
+                                modal.modal('show');
+                            }});
+                    } else {
+                        BANNER.update({'banner': banner, token: token, 'id': id, callback: function (r) {
+                                var modal = $('#myModal');
+                                if (r.error_no == '200') {
+                                    modal.find('.modal-body').text('操作成功！');
+                                } else {
+                                    modal.find('.modal-body').text(r.error_msg);
+                                }
+                                modal.modal('show');
+                            }});
+                    }
+                });
+                //上传
+                // Set fieldname
+                $.ajaxUploadSettings.name = 'file';
+                
+                $('#promptzone_btn1,#promptzone_txt1').ajaxUploadPrompt({
+                    url: INIT.API_HOST + '/file/upload/form',
+                    data: {
+                        'token': token,
+                        'type': 'image',
+                        'sync_to_upyun': 1
+                    },
+                    dataType: 'json',
+                    error: function () {
+                    },
+                    success: function (r) {
+                        if (r.error_no == '200') {
+                            var org = '<span class="mailbox-attachment-icon"><i class="fa fa-cloud-upload"></i></span>';
+                            $('#promptzone_btn1').html('<span class="mailbox-attachment-icon has-img"><img src="' + r.result.url + '" alt="Attachment"></span>');
+//                            $(li).insertBefore($('#pic_small li:last'));
+//                            $('#pic_small li:last').addClass('hide');
+                        } else {
+                            var modal = $('#myModal');
+                            modal.find('.modal-body').text(r.error_msg);
+                            modal.modal('show');
+                        }
+                    }
+                });
+                $('#promptzone_btn2,#promptzone_txt2').ajaxUploadPrompt({
+                    url: INIT.API_HOST + '/file/upload/form',
+                    data: {
+                        'token': token,
+                        'type': 'image',
+                        'sync_to_upyun': 1
+                    },
+                    dataType: 'json',
+                    error: function () {
+                    },
+                    success: function (r) {
+                        if (r.error_no == '200') {
+                            var org = '<span class="mailbox-attachment-icon"><i class="fa fa-cloud-upload"></i></span>';
+                            $('#promptzone_btn2').html('<span class="mailbox-attachment-icon has-img"><img src="' + r.result.url + '" alt="Attachment"></span>');
+//                            $(li).insertBefore($('#pic_small li:last'));
+//                            $('#pic_small li:last').addClass('hide');
+                        } else {
+                            var modal = $('#myModal');
+                            modal.find('.modal-body').text(r.error_msg);
+                            modal.modal('show');
+                        }
+                    }
+                });
+                $('button[name="banner-delete"]').click(function () {
+                    var modal2 = $('#myModal2').modal('show');
+
+                });
+                $('button[name="banner-delete-confirm"]').click(function () {
+                    $('#myModal2').on('hidden.bs.modal', function (e) {
+                        BANNER.delete({
+                            'id': id,
+                            'token': token,
+                            'callback': function (r) {
+                                if (r.error_no == '200') {
+
+                                } else {
+                                }
+                                var modal = $('#myModal');
+                                modal.find('.modal-body').text(r.error_msg);
+                                modal.modal('show');
+                            }
+                        });
+                    })
+                    $('#myModal2').modal('hide');
+                });
+            });
+        </script>
+    </body>
+</html>
